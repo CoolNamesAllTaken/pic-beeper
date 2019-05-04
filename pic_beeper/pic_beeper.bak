@@ -1,0 +1,164 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Microchip_PIC12:PIC12F752-IP U?
+U 1 1 5CCD1DAD
+P 4750 2650
+F 0 "U?" H 4950 3200 50  0000 C CNN
+F 1 "PIC12F752-IP" H 5150 3100 50  0000 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm" H 5350 3300 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/41576B.pdf" H 4750 2650 50  0001 C CNN
+	1    4750 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+BATT #PWR?
+U 1 1 5CCD1E97
+P 4750 1900
+F 0 "#PWR?" H 4750 1750 50  0001 C CNN
+F 1 "+BATT" H 4765 2073 50  0000 C CNN
+F 2 "" H 4750 1900 50  0001 C CNN
+F 3 "" H 4750 1900 50  0001 C CNN
+	1    4750 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 1900 4750 2050
+$Comp
+L power:-BATT #PWR?
+U 1 1 5CCD1F7B
+P 4750 3350
+F 0 "#PWR?" H 4750 3200 50  0001 C CNN
+F 1 "-BATT" H 4765 3523 50  0000 C CNN
+F 2 "" H 4750 3350 50  0001 C CNN
+F 3 "" H 4750 3350 50  0001 C CNN
+	1    4750 3350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4750 3350 4750 3250
+$Comp
+L Device:Buzzer BZ?
+U 1 1 5CCD2050
+P 3700 2650
+F 0 "BZ?" H 3706 2940 50  0000 C CNN
+F 1 "Buzzer" H 3706 2849 50  0000 C CNN
+F 2 "" V 3675 2750 50  0001 C CNN
+F 3 "~" V 3675 2750 50  0001 C CNN
+	1    3700 2650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 2550 4150 2550
+$Comp
+L power:-BATT #PWR?
+U 1 1 5CCD2233
+P 3850 2800
+F 0 "#PWR?" H 3850 2650 50  0001 C CNN
+F 1 "-BATT" H 3865 2973 50  0000 C CNN
+F 2 "" H 3850 2800 50  0001 C CNN
+F 3 "" H 3850 2800 50  0001 C CNN
+	1    3850 2800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3800 2750 3850 2750
+Wire Wire Line
+	3850 2750 3850 2800
+NoConn ~ 4150 2650
+NoConn ~ 4150 2750
+NoConn ~ 5350 2750
+NoConn ~ 5350 2650
+NoConn ~ 5350 2550
+$Comp
+L Device:Battery BT?
+U 1 1 5CCD23F4
+P 6400 2650
+F 0 "BT?" H 6508 2696 50  0000 L CNN
+F 1 "CR2032" H 6508 2605 50  0000 L CNN
+F 2 "" V 6400 2710 50  0001 C CNN
+F 3 "~" V 6400 2710 50  0001 C CNN
+	1    6400 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+BATT #PWR?
+U 1 1 5CCD2480
+P 6400 2400
+F 0 "#PWR?" H 6400 2250 50  0001 C CNN
+F 1 "+BATT" H 6415 2573 50  0000 C CNN
+F 2 "" H 6400 2400 50  0001 C CNN
+F 3 "" H 6400 2400 50  0001 C CNN
+	1    6400 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 2400 6400 2450
+$Comp
+L power:-BATT #PWR?
+U 1 1 5CCD24EC
+P 6400 2900
+F 0 "#PWR?" H 6400 2750 50  0001 C CNN
+F 1 "-BATT" H 6415 3073 50  0000 C CNN
+F 2 "" H 6400 2900 50  0001 C CNN
+F 3 "" H 6400 2900 50  0001 C CNN
+	1    6400 2900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6400 2900 6400 2850
+$Comp
+L Device:C C?
+U 1 1 5CCD2572
+P 5700 2650
+F 0 "C?" H 5815 2696 50  0000 L CNN
+F 1 "0.1uF" H 5815 2605 50  0000 L CNN
+F 2 "" H 5738 2500 50  0001 C CNN
+F 3 "~" H 5700 2650 50  0001 C CNN
+	1    5700 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+BATT #PWR?
+U 1 1 5CCD25E7
+P 5700 2400
+F 0 "#PWR?" H 5700 2250 50  0001 C CNN
+F 1 "+BATT" H 5715 2573 50  0000 C CNN
+F 2 "" H 5700 2400 50  0001 C CNN
+F 3 "" H 5700 2400 50  0001 C CNN
+	1    5700 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:-BATT #PWR?
+U 1 1 5CCD25FA
+P 5700 2900
+F 0 "#PWR?" H 5700 2750 50  0001 C CNN
+F 1 "-BATT" H 5715 3073 50  0000 C CNN
+F 2 "" H 5700 2900 50  0001 C CNN
+F 3 "" H 5700 2900 50  0001 C CNN
+	1    5700 2900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5700 2400 5700 2500
+Wire Wire Line
+	5700 2800 5700 2900
+Text Notes 6100 2500 2    50   ~ 0
+Near PIC
+Text Notes 6550 2500 0    50   ~ 0
+Lithium 3V
+$EndSCHEMATC
