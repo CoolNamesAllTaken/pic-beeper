@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.05\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\pic_beeper.X.production.sym \
   --cmf=dist/default/production\pic_beeper.X.production.cmf -z -Q12F752 \
-  -oC:\Users\JOHNMC~1\AppData\Local\Temp\skog.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\JOHNMC~1\AppData\Local\Temp\snqk.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/pic_beeper.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=04Ah-06Fh -pstack=STACK -ACODE=00h-03FFh \
   -ASTRCODE=00h-03FFh -ASTRING=00h-0FFhx4 -ACONST=00h-0FFhx4 \
@@ -15,7 +15,7 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=ENTRY -ACONFIG=02007h-02007h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\JOHNMC~1\AppData\Local\Temp\skog.o \
+  C:\Users\JOHNMC~1\AppData\Local\Temp\snqk.o \
   dist/default/production\pic_beeper.X.production.o 
 
 Object code version is 3.11
@@ -25,24 +25,24 @@ Machine type is 12F752
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\JOHNMC~1\AppData\Local\Temp\skog.o
+C:\Users\JOHNMC~1\AppData\Local\Temp\snqk.o
                 end_init                              A        A        1        8       0
                 reset_vec                             0        0        1        0       0
 dist/default/production\pic_beeper.X.production.o
                 cinit                                 B        B        6        8       0
                 intentry                              4        4        6        8       0
-                text7                                BB       BB       1A        8       0
-                text6                                FF       FF        4        8       0
-                text5                                A0       A0       1B        8       0
-                text4                                EE       EE        9        8       0
+                text7                                D9       D9       1A        8       0
+                text6                               104      104        4        8       0
+                text5                                A0       A0       1F        8       0
+                text4                                F3       F3        9        8       0
                 text3                                11       11       8F        8       0
-                text2                                D5       D5       19        8       0
-                text1                                F7       F7        8        8       0
-                maintext                            103      103        3        8       0
+                text2                                BF       BF       1A        8       0
+                text1                                FC       FC        8        8       0
+                maintext                            108      108        3        8       0
                 cstackBANK0                          40       40        8       40       1
                 cstackCOMMON                         70       70        B       70       1
                 dataBANK0                            48       48        2       40       1
-                idataBANK0                          106      106        2        8       0
+                idataBANK0                          10B      10B        2        8       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -52,15 +52,15 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                 B        B        6         0
                 intentry                              4        4        6         0
                 reset_vec                             0        0        1         0
-                text7                                BB       BB       1A         0
-                text6                                FF       FF        4         0
-                text5                                A0       A0       1B         0
-                text4                                EE       EE        9         0
+                text7                                D9       D9       1A         0
+                text6                               104      104        4         0
+                text5                                A0       A0       1F         0
+                text4                                F3       F3        9         0
                 text3                                11       11       8F         0
-                text2                                D5       D5       19         0
-                text1                                F7       F7        8         0
-                maintext                            103      103        3         0
-                idataBANK0                          106      106        2         0
+                text2                                BF       BF       1A         0
+                text1                                FC       FC        8         0
+                maintext                            108      108        3         0
+                idataBANK0                          10B      10B        2         0
 
         CLASS   STRCODE        
 
@@ -107,7 +107,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000001  000001         0       0  CODE        2
-                intentry                       000004  000104  000108         8       0  CODE        2
+                intentry                       000004  000109  00010D         8       0  CODE        2
                 cstackBANK0                    000040  00000A  00004A        40       1  BANK0       1
                 cstackCOMMON                   000070  00000B  00007B        70       1  COMMON      1
 
@@ -117,13 +117,13 @@ UNUSED ADDRESS RANGES
         Name                Unused          Largest block    Delta
         BANK0            04A-06F            26           1
         CODE             001-003             3           2
-                         108-3FF           2F8
+                         10D-3FF           2F3
         COMMON           07B-07D             3           1
         CONFIG           2007-2007             1           2
         CONST            001-003             3           2
-                         108-3FF           100
+                         10D-3FF           100
         ENTRY            001-003             3           2
-                         108-3FF           100
+                         10D-3FF           100
         IDLOC            2000-2003             4           2
         RAM              04A-06F            26           1
         SFR0             000-03F            40           1
@@ -132,16 +132,16 @@ UNUSED ADDRESS RANGES
         SFR3             180-1EF            70           1
         STACK            04A-06F            26           1
         STRCODE          001-003             3           2
-                         108-3FF           2F8
+                         10D-3FF           2F3
         STRING           001-003             3           2
-                         108-3FF           100
+                         10D-3FF           100
 
                                   Symbol Table
 
 ?___aldiv                    cstackCOMMON 072
 _ANSELA                      (abs)        185
 _INTCON                      (abs)        00B
-_ISR                         text7        0BB
+_ISR                         text7        0D9
 _LATA                        (abs)        105
 _LATAbits                    (abs)        105
 _OSCCON                      (abs)        08F
@@ -149,6 +149,7 @@ _OSCCONbits                  (abs)        08F
 _PIE1                        (abs)        08C
 _PIR1bits                    (abs)        00C
 _PR2                         (abs)        111
+_T1CON                       (abs)        011
 _T2CON                       (abs)        112
 _T2CONbits                   (abs)        112
 _TRISA                       (abs)        085
@@ -180,7 +181,7 @@ __Hsfr0                      sfr0         000
 __Hsfr1                      sfr1         000
 __Hsfr2                      sfr2         000
 __Hsfr3                      sfr3         000
-__Hspace_0                   (abs)        108
+__Hspace_0                   (abs)        10D
 __Hspace_1                   (abs)        07B
 __Hspace_2                   (abs)        000
 __Hspace_3                   (abs)        000
@@ -222,7 +223,7 @@ __Lspace_3                   (abs)        000
 __Lstack                     stack        000
 __Lstrings                   strings      000
 __Ltext                      text         000
-__S0                         (abs)        108
+__S0                         (abs)        10D
 __S1                         (abs)        07B
 __S2                         (abs)        000
 ___aldiv                     text3        011
@@ -236,29 +237,29 @@ ___latbits                   (abs)        000
 ___sp                        stack        000
 ___stackhi                   (abs)        000
 ___stacklo                   (abs)        000
-__end_of_ISR                 text7        0D5
+__end_of_ISR                 text7        0F3
 __end_of___aldiv             text3        0A0
 __end_of__initialization     cinit        00F
-__end_of_beeper_on           text6        103
-__end_of_beeper_set_freq_hz  text2        0EE
-__end_of_init                text4        0F7
-__end_of_init_beeper         text5        0BB
-__end_of_loop                text1        0FF
-__end_of_main                maintext     106
+__end_of_beeper_on           text6        108
+__end_of_beeper_set_freq_hz  text2        0D9
+__end_of_init                text4        0FC
+__end_of_init_beeper         text5        0BF
+__end_of_loop                text1        104
+__end_of_main                maintext     10B
 __initialization             cinit        00B
 __pcstackBANK0               cstackBANK0  040
 __pcstackCOMMON              cstackCOMMON 070
 __pdataBANK0                 dataBANK0    048
-__pidataBANK0                idataBANK0   106
+__pidataBANK0                idataBANK0   10B
 __pintentry                  intentry     004
-__pmaintext                  maintext     103
-__ptext1                     text1        0F7
-__ptext2                     text2        0D5
+__pmaintext                  maintext     108
+__ptext1                     text1        0FC
+__ptext2                     text2        0BF
 __ptext3                     text3        011
-__ptext4                     text4        0EE
+__ptext4                     text4        0F3
 __ptext5                     text5        0A0
-__ptext6                     text6        0FF
-__ptext7                     text7        0BB
+__ptext6                     text6        104
+__ptext7                     text7        0D9
 __size_of_ISR                (abs)        000
 __size_of___aldiv            (abs)        000
 __size_of_beeper_on          (abs)        000
@@ -267,12 +268,12 @@ __size_of_init               (abs)        000
 __size_of_init_beeper        (abs)        000
 __size_of_loop               (abs)        000
 __size_of_main               (abs)        000
-_beeper_on                   text6        0FF
-_beeper_set_freq_hz          text2        0D5
-_init                        text4        0EE
+_beeper_on                   text6        104
+_beeper_set_freq_hz          text2        0BF
+_init                        text4        0F3
 _init_beeper                 text5        0A0
-_loop                        text1        0F7
-_main                        maintext     103
+_loop                        text1        0FC
+_main                        maintext     108
 beeper_set_freq_hz@freq      cstackBANK0  046
 btemp                        (abs)        07E
 end_of_initialization        cinit        00F
@@ -354,7 +355,7 @@ Total ram usage:        0 bytes
 
  *************** function _beeper_set_freq_hz *****************
  Defined at:
-		line 25 in file "beeper.c"
+		line 27 in file "beeper.c"
  Parameters:    Size  Location     Type
   freq            2    6[BANK0 ] int 
  Auto vars:     Size  Location     Type
@@ -478,7 +479,7 @@ Total ram usage:        1 bytes
 
  *************** function _beeper_on *****************
  Defined at:
-		line 30 in file "beeper.c"
+		line 32 in file "beeper.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -508,7 +509,7 @@ Total ram usage:        0 bytes
 
  *************** function _ISR *****************
  Defined at:
-		line 38 in file "beeper.c"
+		line 40 in file "beeper.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -540,12 +541,12 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 beeper.c
-		_beeper_set_freq_hz		CODE           	00D5	0000	26
-		_ISR           		CODE           	00BB	0000	27
-		_beeper_on     		CODE           	00FF	0000	5
-		_init_beeper   		CODE           	00A0	0000	28
+		_beeper_set_freq_hz		CODE           	00BF	0000	27
+		_ISR           		CODE           	00D9	0000	27
+		_beeper_on     		CODE           	0104	0000	5
+		_init_beeper   		CODE           	00A0	0000	32
 
-beeper.c estimated size: 86
+beeper.c estimated size: 91
 
 shared
 		__initialization		CODE           	000B	0000	5
@@ -558,9 +559,9 @@ C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c estimated size: 144
 
 main.c
-		_loop          		CODE           	00F7	0000	9
-		_init          		CODE           	00EE	0000	10
-		_main          		CODE           	0103	0000	4
+		_loop          		CODE           	00FC	0000	9
+		_init          		CODE           	00F3	0000	10
+		_main          		CODE           	0108	0000	4
 
 main.c estimated size: 23
 

@@ -17,15 +17,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1095
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1095: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0x08F)));
 [v _OSCCONbits `VS44 ~T0 @X0 0 e@143 ]
-"13 ./beeper.h
-[; ;./beeper.h: 13: void init_beeper();
-[v _init_beeper `(v ~T0 @X0 0 e? ]
-"17
-[; ;./beeper.h: 17: void beeper_on();
-[v _beeper_on `(v ~T0 @X0 0 e? ]
-"15
-[; ;./beeper.h: 15: void beeper_set_freq_hz(int freq);
-[v _beeper_set_freq_hz `(v ~T0 @X0 0 ef1`i ]
+"14 ./beeper.h
+[; ;./beeper.h: 14: void init_beeper(void);
+[v _init_beeper `(v ~T0 @X0 0 ef ]
+"18
+[; ;./beeper.h: 18: void beeper_on(void);
+[v _beeper_on `(v ~T0 @X0 0 ef ]
+"16
+[; ;./beeper.h: 16: void beeper_set_freq_hz(uint16_t freq);
+[v _beeper_set_freq_hz `(v ~T0 @X0 0 ef1`ui ]
 [p mainexit ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 54: __asm("INDF equ 00h");
@@ -247,10 +247,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2863: __asm("COG1ASD equ 0197h");
 [; <" COG1ASD equ 0197h ;# ">
 "12 main.c
-[; ;main.c: 12: static int freq = 4000;
+[; ;main.c: 12: static int freq = 8000;
 [v _freq `i ~T0 @X0 1 s ]
 [i _freq
--> 4000 `i
+-> 8000 `i
 ]
 "14
 [; ;main.c: 14: void init(void) {
@@ -288,7 +288,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "25
 [; ;main.c: 25:   beeper_set_freq_hz(freq);
-[e ( _beeper_set_freq_hz (1 _freq ]
+[e ( _beeper_set_freq_hz (1 -> _freq `ui ]
 "26
 [; ;main.c: 26: }
 [e :UE 145 ]

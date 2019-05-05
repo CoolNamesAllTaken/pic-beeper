@@ -9,7 +9,7 @@
 #include <xc.h>
 #include "beeper.h"
 
-static int freq = 4000;
+static int freq = 8000;
 
 void init(void) {
   // set internal clock to run on 8 MHz because why not

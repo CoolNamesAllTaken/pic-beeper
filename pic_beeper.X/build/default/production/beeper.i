@@ -1962,19 +1962,210 @@ extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
 # 11 "./beeper.h" 2
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
 
-void init_beeper();
 
-void beeper_set_freq_hz(int freq);
 
-void beeper_on();
-void beeper_off();
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 12 "./beeper.h" 2
+
+
+void init_beeper(void);
+
+void beeper_set_freq_hz(uint16_t freq);
+
+void beeper_on(void);
+void beeper_off(void);
 # 1 "beeper.c" 2
 
 
 
+# 1 "./song.h" 1
+# 11 "./song.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 1 3
+# 11 "./song.h" 2
 
 
+
+
+
+
+
+
+uint8_t note_num_to_freq_hz[8] = {
+    62,
+    94,
+    130,
+    149,
+    192,
+    240,
+    266,
+    323
+};
+
+uint8_t note_num[1] = {
+    (0<<4) | 0,
+    (0<<4) | 1,
+    (2<<4) | 3,
+    (0<<4) | 0,
+    (0<<4) | 1,
+    (3<<4) | 4,
+    (0<<4) | 0,
+    (5<<4) | 7,
+    (2<<4) | 3,
+    (6<<4) | 1,
+    (5<<4) | 6,
+    (4<<4) | 3,
+    3
+};
+
+uint8_t note_dur[25/2 + 25%2] = {
+    (0<<4) | 0,
+    (0<<4) | 1,
+    (2<<4) | 3,
+    (0<<4) | 0,
+    (0<<4) | 1,
+    (3<<4) | 4,
+    (0<<4) | 0,
+    (5<<4) | 7,
+    (2<<4) | 3,
+    (6<<4) | 1,
+    (5<<4) | 6,
+    (4<<4) | 3,
+    3
+# 73 "./song.h"
+};
+# 4 "beeper.c" 2
+# 13 "beeper.c"
+static uint8_t note_index = 0;
 
 void init_beeper() {
 
@@ -1986,17 +2177,23 @@ void init_beeper() {
 
 
 
-  T2CON = 0b01111011;
-  PR2 = 2;
+  T2CON = 0b00011011;
+  PIE1 |= (0b1 << 1);
+
+
+  T1CON |= (0b11 << 6);
+  T1CON |= (0b11 << 4);
+  PIE1 |= (0b1);
 
 
   INTCON |= (0b11 << 6);
-  PIE1 |= (0b1 << 1);
+
+  T1CONbits.TMR1ON = 1;
 }
 
-void beeper_set_freq_hz(int freq) {
+void beeper_set_freq_hz(uint16_t freq) {
 
-  PR2 = 2000000 / 2 / 4 / 16 / freq;
+  PR2 = ((uint16_t)125 / 2 * 1000 / freq) - 2;
 }
 
 void beeper_on() {
@@ -2012,5 +2209,20 @@ void __attribute__((picinterrupt(("")))) ISR(void) {
 
     PIR1bits.TMR2IF = 0;
     LATAbits.LATA2 = ~LATAbits.LATA2;
+  }
+
+  if (PIR1bits.TMR1IF) {
+
+    PIR1bits.TMR1IF = 0;
+    uint8_t curr_note_num = note_index % 2 ?
+                            (note_num[note_index/2]) >> 4:
+                               (note_num[note_index/2]) & 0xF;
+    beeper_set_freq_hz(note_num_to_freq_hz[curr_note_num] + 200);
+    uint16_t note_dur_clock_ticks = note_dur[note_index] * 500 / 8 * 31;
+    note_dur_clock_ticks = 65535 - note_dur_clock_ticks;
+    TMR1H = note_dur_clock_ticks >> 8;
+    TMR1L = note_dur_clock_ticks & 0x00FF;
+
+    note_index++;
   }
 }
