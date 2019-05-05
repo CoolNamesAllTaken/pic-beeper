@@ -2100,72 +2100,21 @@ typedef uint16_t uintptr_t;
 
 void init_beeper(void);
 
-void beeper_set_freq_hz(uint16_t freq);
+void beeper_play_tone(uint16_t freq, uint16_t duration);
+void beeper_wait_duration(uint16_t duration);
+void beeper_set_freq_multiplier(uint8_t freq_multiplier_in);
+void beeper_set_duration_divisor(uint8_t duration_divisor_in);
 
-void beeper_on(void);
-void beeper_off(void);
+
+static void beeper_set_freq_hz(uint16_t freq);
+static void beeper_on(void);
+static void beeper_off(void);
 # 1 "beeper.c" 2
+# 10 "beeper.c"
+static uint8_t duration_divisor = 6;
+static uint8_t freq_multiplier = 6;
 
-
-
-# 1 "./song.h" 1
-# 11 "./song.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 1 3
-# 11 "./song.h" 2
-
-
-
-
-
-
-
-
-uint8_t note_num_to_freq_hz[8] = {
-    62,
-    94,
-    130,
-    149,
-    192,
-    240,
-    266,
-    323
-};
-
-uint8_t note_num[1] = {
-    (0<<4) | 0,
-    (0<<4) | 1,
-    (2<<4) | 3,
-    (0<<4) | 0,
-    (0<<4) | 1,
-    (3<<4) | 4,
-    (0<<4) | 0,
-    (5<<4) | 7,
-    (2<<4) | 3,
-    (6<<4) | 1,
-    (5<<4) | 6,
-    (4<<4) | 3,
-    3
-};
-
-uint8_t note_dur[25/2 + 25%2] = {
-    (0<<4) | 0,
-    (0<<4) | 1,
-    (2<<4) | 3,
-    (0<<4) | 0,
-    (0<<4) | 1,
-    (3<<4) | 4,
-    (0<<4) | 0,
-    (5<<4) | 7,
-    (2<<4) | 3,
-    (6<<4) | 1,
-    (5<<4) | 6,
-    (4<<4) | 3,
-    3
-# 73 "./song.h"
-};
-# 4 "beeper.c" 2
-# 13 "beeper.c"
-static uint8_t note_index = 0;
+static char playing_note = 0;
 
 void init_beeper() {
 
@@ -2187,20 +2136,50 @@ void init_beeper() {
 
 
   INTCON |= (0b11 << 6);
-
-  T1CONbits.TMR1ON = 1;
 }
 
-void beeper_set_freq_hz(uint16_t freq) {
+
+
+
+
+
+void beeper_play_tone(uint16_t freq, uint16_t duration) {
+  beeper_set_freq_hz(freq);
+  beeper_on();
+  beeper_wait_duration(duration);
+  beeper_off();
+}
+
+void beeper_wait_duration(uint16_t duration) {
+  duration /= duration_divisor;
+  uint16_t note_dur_clock_ticks = duration * 16 / 8;
+  note_dur_clock_ticks = 65535 - note_dur_clock_ticks;
+  TMR1H = note_dur_clock_ticks >> 8;
+  TMR1L = note_dur_clock_ticks & 0x00FF;
+  playing_note = 1;
+  T1CONbits.TMR1ON = 1;
+  while (playing_note) { }
+}
+
+void beeper_set_freq_multiplier(uint8_t freq_multiplier_in) {
+  freq_multiplier = freq_multiplier_in;
+}
+
+void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
+  duration_divisor = duration_divisor_in;
+}
+
+static void beeper_set_freq_hz(uint16_t freq) {
+  freq *= freq_multiplier;
 
   PR2 = ((uint16_t)125 / 2 * 1000 / freq) - 2;
 }
 
-void beeper_on() {
+static void beeper_on() {
   T2CONbits.TMR2ON = 1;
 }
 
-void beeper_off() {
+static void beeper_off() {
   T2CONbits.TMR2ON = 0;
 }
 
@@ -2214,15 +2193,7 @@ void __attribute__((picinterrupt(("")))) ISR(void) {
   if (PIR1bits.TMR1IF) {
 
     PIR1bits.TMR1IF = 0;
-    uint8_t curr_note_num = note_index % 2 ?
-                            (note_num[note_index/2]) >> 4:
-                               (note_num[note_index/2]) & 0xF;
-    beeper_set_freq_hz(note_num_to_freq_hz[curr_note_num] + 200);
-    uint16_t note_dur_clock_ticks = note_dur[note_index] * 500 / 8 * 31;
-    note_dur_clock_ticks = 65535 - note_dur_clock_ticks;
-    TMR1H = note_dur_clock_ticks >> 8;
-    TMR1L = note_dur_clock_ticks & 0x00FF;
-
-    note_index++;
+    playing_note = 0;
+    T1CONbits.TMR1ON = 0;
   }
 }

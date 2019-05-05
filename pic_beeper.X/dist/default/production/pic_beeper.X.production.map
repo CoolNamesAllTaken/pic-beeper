@@ -5,9 +5,9 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.05\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\pic_beeper.X.production.sym \
   --cmf=dist/default/production\pic_beeper.X.production.cmf -z -Q12F752 \
-  -oC:\Users\JOHNMC~1\AppData\Local\Temp\snqk.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\JOHNMC~1\AppData\Local\Temp\shok.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/pic_beeper.X.production.map -E1 -ver=XC8 \
-  --acfsm=1493 -ASTACK=04Ah-06Fh -pstack=STACK -ACODE=00h-03FFh \
+  --acfsm=1493 -ASTACK=04Eh-06Fh -pstack=STACK -ACODE=00h-03FFh \
   -ASTRCODE=00h-03FFh -ASTRING=00h-0FFhx4 -ACONST=00h-0FFhx4 \
   -AENTRY=00h-0FFhx4 -ACOMMON=070h-07Fh -ABANK0=040h-06Fh -ARAM=040h-06Fh \
   -AABS1=040h-07Fh -ASFR0=00h-03Fh -ASFR1=080h-0EFh -ASFR2=0100h-016Fh \
@@ -15,7 +15,7 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=ENTRY -ACONFIG=02007h-02007h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\JOHNMC~1\AppData\Local\Temp\snqk.o \
+  C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o \
   dist/default/production\pic_beeper.X.production.o 
 
 Object code version is 3.11
@@ -25,42 +25,55 @@ Machine type is 12F752
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\JOHNMC~1\AppData\Local\Temp\snqk.o
+C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
                 end_init                              A        A        1        8       0
                 reset_vec                             0        0        1        0       0
 dist/default/production\pic_beeper.X.production.o
-                cinit                                 B        B        6        8       0
+                cinit                                 B        B        7        8       0
                 intentry                              4        4        6        8       0
-                text7                                D9       D9       1A        8       0
-                text6                               104      104        4        8       0
-                text5                                A0       A0       1F        8       0
-                text4                                F3       F3        9        8       0
-                text3                                11       11       8F        8       0
-                text2                                BF       BF       1A        8       0
-                text1                                FC       FC        8        8       0
-                maintext                            108      108        3        8       0
-                cstackBANK0                          40       40        8       40       1
-                cstackCOMMON                         70       70        B       70       1
-                dataBANK0                            48       48        2       40       1
-                idataBANK0                          10B      10B        2        8       0
+                text13                              2B5      2B5       20        8       0
+                text12                              24B      24B       26        8       0
+                text11                              2E6      2E6        8        8       0
+                text10                              2FE      2FE        4        8       0
+                text9                               2FA      2FA        4        8       0
+                text8                               1E1      1E1       3C        8       0
+                text7                               294      294       21        8       0
+                text6                               271      271       23        8       0
+                text5                               21D      21D       2E        8       0
+                text4                               2D5      2D5       11        8       0
+                text3                               2F4      2F4        6        8       0
+                text2                               2EE      2EE        6        8       0
+                text1                                12       12      1CF        8       0
+                maintext                            302      302        3        8       0
+                cstackBANK0                          40       40        D       40       1
+                cstackCOMMON                         70       70        A       70       1
+                bssBANK0                             4D       4D        1       40       1
+                dataCOMMON                           7A       7A        2       70       1
+                idataCOMMON                         305      305        2        8       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              A        A        1         0
-                cinit                                 B        B        6         0
+                cinit                                 B        B        7         0
                 intentry                              4        4        6         0
                 reset_vec                             0        0        1         0
-                text7                                D9       D9       1A         0
-                text6                               104      104        4         0
-                text5                                A0       A0       1F         0
-                text4                                F3       F3        9         0
-                text3                                11       11       8F         0
-                text2                                BF       BF       1A         0
-                text1                                FC       FC        8         0
-                maintext                            108      108        3         0
-                idataBANK0                          10B      10B        2         0
+                text13                              2B5      2B5       20         0
+                text12                              24B      24B       26         0
+                text11                              2E6      2E6        8         0
+                text10                              2FE      2FE        4         0
+                text9                               2FA      2FA        4         0
+                text8                               1E1      1E1       3C         0
+                text7                               294      294       21         0
+                text6                               271      271       23         0
+                text5                               21D      21D       2E         0
+                text4                               2D5      2D5       11         0
+                text3                               2F4      2F4        6         0
+                text2                               2EE      2EE        6         0
+                text1                                12       12      1CF         0
+                maintext                            302      302        3         0
+                idataCOMMON                         305      305        2         0
 
         CLASS   STRCODE        
 
@@ -71,11 +84,12 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   COMMON         
-                cstackCOMMON                         70       70        B         1
+                cstackCOMMON                         70       70        A         1
+                dataCOMMON                           7A       7A        2         1
 
         CLASS   BANK0          
-                cstackBANK0                          40       40        8         1
-                dataBANK0                            48       48        2         1
+                cstackBANK0                          40       40        D         1
+                bssBANK0                             4D       4D        1         1
 
         CLASS   RAM            
 
@@ -107,195 +121,239 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000001  000001         0       0  CODE        2
-                intentry                       000004  000109  00010D         8       0  CODE        2
-                cstackBANK0                    000040  00000A  00004A        40       1  BANK0       1
-                cstackCOMMON                   000070  00000B  00007B        70       1  COMMON      1
+                intentry                       000004  000303  000307         8       0  CODE        2
+                cstackBANK0                    000040  00000E  00004E        40       1  BANK0       1
+                cstackCOMMON                   000070  00000C  00007C        70       1  COMMON      1
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            04A-06F            26           1
+        BANK0            04E-06F            22           1
         CODE             001-003             3           2
-                         10D-3FF           2F3
-        COMMON           07B-07D             3           1
+                         307-3FF            F9
+        COMMON           07C-07D             2           1
         CONFIG           2007-2007             1           2
         CONST            001-003             3           2
-                         10D-3FF           100
+                         307-3FF            F9
         ENTRY            001-003             3           2
-                         10D-3FF           100
+                         307-3FF            F9
         IDLOC            2000-2003             4           2
-        RAM              04A-06F            26           1
+        RAM              04E-06F            22           1
         SFR0             000-03F            40           1
         SFR1             080-0EF            70           1
         SFR2             100-16F            70           1
         SFR3             180-1EF            70           1
-        STACK            04A-06F            26           1
+        STACK            04E-06F            22           1
         STRCODE          001-003             3           2
-                         10D-3FF           2F3
+                         307-3FF            F9
         STRING           001-003             3           2
-                         10D-3FF           100
+                         307-3FF            F9
 
                                   Symbol Table
 
-?___aldiv                    cstackCOMMON 072
-_ANSELA                      (abs)        185
-_INTCON                      (abs)        00B
-_ISR                         text7        0D9
-_LATA                        (abs)        105
-_LATAbits                    (abs)        105
-_OSCCON                      (abs)        08F
-_OSCCONbits                  (abs)        08F
-_PIE1                        (abs)        08C
-_PIR1bits                    (abs)        00C
-_PR2                         (abs)        111
-_T1CON                       (abs)        011
-_T2CON                       (abs)        112
-_T2CONbits                   (abs)        112
-_TRISA                       (abs)        085
-__Habs1                      abs1         000
-__Hbank0                     bank0        000
-__Hbank1                     bank1        000
-__Hbank2                     bank2        000
-__Hbank3                     bank3        000
-__Hcinit                     cinit        011
-__Hclrtext                   clrtext      000
-__Hcode                      code         000
-__Hcommon                    common       000
-__Hconfig                    config       000
-__HcstackBANK0               cstackBANK0  000
-__HcstackCOMMON              cstackCOMMON 000
-__HdataBANK0                 dataBANK0    000
-__Heeprom_data               eeprom_data  000
-__Hend_init                  end_init     00B
-__Hfunctab                   functab      000
-__HidataBANK0                idataBANK0   000
-__Hidloc                     idloc        000
-__Hinit                      init         00A
-__Hintentry                  intentry     00A
-__Hmaintext                  maintext     000
-__Hpowerup                   powerup      000
-__Hram                       ram          000
-__Hreset_vec                 reset_vec    001
-__Hsfr0                      sfr0         000
-__Hsfr1                      sfr1         000
-__Hsfr2                      sfr2         000
-__Hsfr3                      sfr3         000
-__Hspace_0                   (abs)        10D
-__Hspace_1                   (abs)        07B
-__Hspace_2                   (abs)        000
-__Hspace_3                   (abs)        000
-__Hstack                     stack        000
-__Hstrings                   strings      000
-__Htext                      text         000
-__Labs1                      abs1         000
-__Lbank0                     bank0        000
-__Lbank1                     bank1        000
-__Lbank2                     bank2        000
-__Lbank3                     bank3        000
-__Lcinit                     cinit        00B
-__Lclrtext                   clrtext      000
-__Lcode                      code         000
-__Lcommon                    common       000
-__Lconfig                    config       000
-__LcstackBANK0               cstackBANK0  000
-__LcstackCOMMON              cstackCOMMON 000
-__LdataBANK0                 dataBANK0    000
-__Leeprom_data               eeprom_data  000
-__Lend_init                  end_init     00A
-__Lfunctab                   functab      000
-__LidataBANK0                idataBANK0   000
-__Lidloc                     idloc        000
-__Linit                      init         00A
-__Lintentry                  intentry     004
-__Lmaintext                  maintext     000
-__Lpowerup                   powerup      000
-__Lram                       ram          000
-__Lreset_vec                 reset_vec    000
-__Lsfr0                      sfr0         000
-__Lsfr1                      sfr1         000
-__Lsfr2                      sfr2         000
-__Lsfr3                      sfr3         000
-__Lspace_0                   (abs)        000
-__Lspace_1                   (abs)        000
-__Lspace_2                   (abs)        000
-__Lspace_3                   (abs)        000
-__Lstack                     stack        000
-__Lstrings                   strings      000
-__Ltext                      text         000
-__S0                         (abs)        10D
-__S1                         (abs)        07B
-__S2                         (abs)        000
-___aldiv                     text3        011
-___aldiv@counter             cstackBANK0  040
-___aldiv@dividend            cstackCOMMON 076
-___aldiv@divisor             cstackCOMMON 072
-___aldiv@quotient            cstackBANK0  042
-___aldiv@sign                cstackBANK0  041
-___int_sp                    stack        000
-___latbits                   (abs)        000
-___sp                        stack        000
-___stackhi                   (abs)        000
-___stacklo                   (abs)        000
-__end_of_ISR                 text7        0F3
-__end_of___aldiv             text3        0A0
-__end_of__initialization     cinit        00F
-__end_of_beeper_on           text6        108
-__end_of_beeper_set_freq_hz  text2        0D9
-__end_of_init                text4        0FC
-__end_of_init_beeper         text5        0BF
-__end_of_loop                text1        104
-__end_of_main                maintext     10B
-__initialization             cinit        00B
-__pcstackBANK0               cstackBANK0  040
-__pcstackCOMMON              cstackCOMMON 070
-__pdataBANK0                 dataBANK0    048
-__pidataBANK0                idataBANK0   10B
-__pintentry                  intentry     004
-__pmaintext                  maintext     108
-__ptext1                     text1        0FC
-__ptext2                     text2        0BF
-__ptext3                     text3        011
-__ptext4                     text4        0F3
-__ptext5                     text5        0A0
-__ptext6                     text6        104
-__ptext7                     text7        0D9
-__size_of_ISR                (abs)        000
-__size_of___aldiv            (abs)        000
-__size_of_beeper_on          (abs)        000
-__size_of_beeper_set_freq_hz (abs)        000
-__size_of_init               (abs)        000
-__size_of_init_beeper        (abs)        000
-__size_of_loop               (abs)        000
-__size_of_main               (abs)        000
-_beeper_on                   text6        104
-_beeper_set_freq_hz          text2        0BF
-_init                        text4        0F3
-_init_beeper                 text5        0A0
-_loop                        text1        0FC
-_main                        maintext     108
-beeper_set_freq_hz@freq      cstackBANK0  046
-btemp                        (abs)        07E
-end_of_initialization        cinit        00F
-interrupt_function           intentry     004
-intlevel0                    functab      000
-intlevel1                    functab      000
-intlevel2                    functab      000
-intlevel3                    functab      000
-intlevel4                    functab      000
-intlevel5                    functab      000
-reset_vec                    reset_vec    000
-saved_w                      (abs)        07E
-start                        init         00A
-start_initialization         cinit        00B
-wtemp0                       (abs)        07E
+?___lwdiv                                       cstackCOMMON 072
+?___wmul                                        cstackCOMMON 072
+_ANSELA                                         (abs)        185
+_INTCON                                         (abs)        00B
+_ISR                                            text13       2B5
+_LATA                                           (abs)        105
+_LATAbits                                       (abs)        105
+_OSCCON                                         (abs)        08F
+_OSCCONbits                                     (abs)        08F
+_PIE1                                           (abs)        08C
+_PIR1bits                                       (abs)        00C
+_PR2                                            (abs)        111
+_T1CON                                          (abs)        011
+_T1CONbits                                      (abs)        011
+_T2CON                                          (abs)        112
+_T2CONbits                                      (abs)        112
+_TMR1H                                          (abs)        010
+_TMR1L                                          (abs)        00F
+_TRISA                                          (abs)        085
+__Habs1                                         abs1         000
+__Hbank0                                        bank0        000
+__Hbank1                                        bank1        000
+__Hbank2                                        bank2        000
+__Hbank3                                        bank3        000
+__HbssBANK0                                     bssBANK0     000
+__Hcinit                                        cinit        012
+__Hclrtext                                      clrtext      000
+__Hcode                                         code         000
+__Hcommon                                       common       000
+__Hconfig                                       config       000
+__HcstackBANK0                                  cstackBANK0  000
+__HcstackCOMMON                                 cstackCOMMON 000
+__HdataCOMMON                                   dataCOMMON   000
+__Heeprom_data                                  eeprom_data  000
+__Hend_init                                     end_init     00B
+__Hfunctab                                      functab      000
+__HidataCOMMON                                  idataCOMMON  000
+__Hidloc                                        idloc        000
+__Hinit                                         init         00A
+__Hintentry                                     intentry     00A
+__Hmaintext                                     maintext     000
+__Hpowerup                                      powerup      000
+__Hram                                          ram          000
+__Hreset_vec                                    reset_vec    001
+__Hsfr0                                         sfr0         000
+__Hsfr1                                         sfr1         000
+__Hsfr2                                         sfr2         000
+__Hsfr3                                         sfr3         000
+__Hspace_0                                      (abs)        307
+__Hspace_1                                      (abs)        07C
+__Hspace_2                                      (abs)        000
+__Hspace_3                                      (abs)        000
+__Hstack                                        stack        000
+__Hstrings                                      strings      000
+__Htext                                         text         000
+__Labs1                                         abs1         000
+__Lbank0                                        bank0        000
+__Lbank1                                        bank1        000
+__Lbank2                                        bank2        000
+__Lbank3                                        bank3        000
+__LbssBANK0                                     bssBANK0     000
+__Lcinit                                        cinit        00B
+__Lclrtext                                      clrtext      000
+__Lcode                                         code         000
+__Lcommon                                       common       000
+__Lconfig                                       config       000
+__LcstackBANK0                                  cstackBANK0  000
+__LcstackCOMMON                                 cstackCOMMON 000
+__LdataCOMMON                                   dataCOMMON   000
+__Leeprom_data                                  eeprom_data  000
+__Lend_init                                     end_init     00A
+__Lfunctab                                      functab      000
+__LidataCOMMON                                  idataCOMMON  000
+__Lidloc                                        idloc        000
+__Linit                                         init         00A
+__Lintentry                                     intentry     004
+__Lmaintext                                     maintext     000
+__Lpowerup                                      powerup      000
+__Lram                                          ram          000
+__Lreset_vec                                    reset_vec    000
+__Lsfr0                                         sfr0         000
+__Lsfr1                                         sfr1         000
+__Lsfr2                                         sfr2         000
+__Lsfr3                                         sfr3         000
+__Lspace_0                                      (abs)        000
+__Lspace_1                                      (abs)        000
+__Lspace_2                                      (abs)        000
+__Lspace_3                                      (abs)        000
+__Lstack                                        stack        000
+__Lstrings                                      strings      000
+__Ltext                                         text         000
+__S0                                            (abs)        307
+__S1                                            (abs)        07C
+__S2                                            (abs)        000
+___int_sp                                       stack        000
+___latbits                                      (abs)        000
+___lwdiv                                        text8        1E1
+___lwdiv@counter                                cstackCOMMON 079
+___lwdiv@dividend                               cstackCOMMON 074
+___lwdiv@divisor                                cstackCOMMON 072
+___lwdiv@quotient                               cstackCOMMON 077
+___sp                                           stack        000
+___stackhi                                      (abs)        000
+___stacklo                                      (abs)        000
+___wmul                                         text7        294
+___wmul@multiplicand                            cstackCOMMON 074
+___wmul@multiplier                              cstackCOMMON 072
+___wmul@product                                 cstackCOMMON 076
+__end_of_ISR                                    text13       2D5
+__end_of___lwdiv                                text8        21D
+__end_of___wmul                                 text7        2B5
+__end_of__initialization                        cinit        010
+__end_of_beeper_off                             text10       302
+__end_of_beeper_on                              text9        2FE
+__end_of_beeper_play_tone                       text4        2E6
+__end_of_beeper_set_duration_divisor            text3        2FA
+__end_of_beeper_set_freq_hz                     text6        294
+__end_of_beeper_set_freq_multiplier             text2        2F4
+__end_of_beeper_wait_duration                   text5        24B
+__end_of_init                                   text11       2EE
+__end_of_init_beeper                            text12       271
+__end_of_loop                                   text1        1E1
+__end_of_main                                   maintext     305
+__initialization                                cinit        00B
+__pbssBANK0                                     bssBANK0     04D
+__pcstackBANK0                                  cstackBANK0  040
+__pcstackCOMMON                                 cstackCOMMON 070
+__pdataCOMMON                                   dataCOMMON   07A
+__pidataCOMMON                                  idataCOMMON  305
+__pintentry                                     intentry     004
+__pmaintext                                     maintext     302
+__ptext1                                        text1        012
+__ptext10                                       text10       2FE
+__ptext11                                       text11       2E6
+__ptext12                                       text12       24B
+__ptext13                                       text13       2B5
+__ptext2                                        text2        2EE
+__ptext3                                        text3        2F4
+__ptext4                                        text4        2D5
+__ptext5                                        text5        21D
+__ptext6                                        text6        271
+__ptext7                                        text7        294
+__ptext8                                        text8        1E1
+__ptext9                                        text9        2FA
+__size_of_ISR                                   (abs)        000
+__size_of___lwdiv                               (abs)        000
+__size_of___wmul                                (abs)        000
+__size_of_beeper_off                            (abs)        000
+__size_of_beeper_on                             (abs)        000
+__size_of_beeper_play_tone                      (abs)        000
+__size_of_beeper_set_duration_divisor           (abs)        000
+__size_of_beeper_set_freq_hz                    (abs)        000
+__size_of_beeper_set_freq_multiplier            (abs)        000
+__size_of_beeper_wait_duration                  (abs)        000
+__size_of_init                                  (abs)        000
+__size_of_init_beeper                           (abs)        000
+__size_of_loop                                  (abs)        000
+__size_of_main                                  (abs)        000
+_beeper_off                                     text10       2FE
+_beeper_on                                      text9        2FA
+_beeper_play_tone                               text4        2D5
+_beeper_set_duration_divisor                    text3        2F4
+_beeper_set_freq_hz                             text6        271
+_beeper_set_freq_multiplier                     text2        2EE
+_beeper_wait_duration                           text5        21D
+_duration_divisor                               dataCOMMON   07B
+_freq_multiplier                                dataCOMMON   07A
+_init                                           text11       2E6
+_init_beeper                                    text12       24B
+_loop                                           text1        012
+_main                                           maintext     302
+_playing_note                                   bssBANK0     04D
+beeper_play_tone@duration                       cstackBANK0  048
+beeper_play_tone@freq                           cstackBANK0  046
+beeper_set_duration_divisor@duration_divisor_in cstackCOMMON 073
+beeper_set_freq_hz@freq                         cstackBANK0  040
+beeper_set_freq_multiplier@freq_multiplier_in   cstackCOMMON 073
+beeper_wait_duration@duration                   cstackBANK0  040
+beeper_wait_duration@note_dur_clock_ticks       cstackBANK0  044
+btemp                                           (abs)        07E
+end_of_initialization                           cinit        010
+interrupt_function                              intentry     004
+intlevel0                                       functab      000
+intlevel1                                       functab      000
+intlevel2                                       functab      000
+intlevel3                                       functab      000
+intlevel4                                       functab      000
+intlevel5                                       functab      000
+loop@i                                          cstackBANK0  04B
+loop@i_80                                       cstackBANK0  04C
+reset_vec                                       reset_vec    000
+saved_w                                         (abs)        07E
+start                                           init         00A
+start_initialization                            cinit        00B
+wtemp0                                          (abs)        07E
 
 
 FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 28 in file "main.c"
+		line 86 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -314,7 +372,7 @@ FUNCTION INFORMATION:
       Temps:          0       0
       Totals:         0       0
 Total ram usage:        0 bytes
- Hardware stack levels required when called:    4
+ Hardware stack levels required when called:    5
  This function calls:
 		_init
 		_loop
@@ -329,7 +387,8 @@ Total ram usage:        0 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-		None
+  i               1   12[BANK0 ] unsigned char 
+  i               1   11[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -340,24 +399,152 @@ Total ram usage:        0 bytes
 		Unchanged: 
  Data sizes:     COMMON   BANK0
       Params:         0       0
-      Locals:         0       0
-      Temps:          0       0
-      Totals:         0       0
-Total ram usage:        0 bytes
+      Locals:         0       2
+      Temps:          0       1
+      Totals:         0       3
+Total ram usage:        3 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    4
  This function calls:
-		_beeper_set_freq_hz
+		_beeper_play_tone
+		_beeper_set_duration_divisor
+		_beeper_set_freq_multiplier
+		_beeper_wait_duration
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
+ *************** function _beeper_set_freq_multiplier *****************
+ Defined at:
+		line 60 in file "beeper.c"
+ Parameters:    Size  Location     Type
+  freq_multipl    1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  freq_multipl    1    3[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       0
+      Locals:         1       0
+      Temps:          1       0
+      Totals:         2       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_loop
+ This function uses a non-reentrant model
+
+
+ *************** function _beeper_set_duration_divisor *****************
+ Defined at:
+		line 64 in file "beeper.c"
+ Parameters:    Size  Location     Type
+  duration_div    1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  duration_div    1    3[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       0
+      Locals:         1       0
+      Temps:          1       0
+      Totals:         2       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_loop
+ This function uses a non-reentrant model
+
+
+ *************** function _beeper_play_tone *****************
+ Defined at:
+		line 42 in file "beeper.c"
+ Parameters:    Size  Location     Type
+  freq            2    6[BANK0 ] unsigned int 
+  duration        2    8[BANK0 ] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       4
+      Locals:         0       0
+      Temps:          0       0
+      Totals:         0       4
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_beeper_off
+		_beeper_on
+		_beeper_set_freq_hz
+		_beeper_wait_duration
+ This function is called by:
+		_loop
+ This function uses a non-reentrant model
+
+
+ *************** function _beeper_wait_duration *****************
+ Defined at:
+		line 49 in file "beeper.c"
+ Parameters:    Size  Location     Type
+  duration        2    0[BANK0 ] unsigned int 
+ Auto vars:     Size  Location     Type
+  note_dur_clo    2    4[BANK0 ] unsigned int 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       2
+      Locals:         0       2
+      Temps:          0       2
+      Totals:         0       6
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		___lwdiv
+ This function is called by:
+		_loop
+		_beeper_play_tone
+ This function uses a non-reentrant model
+
+
  *************** function _beeper_set_freq_hz *****************
  Defined at:
-		line 27 in file "beeper.c"
+		line 68 in file "beeper.c"
  Parameters:    Size  Location     Type
-  freq            2    6[BANK0 ] int 
+  freq            2    0[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -371,30 +558,29 @@ Total ram usage:        0 bytes
  Data sizes:     COMMON   BANK0
       Params:         0       2
       Locals:         0       0
-      Temps:          0       0
-      Totals:         0       2
-Total ram usage:        2 bytes
+      Temps:          0       2
+      Totals:         0       4
+Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    2
  This function calls:
-		___aldiv
+		___lwdiv
+		___wmul
  This function is called by:
-		_loop
+		_beeper_play_tone
  This function uses a non-reentrant model
 
 
- *************** function ___aldiv *****************
+ *************** function ___wmul *****************
  Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c"
+		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c"
  Parameters:    Size  Location     Type
-  divisor         4    2[COMMON] long 
-  dividend        4    6[COMMON] long 
+  multiplier      2    2[COMMON] unsigned int 
+  multiplicand    2    4[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
-  quotient        4    2[BANK0 ] long 
-  sign            1    1[BANK0 ] unsigned char 
-  counter         1    0[BANK0 ] unsigned char 
+  product         2    6[COMMON] unsigned int 
  Return value:  Size  Location     Type
-                  4    2[COMMON] long 
+                  2    2[COMMON] unsigned int 
  Registers used:
 		wreg, status,2, status,0
  Tracked objects:
@@ -402,11 +588,11 @@ Total ram usage:        2 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0
-      Params:         8       0
-      Locals:         0       6
-      Temps:          1       0
-      Totals:         9       6
-Total ram usage:       15 bytes
+      Params:         4       0
+      Locals:         2       0
+      Temps:          0       0
+      Totals:         6       0
+Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    1
  This function calls:
@@ -416,9 +602,102 @@ Total ram usage:       15 bytes
  This function uses a non-reentrant model
 
 
+ *************** function ___lwdiv *****************
+ Defined at:
+		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c"
+ Parameters:    Size  Location     Type
+  divisor         2    2[COMMON] unsigned int 
+  dividend        2    4[COMMON] unsigned int 
+ Auto vars:     Size  Location     Type
+  quotient        2    7[COMMON] unsigned int 
+  counter         1    9[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  2    2[COMMON] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         4       0
+      Locals:         3       0
+      Temps:          1       0
+      Totals:         8       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_beeper_wait_duration
+		_beeper_set_freq_hz
+ This function uses a non-reentrant model
+
+
+ *************** function _beeper_on *****************
+ Defined at:
+		line 74 in file "beeper.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       0
+      Locals:         0       0
+      Temps:          0       0
+      Totals:         0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_beeper_play_tone
+ This function uses a non-reentrant model
+
+
+ *************** function _beeper_off *****************
+ Defined at:
+		line 78 in file "beeper.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       0
+      Locals:         0       0
+      Temps:          0       0
+      Totals:         0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_beeper_play_tone
+ This function uses a non-reentrant model
+
+
  *************** function _init *****************
  Defined at:
-		line 14 in file "main.c"
+		line 15 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -440,7 +719,6 @@ Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    2
  This function calls:
-		_beeper_on
 		_init_beeper
  This function is called by:
 		_main
@@ -449,7 +727,7 @@ Total ram usage:        0 bytes
 
  *************** function _init_beeper *****************
  Defined at:
-		line 7 in file "beeper.c"
+		line 15 in file "beeper.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -477,39 +755,9 @@ Total ram usage:        1 bytes
  This function uses a non-reentrant model
 
 
- *************** function _beeper_on *****************
- Defined at:
-		line 32 in file "beeper.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		None
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0
-      Params:         0       0
-      Locals:         0       0
-      Temps:          0       0
-      Totals:         0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		Nothing
- This function is called by:
-		_init
- This function uses a non-reentrant model
-
-
  *************** function _ISR *****************
  Defined at:
-		line 40 in file "beeper.c"
+		line 82 in file "beeper.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -517,7 +765,7 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		status,0
+		status,2, status,0
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -541,27 +789,37 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 beeper.c
-		_beeper_set_freq_hz		CODE           	00BF	0000	27
-		_ISR           		CODE           	00D9	0000	27
-		_beeper_on     		CODE           	0104	0000	5
-		_init_beeper   		CODE           	00A0	0000	32
+		_beeper_set_freq_hz		CODE           	0271	0000	36
+		_beeper_wait_duration		CODE           	021D	0000	47
+		_ISR           		CODE           	02B5	0000	33
+		_beeper_on     		CODE           	02FA	0000	5
+		_beeper_off    		CODE           	02FE	0000	5
+		_beeper_play_tone		CODE           	02D5	0000	18
+		_beeper_set_duration_divisor		CODE           	02F4	0000	7
+		_beeper_set_freq_multiplier		CODE           	02EE	0000	7
+		_init_beeper   		CODE           	024B	0000	39
 
-beeper.c estimated size: 91
+beeper.c estimated size: 197
+
+C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
+		___lwdiv       		CODE           	01E1	0000	61
+
+C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c estimated size: 61
+
+C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c
+		___wmul        		CODE           	0294	0000	34
+
+C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul16.c estimated size: 34
 
 shared
-		__initialization		CODE           	000B	0000	5
+		__initialization		CODE           	000B	0000	6
 
-shared estimated size: 5
-
-C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c
-		___aldiv       		CODE           	0011	0000	144
-
-C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\aldiv.c estimated size: 144
+shared estimated size: 6
 
 main.c
-		_loop          		CODE           	00FC	0000	9
-		_init          		CODE           	00F3	0000	10
-		_main          		CODE           	0108	0000	4
+		_loop          		CODE           	0012	0000	464
+		_init          		CODE           	02E6	0000	9
+		_main          		CODE           	0302	0000	4
 
-main.c estimated size: 23
+main.c estimated size: 477
 

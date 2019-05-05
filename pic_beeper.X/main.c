@@ -9,7 +9,8 @@
 #include <xc.h>
 #include "beeper.h"
 
-static int freq = 8000;
+#define NOKIA
+#define HAPPY_BIRTHDAY
 
 void init(void) {
   // set internal clock to run on 8 MHz because why not
@@ -17,12 +18,69 @@ void init(void) {
   while (!OSCCONbits.HTS) {} // wait for oscillator to stabilize
   
   init_beeper();
-  beeper_on();
 }
 
 void loop(void) {
-//  freq++;
-  beeper_set_freq_hz(freq);
+  
+#ifdef NOKIA
+  beeper_set_freq_multiplier(8);
+  beeper_set_duration_divisor(6);
+  // https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Nokia_tune.svg/1280px-Nokia_tune.svg.png
+  beeper_play_tone(329, 500); // E4
+  beeper_play_tone(294, 500); // D4
+  beeper_play_tone(185, 1000); // F3#
+  beeper_play_tone(207, 1000); // G3#
+  beeper_play_tone(277, 500); // C4#
+  beeper_play_tone(247, 500); // B3
+  beeper_play_tone(147, 1000); // D3
+  beeper_play_tone(164, 1000); // E3
+  beeper_play_tone(247, 500); // B3
+  beeper_play_tone(220, 500); // A3
+  beeper_play_tone(139, 1000); // C3#
+  beeper_play_tone(165, 1000); // E3
+  beeper_play_tone(220, 3000); // A3
+  
+  for (uint8_t i = 0; i < 5; i++) {
+    beeper_wait_duration(2000);
+  }
+#endif /* NOKIA */
+
+#ifdef HAPPY_BIRTHDAY
+  beeper_set_freq_multiplier(6);
+  beeper_set_duration_divisor(4);
+  // https://d2vlcm61l7u1fs.cloudfront.net/media%2Fccc%2Fcccff140-f376-4b3b-b66d-e91f17ee1563%2FphpWii0Fn.png
+  beeper_play_tone(262, 500);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(294, 1000);
+  beeper_play_tone(262, 1000);
+  beeper_play_tone(349, 1000);
+  beeper_play_tone(330, 2000);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(294, 1000);
+  
+  beeper_play_tone(262, 1000);
+  beeper_play_tone(392, 1000);
+  beeper_play_tone(349, 2000);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(523, 1000);
+  beeper_play_tone(440, 1000);
+  beeper_play_tone(349, 1000);
+  beeper_play_tone(330, 1000);
+  
+  beeper_play_tone(294, 2000); // todo: more duration
+  beeper_play_tone(466, 500);
+  beeper_play_tone(466, 500);
+  beeper_play_tone(440, 1000);
+  beeper_play_tone(349, 1000);
+  beeper_play_tone(392, 1000);
+  beeper_play_tone(349, 2000);
+  
+  for (uint8_t i = 0; i < 5; i++) {
+    beeper_wait_duration(2000);
+  }
+#endif /* HAPPY_BIRTHDAY */
 }
 
 void main(void) {

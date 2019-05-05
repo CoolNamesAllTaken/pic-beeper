@@ -2108,14 +2108,20 @@ typedef uint16_t uintptr_t;
 
 void init_beeper(void);
 
-void beeper_set_freq_hz(uint16_t freq);
+void beeper_play_tone(uint16_t freq, uint16_t duration);
+void beeper_wait_duration(uint16_t duration);
+void beeper_set_freq_multiplier(uint8_t freq_multiplier_in);
+void beeper_set_duration_divisor(uint8_t duration_divisor_in);
 
-void beeper_on(void);
-void beeper_off(void);
+
+static void beeper_set_freq_hz(uint16_t freq);
+static void beeper_on(void);
+static void beeper_off(void);
 # 10 "main.c" 2
 
 
-static int freq = 8000;
+
+
 
 void init(void) {
 
@@ -2123,12 +2129,69 @@ void init(void) {
   while (!OSCCONbits.HTS) {}
 
   init_beeper();
-  beeper_on();
 }
 
 void loop(void) {
 
-  beeper_set_freq_hz(freq);
+
+  beeper_set_freq_multiplier(8);
+  beeper_set_duration_divisor(6);
+
+  beeper_play_tone(329, 500);
+  beeper_play_tone(294, 500);
+  beeper_play_tone(185, 1000);
+  beeper_play_tone(207, 1000);
+  beeper_play_tone(277, 500);
+  beeper_play_tone(247, 500);
+  beeper_play_tone(147, 1000);
+  beeper_play_tone(164, 1000);
+  beeper_play_tone(247, 500);
+  beeper_play_tone(220, 500);
+  beeper_play_tone(139, 1000);
+  beeper_play_tone(165, 1000);
+  beeper_play_tone(220, 3000);
+
+  for (uint8_t i = 0; i < 5; i++) {
+    beeper_wait_duration(2000);
+  }
+
+
+
+  beeper_set_freq_multiplier(6);
+  beeper_set_duration_divisor(4);
+
+  beeper_play_tone(262, 500);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(294, 1000);
+  beeper_play_tone(262, 1000);
+  beeper_play_tone(349, 1000);
+  beeper_play_tone(330, 2000);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(294, 1000);
+
+  beeper_play_tone(262, 1000);
+  beeper_play_tone(392, 1000);
+  beeper_play_tone(349, 2000);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(262, 500);
+  beeper_play_tone(523, 1000);
+  beeper_play_tone(440, 1000);
+  beeper_play_tone(349, 1000);
+  beeper_play_tone(330, 1000);
+
+  beeper_play_tone(294, 2000);
+  beeper_play_tone(466, 500);
+  beeper_play_tone(466, 500);
+  beeper_play_tone(440, 1000);
+  beeper_play_tone(349, 1000);
+  beeper_play_tone(392, 1000);
+  beeper_play_tone(349, 2000);
+
+  for (uint8_t i = 0; i < 5; i++) {
+    beeper_wait_duration(2000);
+  }
+
 }
 
 void main(void) {

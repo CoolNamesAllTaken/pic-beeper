@@ -1,16 +1,16 @@
 #include "beeper.h"
 
-#define HAPPY_BIRTHDAY // song selection
-#include "song.h"
-
 #define MSEC_TO_SEC 1000
 #define MSEC_TO_PR2_COUNTS 125 // prescaler*postscaler=16, 0.5us clock ticks
-#define MSEC_TO_LFINTOSC_CLOCK_TICKS 31
+#define MSEC_TO_TEMP_SENSE_OSC_CLOCK_TICKS 16 // 16kHz temp sense clock
 #define TMR2_PRESCALER 4
 #define TMR2_POSTSCALER 4
 #define TMR1_PRESCALER 8
 
-static uint8_t note_index = 0;
+static uint8_t duration_divisor = 6;
+static uint8_t freq_multiplier = 6; // must be even because music things
+
+static char playing_note = 0;
 
 void init_beeper() {
   // set pin 5 (RA2) as digital output
@@ -26,26 +26,56 @@ void init_beeper() {
   PIE1 |= (0b1 << 1); // enable TMR2 interrupt
   
   // configure TMR1 (note duration timer)
-  T1CON |= (0b11 << 6); // use LFINTOSC
+  T1CON |= (0b11 << 6); // use TEMP_SENSE_OSC
   T1CON |= (0b11 << 4); // prescaler=8
   PIE1 |= (0b1); // enable TMR1 interrupt
   
   // configure interrupts
   INTCON |= (0b11 << 6); // enable global and peripheral interrupts
-  
-  T1CONbits.TMR1ON = 1; // turn on timer 1 (note duration timer)
 }
 
-void beeper_set_freq_hz(uint16_t freq) {
+/**
+ * Plays a specified note for a specified time interval.
+ * @param freq - Frequency of note in Hz
+ * @param duration - Duration of note in msec, up to 2000 msec allowed
+ */
+void beeper_play_tone(uint16_t freq, uint16_t duration) {
+  beeper_set_freq_hz(freq);
+  beeper_on();
+  beeper_wait_duration(duration);
+  beeper_off();
+}
+
+void beeper_wait_duration(uint16_t duration) {
+  duration /= duration_divisor;
+  uint16_t note_dur_clock_ticks = duration * MSEC_TO_TEMP_SENSE_OSC_CLOCK_TICKS / TMR1_PRESCALER;
+  note_dur_clock_ticks = 65535 - note_dur_clock_ticks; // timer interrupts on overflow
+  TMR1H = note_dur_clock_ticks >> 8;
+  TMR1L = note_dur_clock_ticks & 0x00FF;
+  playing_note = 1;
+  T1CONbits.TMR1ON = 1; // turn on timer 1
+  while (playing_note) {/* wait for interrupt to fire and clear playing_note */}
+}
+
+void beeper_set_freq_multiplier(uint8_t freq_multiplier_in) {
+  freq_multiplier = freq_multiplier_in;
+}
+
+void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
+  duration_divisor = duration_divisor_in;
+}
+
+static void beeper_set_freq_hz(uint16_t freq) {
+  freq *= freq_multiplier;
   // set PR2 to half-period
   PR2 = ((uint16_t)MSEC_TO_PR2_COUNTS / 2 * 1000 / freq) - 2;
 }
 
-void beeper_on() {
+static void beeper_on() {
   T2CONbits.TMR2ON = 1; // turn on TMR2
 }
 
-void beeper_off() {
+static void beeper_off() {
   T2CONbits.TMR2ON = 0; // turn off TMR2
 }
 
@@ -59,15 +89,7 @@ void __interrupt() ISR(void) {
   if (PIR1bits.TMR1IF) {
     // interrupt caused by TMR1
     PIR1bits.TMR1IF = 0; // clear flag
-    uint8_t curr_note_num = note_index % 2 ? 
-      /* odd: top 4 bits */ (note_num[note_index/2]) >> 4: 
-      /* even: bottom 4 bits */(note_num[note_index/2]) & 0xF;
-    beeper_set_freq_hz(note_num_to_freq_hz[curr_note_num] + NOTE_FREQ_OFFSET);
-    uint16_t note_dur_clock_ticks = note_dur[note_index] * NOTE_DUR_TO_MSEC / TMR1_PRESCALER * MSEC_TO_LFINTOSC_CLOCK_TICKS;
-    note_dur_clock_ticks = 65535 - note_dur_clock_ticks; // time is overflow time
-    TMR1H = note_dur_clock_ticks >> 8;
-    TMR1L = note_dur_clock_ticks & 0x00FF;
-    
-    note_index++;
+    playing_note = 0;
+    T1CONbits.TMR1ON = 0; // turn off timer 1
   }
 }
