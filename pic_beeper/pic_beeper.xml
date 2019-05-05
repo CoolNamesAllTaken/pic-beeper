@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper\pic_beeper.sch</source>
+    <date>5/5/2019 2:35:46 AM</date>
+    <tool>Eeschema (5.0.2)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>pic_beeper.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="U1">
+      <value>PIC12F752-IP</value>
+      <footprint>Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/41576B.pdf</datasheet>
+      <libsource lib="MCU_Microchip_PIC12" part="PIC12F752-IP" description="1024W Flash, 64B SRAM, PDIP8"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CCD1DAD</tstamp>
+    </comp>
+    <comp ref="BZ1">
+      <value>Buzzer</value>
+      <footprint>Buzzer_Beeper:MagneticBuzzer_CUI_CST-931RP-A</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Buzzer" description="Buzzer, polarized"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CCD2050</tstamp>
+    </comp>
+    <comp ref="BT1">
+      <value>CR2032</value>
+      <footprint>lib_fp:BatteryHolder_Q&amp;J-CR2032-BS-6-1</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Battery" description="Multiple-cell battery"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CCD23F4</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CCD2572</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>SW_SPDT</value>
+      <footprint>lib_fp:SW_SPDT_SSAL220100</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Switch" part="SW_SPDT" description="Switch, single pole double throw"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CCE5A60</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>Conn_01x06</value>
+      <footprint>lib_fp:PIC_ICSP_Pads_01x06</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_01x06" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CCE96B9</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_3.5mm_Pad_Via</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CCEF912</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector_Generic" part="Conn_01x06">
+      <description>Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x06</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Battery">
+      <description>Multiple-cell battery</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">BT</field>
+        <field name="Value">Battery</field>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Buzzer">
+      <description>Buzzer, polarized</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>*Buzzer*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">BZ</field>
+        <field name="Value">Buzzer</field>
+      </fields>
+      <pins>
+        <pin num="1" name="-" type="passive"/>
+        <pin num="2" name="+" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MCU_Microchip_PIC12" part="PIC12F752-IP">
+      <aliases>
+        <alias>PIC12F752-ISN</alias>
+        <alias>PIC12F752-IMC</alias>
+      </aliases>
+      <description>1024W Flash, 64B SRAM, PDIP8</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/41576B.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">PIC12F752-IP</field>
+        <field name="Footprint">Package_DIP:DIP-8_W7.62mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VDD" type="power_in"/>
+        <pin num="2" name="GP5" type="BiDi"/>
+        <pin num="3" name="GP4" type="BiDi"/>
+        <pin num="4" name="GP3" type="input"/>
+        <pin num="5" name="GP2" type="BiDi"/>
+        <pin num="6" name="GP1" type="BiDi"/>
+        <pin num="7" name="GP0" type="BiDi"/>
+        <pin num="8" name="VSS" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole_Pad">
+      <description>Mounting Hole with connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*Pad*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole_Pad</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Switch" part="SW_SPDT">
+      <description>Switch, single pole double throw</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_SPDT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector_Generic">
+      <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Connector_Generic.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Device.lib</uri>
+    </library>
+    <library logical="MCU_Microchip_PIC12">
+      <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/MCU_Microchip_PIC12.lib</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Mechanical.lib</uri>
+    </library>
+    <library logical="Switch">
+      <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Switch.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/VPP">
+      <node ref="J1" pin="1"/>
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="2" name="/ICSPDAT">
+      <node ref="J1" pin="4"/>
+      <node ref="U1" pin="7"/>
+    </net>
+    <net code="3" name="+BATT">
+      <node ref="J1" pin="2"/>
+      <node ref="C1" pin="1"/>
+      <node ref="U1" pin="1"/>
+      <node ref="SW1" pin="1"/>
+    </net>
+    <net code="4" name="-BATT">
+      <node ref="BZ1" pin="2"/>
+      <node ref="BT1" pin="2"/>
+      <node ref="U1" pin="8"/>
+      <node ref="C1" pin="2"/>
+      <node ref="H1" pin="1"/>
+      <node ref="J1" pin="3"/>
+    </net>
+    <net code="5" name="Net-(U1-Pad2)">
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="6" name="/ICSPCLK">
+      <node ref="J1" pin="5"/>
+      <node ref="U1" pin="6"/>
+    </net>
+    <net code="7" name="/BUZZER">
+      <node ref="BZ1" pin="1"/>
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="8" name="Net-(J1-Pad6)">
+      <node ref="J1" pin="6"/>
+    </net>
+    <net code="9" name="Net-(U1-Pad4)">
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="10" name="Net-(SW1-Pad3)">
+      <node ref="SW1" pin="3"/>
+    </net>
+    <net code="11" name="Net-(BT1-Pad1)">
+      <node ref="SW1" pin="2"/>
+      <node ref="BT1" pin="1"/>
+    </net>
+  </nets>
+</export>
