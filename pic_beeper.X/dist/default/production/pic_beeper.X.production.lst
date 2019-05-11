@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Sat May 11 00:08:39 2019
+                                                                                               Sat May 11 02:22:27 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	12F752
@@ -244,10 +244,10 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    230  0105                     _LATA	set	261
    231  0185                     _ANSELA	set	389
    232                           
-   233                           	psect	cinit
-   234  000B                     start_initialization:	
-   235                           ; #config settings
-   236                           
+   233                           ; #config settings
+   234  0000                     
+   235                           	psect	cinit
+   236  000B                     start_initialization:	
    237  000B                     __initialization:	
    238                           
    239                           ; Initialize objects allocated to COMMON
@@ -437,7 +437,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    423 ;;
    424 ;; *************** function _main *****************
    425 ;; Defined at:
-   426 ;;		line 86 in file "main.c"
+   426 ;;		line 102 in file "main.c"
    427 ;; Parameters:    Size  Location     Type
    428 ;;		None
    429 ;; Auto vars:     Size  Location     Type
@@ -469,16 +469,16 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    455                           ;psect for function _main
    456  0302                     _main:	
    457                           
-   458                           ;main.c: 87:   init();
+   458                           ;main.c: 103:   init();
    459                           
    460                           ;incstack = 0
    461                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    462  0302  22E6               	fcall	_init
    463  0303                     l32:	
-   464                           ;main.c: 88:   while(1) {
+   464                           ;main.c: 104:   while(1) {
    465                           
    466                           
-   467                           ;main.c: 89:     loop();
+   467                           ;main.c: 105:     loop();
    468  0303  2012               	fcall	_loop
    469  0304  2B03               	goto	l32
    470  0305                     __end_of_main:	
@@ -487,7 +487,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    473  0012                     __ptext1:	
    474 ;; *************** function _loop *****************
    475 ;; Defined at:
-   476 ;;		line 23 in file "main.c"
+   476 ;;		line 39 in file "main.c"
    477 ;; Parameters:    Size  Location     Type
    478 ;;		None
    479 ;; Auto vars:     Size  Location     Type
@@ -523,18 +523,18 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    509                           ;psect for function _loop
    510  0012                     _loop:	
    511                           
-   512                           ;main.c: 26:   beeper_set_freq_multiplier(8);
+   512                           ;main.c: 42:   beeper_set_freq_multiplier(8);
    513                           
    514                           ;incstack = 0
    515                           ; Regs used in _loop: [wreg+status,2+status,0+pclath+cstack]
    516  0012  3008               	movlw	8
    517  0013  22EE               	fcall	_beeper_set_freq_multiplier
    518                           
-   519                           ;main.c: 27:   beeper_set_duration_divisor(6);
+   519                           ;main.c: 43:   beeper_set_duration_divisor(6);
    520  0014  3006               	movlw	6
    521  0015  22F4               	fcall	_beeper_set_duration_divisor
    522                           
-   523                           ;main.c: 29:   beeper_play_tone(329, 500);
+   523                           ;main.c: 45:   beeper_play_tone(329, 500);
    524  0016  3049               	movlw	73
    525  0017  1283               	bcf	3,5	;RP0=0, select bank0
    526  0018  1303               	bcf	3,6	;RP1=0, select bank0
@@ -547,7 +547,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    533  001F  00C9               	movwf	beeper_play_tone@duration+1
    534  0020  22D5               	fcall	_beeper_play_tone
    535                           
-   536                           ;main.c: 30:   beeper_play_tone(294, 500);
+   536                           ;main.c: 46:   beeper_play_tone(294, 500);
    537  0021  3026               	movlw	38
    538  0022  1283               	bcf	3,5	;RP0=0, select bank0
    539  0023  1303               	bcf	3,6	;RP1=0, select bank0
@@ -560,7 +560,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    546  002A  00C9               	movwf	beeper_play_tone@duration+1
    547  002B  22D5               	fcall	_beeper_play_tone
    548                           
-   549                           ;main.c: 31:   beeper_play_tone(185, 1000);
+   549                           ;main.c: 47:   beeper_play_tone(185, 1000);
    550  002C  30B9               	movlw	185
    551  002D  1283               	bcf	3,5	;RP0=0, select bank0
    552  002E  1303               	bcf	3,6	;RP1=0, select bank0
@@ -573,7 +573,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    559  0035  00C9               	movwf	beeper_play_tone@duration+1
    560  0036  22D5               	fcall	_beeper_play_tone
    561                           
-   562                           ;main.c: 32:   beeper_play_tone(207, 1000);
+   562                           ;main.c: 48:   beeper_play_tone(207, 1000);
    563  0037  30CF               	movlw	207
    564  0038  1283               	bcf	3,5	;RP0=0, select bank0
    565  0039  1303               	bcf	3,6	;RP1=0, select bank0
@@ -586,7 +586,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    572  0040  00C9               	movwf	beeper_play_tone@duration+1
    573  0041  22D5               	fcall	_beeper_play_tone
    574                           
-   575                           ;main.c: 33:   beeper_play_tone(277, 500);
+   575                           ;main.c: 49:   beeper_play_tone(277, 500);
    576  0042  3015               	movlw	21
    577  0043  1283               	bcf	3,5	;RP0=0, select bank0
    578  0044  1303               	bcf	3,6	;RP1=0, select bank0
@@ -599,7 +599,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    585  004B  00C9               	movwf	beeper_play_tone@duration+1
    586  004C  22D5               	fcall	_beeper_play_tone
    587                           
-   588                           ;main.c: 34:   beeper_play_tone(247, 500);
+   588                           ;main.c: 50:   beeper_play_tone(247, 500);
    589  004D  30F7               	movlw	247
    590  004E  1283               	bcf	3,5	;RP0=0, select bank0
    591  004F  1303               	bcf	3,6	;RP1=0, select bank0
@@ -612,7 +612,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    598  0056  00C9               	movwf	beeper_play_tone@duration+1
    599  0057  22D5               	fcall	_beeper_play_tone
    600                           
-   601                           ;main.c: 35:   beeper_play_tone(147, 1000);
+   601                           ;main.c: 51:   beeper_play_tone(147, 1000);
    602  0058  3093               	movlw	147
    603  0059  1283               	bcf	3,5	;RP0=0, select bank0
    604  005A  1303               	bcf	3,6	;RP1=0, select bank0
@@ -625,7 +625,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    611  0061  00C9               	movwf	beeper_play_tone@duration+1
    612  0062  22D5               	fcall	_beeper_play_tone
    613                           
-   614                           ;main.c: 36:   beeper_play_tone(164, 1000);
+   614                           ;main.c: 52:   beeper_play_tone(164, 1000);
    615  0063  30A4               	movlw	164
    616  0064  1283               	bcf	3,5	;RP0=0, select bank0
    617  0065  1303               	bcf	3,6	;RP1=0, select bank0
@@ -638,7 +638,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    624  006C  00C9               	movwf	beeper_play_tone@duration+1
    625  006D  22D5               	fcall	_beeper_play_tone
    626                           
-   627                           ;main.c: 37:   beeper_play_tone(247, 500);
+   627                           ;main.c: 53:   beeper_play_tone(247, 500);
    628  006E  30F7               	movlw	247
    629  006F  1283               	bcf	3,5	;RP0=0, select bank0
    630  0070  1303               	bcf	3,6	;RP1=0, select bank0
@@ -651,7 +651,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    637  0077  00C9               	movwf	beeper_play_tone@duration+1
    638  0078  22D5               	fcall	_beeper_play_tone
    639                           
-   640                           ;main.c: 38:   beeper_play_tone(220, 500);
+   640                           ;main.c: 54:   beeper_play_tone(220, 500);
    641  0079  30DC               	movlw	220
    642  007A  1283               	bcf	3,5	;RP0=0, select bank0
    643  007B  1303               	bcf	3,6	;RP1=0, select bank0
@@ -664,7 +664,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    650  0082  00C9               	movwf	beeper_play_tone@duration+1
    651  0083  22D5               	fcall	_beeper_play_tone
    652                           
-   653                           ;main.c: 39:   beeper_play_tone(139, 1000);
+   653                           ;main.c: 55:   beeper_play_tone(139, 1000);
    654  0084  308B               	movlw	139
    655  0085  1283               	bcf	3,5	;RP0=0, select bank0
    656  0086  1303               	bcf	3,6	;RP1=0, select bank0
@@ -677,7 +677,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    663  008D  00C9               	movwf	beeper_play_tone@duration+1
    664  008E  22D5               	fcall	_beeper_play_tone
    665                           
-   666                           ;main.c: 40:   beeper_play_tone(165, 1000);
+   666                           ;main.c: 56:   beeper_play_tone(165, 1000);
    667  008F  30A5               	movlw	165
    668  0090  1283               	bcf	3,5	;RP0=0, select bank0
    669  0091  1303               	bcf	3,6	;RP1=0, select bank0
@@ -690,7 +690,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    676  0098  00C9               	movwf	beeper_play_tone@duration+1
    677  0099  22D5               	fcall	_beeper_play_tone
    678                           
-   679                           ;main.c: 41:   beeper_play_tone(220, 3000);
+   679                           ;main.c: 57:   beeper_play_tone(220, 3000);
    680  009A  30DC               	movlw	220
    681  009B  1283               	bcf	3,5	;RP0=0, select bank0
    682  009C  1303               	bcf	3,6	;RP1=0, select bank0
@@ -703,20 +703,20 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    689  00A3  00C9               	movwf	beeper_play_tone@duration+1
    690  00A4  22D5               	fcall	_beeper_play_tone
    691                           
-   692                           ;main.c: 43:   for (uint8_t i = 0; i < 5; i++) {
+   692                           ;main.c: 59:   for (uint8_t i = 0; i < 5; i++) {
    693  00A5  1283               	bcf	3,5	;RP0=0, select bank0
    694  00A6  1303               	bcf	3,6	;RP1=0, select bank0
    695  00A7  01CB               	clrf	loop@i
    696  00A8                     l905:	
    697                           
-   698                           ;main.c: 44:     beeper_wait_duration(2000);
+   698                           ;main.c: 60:     beeper_wait_duration(2000);
    699  00A8  30D0               	movlw	208
    700  00A9  00C0               	movwf	beeper_wait_duration@duration
    701  00AA  3007               	movlw	7
    702  00AB  00C1               	movwf	beeper_wait_duration@duration+1
    703  00AC  221D               	fcall	_beeper_wait_duration
    704                           
-   705                           ;main.c: 45:   }
+   705                           ;main.c: 61:   }
    706  00AD  3001               	movlw	1
    707  00AE  1283               	bcf	3,5	;RP0=0, select bank0
    708  00AF  1303               	bcf	3,6	;RP1=0, select bank0
@@ -728,15 +728,15 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    714  00B5  1C03               	skipc
    715  00B6  28A8               	goto	l905
    716                           
-   717                           ;main.c: 49:   beeper_set_freq_multiplier(6);
+   717                           ;main.c: 65:   beeper_set_freq_multiplier(6);
    718  00B7  3006               	movlw	6
    719  00B8  22EE               	fcall	_beeper_set_freq_multiplier
    720                           
-   721                           ;main.c: 50:   beeper_set_duration_divisor(4);
+   721                           ;main.c: 66:   beeper_set_duration_divisor(4);
    722  00B9  3004               	movlw	4
    723  00BA  22F4               	fcall	_beeper_set_duration_divisor
    724                           
-   725                           ;main.c: 52:   beeper_play_tone(262, 500);
+   725                           ;main.c: 68:   beeper_play_tone(262, 500);
    726  00BB  3006               	movlw	6
    727  00BC  1283               	bcf	3,5	;RP0=0, select bank0
    728  00BD  1303               	bcf	3,6	;RP1=0, select bank0
@@ -749,7 +749,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    735  00C4  00C9               	movwf	beeper_play_tone@duration+1
    736  00C5  22D5               	fcall	_beeper_play_tone
    737                           
-   738                           ;main.c: 53:   beeper_play_tone(262, 500);
+   738                           ;main.c: 69:   beeper_play_tone(262, 500);
    739  00C6  3006               	movlw	6
    740  00C7  1283               	bcf	3,5	;RP0=0, select bank0
    741  00C8  1303               	bcf	3,6	;RP1=0, select bank0
@@ -762,7 +762,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    748  00CF  00C9               	movwf	beeper_play_tone@duration+1
    749  00D0  22D5               	fcall	_beeper_play_tone
    750                           
-   751                           ;main.c: 54:   beeper_play_tone(294, 1000);
+   751                           ;main.c: 70:   beeper_play_tone(294, 1000);
    752  00D1  3026               	movlw	38
    753  00D2  1283               	bcf	3,5	;RP0=0, select bank0
    754  00D3  1303               	bcf	3,6	;RP1=0, select bank0
@@ -775,7 +775,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    761  00DA  00C9               	movwf	beeper_play_tone@duration+1
    762  00DB  22D5               	fcall	_beeper_play_tone
    763                           
-   764                           ;main.c: 55:   beeper_play_tone(262, 1000);
+   764                           ;main.c: 71:   beeper_play_tone(262, 1000);
    765  00DC  3006               	movlw	6
    766  00DD  1283               	bcf	3,5	;RP0=0, select bank0
    767  00DE  1303               	bcf	3,6	;RP1=0, select bank0
@@ -788,7 +788,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    774  00E5  00C9               	movwf	beeper_play_tone@duration+1
    775  00E6  22D5               	fcall	_beeper_play_tone
    776                           
-   777                           ;main.c: 56:   beeper_play_tone(349, 1000);
+   777                           ;main.c: 72:   beeper_play_tone(349, 1000);
    778  00E7  305D               	movlw	93
    779  00E8  1283               	bcf	3,5	;RP0=0, select bank0
    780  00E9  1303               	bcf	3,6	;RP1=0, select bank0
@@ -801,7 +801,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    787  00F0  00C9               	movwf	beeper_play_tone@duration+1
    788  00F1  22D5               	fcall	_beeper_play_tone
    789                           
-   790                           ;main.c: 57:   beeper_play_tone(330, 2000);
+   790                           ;main.c: 73:   beeper_play_tone(330, 2000);
    791  00F2  304A               	movlw	74
    792  00F3  1283               	bcf	3,5	;RP0=0, select bank0
    793  00F4  1303               	bcf	3,6	;RP1=0, select bank0
@@ -814,7 +814,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    800  00FB  00C9               	movwf	beeper_play_tone@duration+1
    801  00FC  22D5               	fcall	_beeper_play_tone
    802                           
-   803                           ;main.c: 58:   beeper_play_tone(262, 500);
+   803                           ;main.c: 74:   beeper_play_tone(262, 500);
    804  00FD  3006               	movlw	6
    805  00FE  1283               	bcf	3,5	;RP0=0, select bank0
    806  00FF  1303               	bcf	3,6	;RP1=0, select bank0
@@ -827,7 +827,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    813  0106  00C9               	movwf	beeper_play_tone@duration+1
    814  0107  22D5               	fcall	_beeper_play_tone
    815                           
-   816                           ;main.c: 59:   beeper_play_tone(262, 500);
+   816                           ;main.c: 75:   beeper_play_tone(262, 500);
    817  0108  3006               	movlw	6
    818  0109  1283               	bcf	3,5	;RP0=0, select bank0
    819  010A  1303               	bcf	3,6	;RP1=0, select bank0
@@ -840,7 +840,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    826  0111  00C9               	movwf	beeper_play_tone@duration+1
    827  0112  22D5               	fcall	_beeper_play_tone
    828                           
-   829                           ;main.c: 60:   beeper_play_tone(294, 1000);
+   829                           ;main.c: 76:   beeper_play_tone(294, 1000);
    830  0113  3026               	movlw	38
    831  0114  1283               	bcf	3,5	;RP0=0, select bank0
    832  0115  1303               	bcf	3,6	;RP1=0, select bank0
@@ -853,7 +853,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    839  011C  00C9               	movwf	beeper_play_tone@duration+1
    840  011D  22D5               	fcall	_beeper_play_tone
    841                           
-   842                           ;main.c: 62:   beeper_play_tone(262, 1000);
+   842                           ;main.c: 78:   beeper_play_tone(262, 1000);
    843  011E  3006               	movlw	6
    844  011F  1283               	bcf	3,5	;RP0=0, select bank0
    845  0120  1303               	bcf	3,6	;RP1=0, select bank0
@@ -866,7 +866,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    852  0127  00C9               	movwf	beeper_play_tone@duration+1
    853  0128  22D5               	fcall	_beeper_play_tone
    854                           
-   855                           ;main.c: 63:   beeper_play_tone(392, 1000);
+   855                           ;main.c: 79:   beeper_play_tone(392, 1000);
    856  0129  3088               	movlw	136
    857  012A  1283               	bcf	3,5	;RP0=0, select bank0
    858  012B  1303               	bcf	3,6	;RP1=0, select bank0
@@ -879,7 +879,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    865  0132  00C9               	movwf	beeper_play_tone@duration+1
    866  0133  22D5               	fcall	_beeper_play_tone
    867                           
-   868                           ;main.c: 64:   beeper_play_tone(349, 2000);
+   868                           ;main.c: 80:   beeper_play_tone(349, 2000);
    869  0134  305D               	movlw	93
    870  0135  1283               	bcf	3,5	;RP0=0, select bank0
    871  0136  1303               	bcf	3,6	;RP1=0, select bank0
@@ -892,7 +892,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    878  013D  00C9               	movwf	beeper_play_tone@duration+1
    879  013E  22D5               	fcall	_beeper_play_tone
    880                           
-   881                           ;main.c: 65:   beeper_play_tone(262, 500);
+   881                           ;main.c: 81:   beeper_play_tone(262, 500);
    882  013F  3006               	movlw	6
    883  0140  1283               	bcf	3,5	;RP0=0, select bank0
    884  0141  1303               	bcf	3,6	;RP1=0, select bank0
@@ -905,7 +905,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    891  0148  00C9               	movwf	beeper_play_tone@duration+1
    892  0149  22D5               	fcall	_beeper_play_tone
    893                           
-   894                           ;main.c: 66:   beeper_play_tone(262, 500);
+   894                           ;main.c: 82:   beeper_play_tone(262, 500);
    895  014A  3006               	movlw	6
    896  014B  1283               	bcf	3,5	;RP0=0, select bank0
    897  014C  1303               	bcf	3,6	;RP1=0, select bank0
@@ -918,7 +918,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    904  0153  00C9               	movwf	beeper_play_tone@duration+1
    905  0154  22D5               	fcall	_beeper_play_tone
    906                           
-   907                           ;main.c: 67:   beeper_play_tone(523, 1000);
+   907                           ;main.c: 83:   beeper_play_tone(523, 1000);
    908  0155  300B               	movlw	11
    909  0156  1283               	bcf	3,5	;RP0=0, select bank0
    910  0157  1303               	bcf	3,6	;RP1=0, select bank0
@@ -931,7 +931,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    917  015E  00C9               	movwf	beeper_play_tone@duration+1
    918  015F  22D5               	fcall	_beeper_play_tone
    919                           
-   920                           ;main.c: 68:   beeper_play_tone(440, 1000);
+   920                           ;main.c: 84:   beeper_play_tone(440, 1000);
    921  0160  30B8               	movlw	184
    922  0161  1283               	bcf	3,5	;RP0=0, select bank0
    923  0162  1303               	bcf	3,6	;RP1=0, select bank0
@@ -944,7 +944,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    930  0169  00C9               	movwf	beeper_play_tone@duration+1
    931  016A  22D5               	fcall	_beeper_play_tone
    932                           
-   933                           ;main.c: 69:   beeper_play_tone(349, 1000);
+   933                           ;main.c: 85:   beeper_play_tone(349, 1000);
    934  016B  305D               	movlw	93
    935  016C  1283               	bcf	3,5	;RP0=0, select bank0
    936  016D  1303               	bcf	3,6	;RP1=0, select bank0
@@ -957,7 +957,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    943  0174  00C9               	movwf	beeper_play_tone@duration+1
    944  0175  22D5               	fcall	_beeper_play_tone
    945                           
-   946                           ;main.c: 70:   beeper_play_tone(330, 1000);
+   946                           ;main.c: 86:   beeper_play_tone(330, 1000);
    947  0176  304A               	movlw	74
    948  0177  1283               	bcf	3,5	;RP0=0, select bank0
    949  0178  1303               	bcf	3,6	;RP1=0, select bank0
@@ -970,7 +970,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    956  017F  00C9               	movwf	beeper_play_tone@duration+1
    957  0180  22D5               	fcall	_beeper_play_tone
    958                           
-   959                           ;main.c: 72:   beeper_play_tone(294, 2000);
+   959                           ;main.c: 88:   beeper_play_tone(294, 2000);
    960  0181  3026               	movlw	38
    961  0182  1283               	bcf	3,5	;RP0=0, select bank0
    962  0183  1303               	bcf	3,6	;RP1=0, select bank0
@@ -983,7 +983,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    969  018A  00C9               	movwf	beeper_play_tone@duration+1
    970  018B  22D5               	fcall	_beeper_play_tone
    971                           
-   972                           ;main.c: 73:   beeper_play_tone(466, 500);
+   972                           ;main.c: 89:   beeper_play_tone(466, 500);
    973  018C  30D2               	movlw	210
    974  018D  1283               	bcf	3,5	;RP0=0, select bank0
    975  018E  1303               	bcf	3,6	;RP1=0, select bank0
@@ -996,7 +996,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    982  0195  00C9               	movwf	beeper_play_tone@duration+1
    983  0196  22D5               	fcall	_beeper_play_tone
    984                           
-   985                           ;main.c: 74:   beeper_play_tone(466, 500);
+   985                           ;main.c: 90:   beeper_play_tone(466, 500);
    986  0197  30D2               	movlw	210
    987  0198  1283               	bcf	3,5	;RP0=0, select bank0
    988  0199  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1009,7 +1009,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    995  01A0  00C9               	movwf	beeper_play_tone@duration+1
    996  01A1  22D5               	fcall	_beeper_play_tone
    997                           
-   998                           ;main.c: 75:   beeper_play_tone(440, 1000);
+   998                           ;main.c: 91:   beeper_play_tone(440, 1000);
    999  01A2  30B8               	movlw	184
   1000  01A3  1283               	bcf	3,5	;RP0=0, select bank0
   1001  01A4  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1022,7 +1022,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1008  01AB  00C9               	movwf	beeper_play_tone@duration+1
   1009  01AC  22D5               	fcall	_beeper_play_tone
   1010                           
-  1011                           ;main.c: 76:   beeper_play_tone(349, 1000);
+  1011                           ;main.c: 92:   beeper_play_tone(349, 1000);
   1012  01AD  305D               	movlw	93
   1013  01AE  1283               	bcf	3,5	;RP0=0, select bank0
   1014  01AF  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1035,7 +1035,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1021  01B6  00C9               	movwf	beeper_play_tone@duration+1
   1022  01B7  22D5               	fcall	_beeper_play_tone
   1023                           
-  1024                           ;main.c: 77:   beeper_play_tone(392, 1000);
+  1024                           ;main.c: 93:   beeper_play_tone(392, 1000);
   1025  01B8  3088               	movlw	136
   1026  01B9  1283               	bcf	3,5	;RP0=0, select bank0
   1027  01BA  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1048,7 +1048,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1034  01C1  00C9               	movwf	beeper_play_tone@duration+1
   1035  01C2  22D5               	fcall	_beeper_play_tone
   1036                           
-  1037                           ;main.c: 78:   beeper_play_tone(349, 2000);
+  1037                           ;main.c: 94:   beeper_play_tone(349, 2000);
   1038  01C3  305D               	movlw	93
   1039  01C4  1283               	bcf	3,5	;RP0=0, select bank0
   1040  01C5  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1061,20 +1061,20 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1047  01CC  00C9               	movwf	beeper_play_tone@duration+1
   1048  01CD  22D5               	fcall	_beeper_play_tone
   1049                           
-  1050                           ;main.c: 80:   for (uint8_t i = 0; i < 5; i++) {
+  1050                           ;main.c: 96:   for (uint8_t i = 0; i < 5; i++) {
   1051  01CE  1283               	bcf	3,5	;RP0=0, select bank0
   1052  01CF  1303               	bcf	3,6	;RP1=0, select bank0
   1053  01D0  01CC               	clrf	loop@i_80
   1054  01D1                     l919:	
   1055                           
-  1056                           ;main.c: 81:     beeper_wait_duration(2000);
+  1056                           ;main.c: 97:     beeper_wait_duration(2000);
   1057  01D1  30D0               	movlw	208
   1058  01D2  00C0               	movwf	beeper_wait_duration@duration
   1059  01D3  3007               	movlw	7
   1060  01D4  00C1               	movwf	beeper_wait_duration@duration+1
   1061  01D5  221D               	fcall	_beeper_wait_duration
   1062                           
-  1063                           ;main.c: 82:   }
+  1063                           ;main.c: 98:   }
   1064  01D6  3001               	movlw	1
   1065  01D7  1283               	bcf	3,5	;RP0=0, select bank0
   1066  01D8  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1724,7 +1724,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1710  02E6                     __ptext11:	
   1711 ;; *************** function _init *****************
   1712 ;; Defined at:
-  1713 ;;		line 15 in file "main.c"
+  1713 ;;		line 31 in file "main.c"
   1714 ;; Parameters:    Size  Location     Type
   1715 ;;		None
   1716 ;; Auto vars:     Size  Location     Type
@@ -1756,7 +1756,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1742                           ;psect for function _init
   1743  02E6                     _init:	
   1744                           
-  1745                           ;main.c: 17:   OSCCON = 0b00110000;
+  1745                           ;main.c: 33:   OSCCON = 0b00110000;
   1746                           
   1747                           ;incstack = 0
   1748                           ; Regs used in _init: [wreg+status,2+status,0+pclath+cstack]
@@ -1765,12 +1765,12 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1751  02E8  1303               	bcf	3,6	;RP1=0, select bank1
   1752  02E9  008F               	movwf	15	;volatile
   1753  02EA                     l17:	
-  1754                           ;main.c: 18:   while (!OSCCONbits.HTS) {}
+  1754                           ;main.c: 34:   while (!OSCCONbits.HTS) {}
   1755                           
   1756  02EA  1D0F               	btfss	15,2	;volatile
   1757  02EB  2AEA               	goto	l17
   1758                           
-  1759                           ;main.c: 20:   init_beeper();
+  1759                           ;main.c: 36:   init_beeper();
   1760  02EC  224B               	fcall	_init_beeper
   1761  02ED  0008               	return
   1762  02EE                     __end_of_init:	
@@ -2117,84 +2117,88 @@ STACK                0      0       0       2        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Sat May 11 00:08:39 2019
+Symbol Table                                                                                   Sat May 11 02:22:27 2019
 
-                                            l32 0303                                              l17 02EA  
-                           ___wmul@multiplicand 0074                                             l115 029E  
-                                           l905 00A8                                             l781 01E9  
-                                           l783 01F7                                             l759 0296  
-                                           l919 01D1                                             l793 0218  
-                                           l789 020D                                             l887 0247  
-                                           u215 029F                                             u225 02A6  
-                                           _PR2 0111                                             u255 01EC  
-                                           u275 01F8                                             _ISR 02B5  
-                                           u285 0204                                             u295 020E  
-                                          ?_ISR 0070                                            _LATA 0105  
-                                          _PIE1 008C                                            _main 0302  
+                                   __CFG_CP$OFF 0000                                              l32 0303  
+                                            l17 02EA                             ___wmul@multiplicand 0074  
+                                           l115 029E                                             l905 00A8  
+                                           l781 01E9                                             l783 01F7  
+                                           l759 0296                                             l919 01D1  
+                                           l793 0218                                             l789 020D  
+                                           l887 0247                                             u215 029F  
+                                           u225 02A6                                             _PR2 0111  
+                                           u255 01EC                                             u275 01F8  
+                                           _ISR 02B5                                             u285 0204  
+                                           u295 020E                                            ?_ISR 0070  
+                                          _LATA 0105                                            _PIE1 008C  
+                                  __CFG_WRT$OFF 0000                                            _main 0302  
                                           _init 02E6                                            _loop 0012  
-                                          btemp 007E                                            start 000A  
+                                          btemp 007E                                   __CFG_BOREN$EN 0000  
+                                          start 000A                                   __CFG_MCLRE$ON 0000  
                                          ??_ISR 0070                                           ?_main 0070  
                                          ?_init 0070                                    ?_init_beeper 0070  
-                                         ?_loop 0070                                           _T1CON 0011  
-                                         _T2CON 0112                                 __end_of___lwdiv 021D  
-                                         i1l111 02CE                                           i1l865 02C8  
-                                         _TMR1H 0010                                           _TMR1L 000F  
-                                         u35_20 02C5                                           _TRISA 0085  
-                                         pclath 000A                                           loop@i 004B  
-                                         status 0003                                           wtemp0 007E  
+                                         ?_loop 0070                                   __CFG_WDTE$OFF 0000  
+                                         _T1CON 0011                                           _T2CON 0112  
+                               __end_of___lwdiv 021D                                           i1l111 02CE  
+                                         i1l865 02C8                                           _TMR1H 0010  
+                                         _TMR1L 000F                                           u35_20 02C5  
+                                         _TRISA 0085                                           pclath 000A  
+                                         loop@i 004B                                           status 0003  
+                                         wtemp0 007E                                  __CFG_FOSC0$INT 0000  
                                __initialization 000B                                    __end_of_main 0305  
                                   __end_of_init 02EE                                    __end_of_loop 01E1  
                                         ??_main 007A                                          ??_init 0073  
                                         ??_loop 004A                    __end_of_beeper_wait_duration 024B  
                                         _ANSELA 0185                                          _INTCON 000B  
                                         _OSCCON 008F                        beeper_play_tone@duration 0048  
-                   __size_of_beeper_set_freq_hz 0023             __end_of_beeper_set_duration_divisor 02FA  
-                   _beeper_set_duration_divisor 02F4                               ?_beeper_play_tone 0046  
-                                        ___wmul 0294                                       ??___lwdiv 0076  
-                            ??_beeper_play_tone 007A                   ??_beeper_set_duration_divisor 0072  
-                                  __pdataCOMMON 007A                                          saved_w 007E  
-                        beeper_set_freq_hz@freq 0040                         __end_of__initialization 0010  
-                                __pcstackCOMMON 0070                              __size_of_beeper_on 0004  
-                          __size_of_init_beeper 0026                                      _beeper_off 02FE  
-                                    __pbssBANK0 004D        beeper_wait_duration@note_dur_clock_ticks 0044  
-                              _duration_divisor 007B                            _beeper_wait_duration 021D  
-                                    __pmaintext 0302                                         ?___wmul 0072  
-                                    __pintentry 0004                               __end_of_beeper_on 02FE  
-                         ?_beeper_wait_duration 0040                                 __size_of___wmul 0021  
-                                       ___lwdiv 01E1                                         __ptext1 0012  
-                                       __ptext2 02EE                                         __ptext3 02F4  
-                                       __ptext4 02D5                                         __ptext5 021D  
-                                       __ptext6 0271                                         __ptext7 0294  
-                                       __ptext8 01E1                                         __ptext9 02FA  
-                                  __size_of_ISR 0020                                       _T1CONbits 0011  
-                                     _T2CONbits 0112                                     ?_beeper_off 0070  
-                          end_of_initialization 0010             __size_of_beeper_set_freq_multiplier 0006  
-                     __size_of_beeper_play_tone 0011                      __end_of_beeper_set_freq_hz 0294  
-                        ??_beeper_wait_duration 0042                             __size_of_beeper_off 0004  
-                                __end_of___wmul 02B5                                   __pidataCOMMON 0305  
-                           start_initialization 000B                                     __end_of_ISR 02D5  
-                                      ??___wmul 0076  beeper_set_duration_divisor@duration_divisor_in 0073  
-                                 ??_init_beeper 0072              __end_of_beeper_set_freq_multiplier 02F4  
-                    _beeper_set_freq_multiplier 02EE                                       ___latbits 0000  
-                                 __pcstackBANK0 0040                    beeper_wait_duration@duration 0040  
-                                     _beeper_on 02FA                                ___lwdiv@dividend 0074  
-                                      ?___lwdiv 0072                                 _freq_multiplier 007A  
-                              _beeper_play_tone 02D5                             __end_of_init_beeper 0271  
-                              ___lwdiv@quotient 0077                                    ??_beeper_off 0072  
-                             interrupt_function 0004                                  ___wmul@product 0076  
-                                    ?_beeper_on 0070                                        _LATAbits 0105  
-                                      _PIR1bits 000C                    ?_beeper_set_duration_divisor 0070  
-                            __end_of_beeper_off 0302                               ___wmul@multiplier 0072  
-                            _beeper_set_freq_hz 0271                                __size_of___lwdiv 003C  
-  beeper_set_freq_multiplier@freq_multiplier_in 0073                                     _init_beeper 024B  
-                           ?_beeper_set_freq_hz 0040                                    _playing_note 004D  
-                               ___lwdiv@divisor 0072                    ??_beeper_set_freq_multiplier 0072  
-                               ___lwdiv@counter 0079                                        __ptext10 02FE  
-                                      __ptext11 02E6                                        __ptext12 024B  
-                                      __ptext13 02B5                                     ??_beeper_on 0072  
-                                 __size_of_main 0003                                   __size_of_init 0008  
-                                 __size_of_loop 01CF                            ??_beeper_set_freq_hz 0042  
-                 __size_of_beeper_wait_duration 002E                            beeper_play_tone@freq 0046  
-                   ?_beeper_set_freq_multiplier 0070            __size_of_beeper_set_duration_divisor 0006  
-                                      loop@i_80 004C                                        intlevel1 0000  
+                                __CFG_PWRTE$OFF 0000                     __size_of_beeper_set_freq_hz 0023  
+           __end_of_beeper_set_duration_divisor 02FA                     _beeper_set_duration_divisor 02F4  
+                             ?_beeper_play_tone 0046                                          ___wmul 0294  
+                                     ??___lwdiv 0076                              ??_beeper_play_tone 007A  
+                 ??_beeper_set_duration_divisor 0072                                    __pdataCOMMON 007A  
+                                        saved_w 007E                          beeper_set_freq_hz@freq 0040  
+                       __end_of__initialization 0010                                  __pcstackCOMMON 0070  
+                            __size_of_beeper_on 0004                            __size_of_init_beeper 0026  
+                                    _beeper_off 02FE                                      __pbssBANK0 004D  
+      beeper_wait_duration@note_dur_clock_ticks 0044                                _duration_divisor 007B  
+                          _beeper_wait_duration 021D                                      __pmaintext 0302  
+                                       ?___wmul 0072                                      __pintentry 0004  
+                             __end_of_beeper_on 02FE                           ?_beeper_wait_duration 0040  
+                               __size_of___wmul 0021                                         ___lwdiv 01E1  
+                                       __ptext1 0012                                         __ptext2 02EE  
+                                       __ptext3 02F4                                         __ptext4 02D5  
+                                       __ptext5 021D                                         __ptext6 0271  
+                                       __ptext7 0294                                         __ptext8 01E1  
+                                       __ptext9 02FA                                    __size_of_ISR 0020  
+                                     _T1CONbits 0011                                       _T2CONbits 0112  
+                                   ?_beeper_off 0070                            end_of_initialization 0010  
+           __size_of_beeper_set_freq_multiplier 0006                       __size_of_beeper_play_tone 0011  
+                    __end_of_beeper_set_freq_hz 0294                          ??_beeper_wait_duration 0042  
+                           __size_of_beeper_off 0004                                  __end_of___wmul 02B5  
+                                 __pidataCOMMON 0305                             start_initialization 000B  
+                                   __end_of_ISR 02D5                                        ??___wmul 0076  
+beeper_set_duration_divisor@duration_divisor_in 0073                                   ??_init_beeper 0072  
+            __end_of_beeper_set_freq_multiplier 02F4                      _beeper_set_freq_multiplier 02EE  
+                                     ___latbits 0000                                   __pcstackBANK0 0040  
+                  beeper_wait_duration@duration 0040                                       _beeper_on 02FA  
+                              ___lwdiv@dividend 0074                                        ?___lwdiv 0072  
+                               _freq_multiplier 007A                                _beeper_play_tone 02D5  
+                           __end_of_init_beeper 0271                                ___lwdiv@quotient 0077  
+                                  ??_beeper_off 0072                               interrupt_function 0004  
+                                ___wmul@product 0076                                      ?_beeper_on 0070  
+                                      _LATAbits 0105                                        _PIR1bits 000C  
+                  ?_beeper_set_duration_divisor 0070                              __end_of_beeper_off 0302  
+                             ___wmul@multiplier 0072                              _beeper_set_freq_hz 0271  
+                              __size_of___lwdiv 003C    beeper_set_freq_multiplier@freq_multiplier_in 0073  
+                                   _init_beeper 024B                             ?_beeper_set_freq_hz 0040  
+                                  _playing_note 004D                                 ___lwdiv@divisor 0072  
+                  ??_beeper_set_freq_multiplier 0072                                 ___lwdiv@counter 0079  
+                                      __ptext10 02FE                                        __ptext11 02E6  
+                                      __ptext12 024B                                        __ptext13 02B5  
+                                   ??_beeper_on 0072                                   __size_of_main 0003  
+                                 __size_of_init 0008                                   __size_of_loop 01CF  
+                          ??_beeper_set_freq_hz 0042                   __size_of_beeper_wait_duration 002E  
+                          beeper_play_tone@freq 0046                     ?_beeper_set_freq_multiplier 0070  
+          __size_of_beeper_set_duration_divisor 0006                                        loop@i_80 004C  
+                                      intlevel1 0000                               __CFG_CLKOUTEN$OFF 0000  
                                     _OSCCONbits 008F                        __end_of_beeper_play_tone 02E6  
