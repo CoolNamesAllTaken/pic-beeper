@@ -1,38 +1,38 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1076 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1076: extern volatile unsigned char OSCCON __attribute__((address(0x08F)));
-[v _OSCCON `Vuc ~T0 @X0 0 e@143 ]
-"1082
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1082:     struct {
-[s S45 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
-[n S45 . . LTS HTS . IRCF ]
-"1089
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1089:     struct {
-[s S46 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S46 . . IRCF0 IRCF1 ]
-"1081
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1081: typedef union {
-[u S44 `S45 1 `S46 1 ]
-[n S44 . . . ]
-"1095
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1095: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0x08F)));
-[v _OSCCONbits `VS44 ~T0 @X0 0 e@143 ]
-"14 ./beeper.h
-[; ;./beeper.h: 14: void init_beeper(void);
-[v _init_beeper `(v ~T0 @X0 0 ef ]
-"18
-[; ;./beeper.h: 18: void beeper_set_freq_multiplier(uint8_t freq_multiplier_in);
-[v _beeper_set_freq_multiplier `(v ~T0 @X0 0 ef1`uc ]
-"19
-[; ;./beeper.h: 19: void beeper_set_duration_divisor(uint8_t duration_divisor_in);
-[v _beeper_set_duration_divisor `(v ~T0 @X0 0 ef1`uc ]
-"16
-[; ;./beeper.h: 16: void beeper_play_tone(uint16_t freq, uint16_t duration);
-[v _beeper_play_tone `(v ~T0 @X0 0 ef2`ui`ui ]
-"17
-[; ;./beeper.h: 17: void beeper_wait_duration(uint16_t duration);
-[v _beeper_wait_duration `(v ~T0 @X0 0 ef1`ui ]
 [p mainexit ]
+"2241 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2241:     struct {
+[s S106 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S106 . ANSA0 ANSA1 ANSA2 . ANSA4 ANSA5 ]
+"2240
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2240: typedef union {
+[u S105 `S106 1 ]
+[n S105 . . ]
+"2250
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2250: extern volatile ANSELAbits_t ANSELAbits __attribute__((address(0x185)));
+[v _ANSELAbits `VS105 ~T0 @X0 0 e@389 ]
+"897
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 897:     struct {
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 ]
+"896
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 896: typedef union {
+[u S36 `S37 1 ]
+[n S36 . . ]
+"906
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 906: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
+[v _TRISAbits `VS36 ~T0 @X0 0 e@133 ]
+"1768
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1768:     struct {
+[s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S79 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"1767
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1767: typedef union {
+[u S78 `S79 1 ]
+[n S78 . . ]
+"1777
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1777: extern volatile LATAbits_t LATAbits __attribute__((address(0x105)));
+[v _LATAbits `VS78 ~T0 @X0 0 e@261 ]
 "13 main.c
 [p x FOSC0 = INT ]
 "14
@@ -268,232 +268,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2863
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2863: __asm("COG1ASD equ 0197h");
 [; <" COG1ASD equ 0197h ;# ">
-"31 main.c
-[; ;main.c: 31: void init(void) {
-[v _init `(v ~T0 @X0 1 ef ]
-{
-[e :U _init ]
-[f ]
-"33
-[; ;main.c: 33:   OSCCON = 0b00110000;
-[e = _OSCCON -> -> 48 `i `uc ]
-"34
-[; ;main.c: 34:   while (!OSCCONbits.HTS) {}
-[e $U 142  ]
-[e :U 143 ]
-{
-}
-[e :U 142 ]
-[e $ ! != -> . . _OSCCONbits 0 2 `i -> 0 `i 143  ]
-[e :U 144 ]
-"36
-[; ;main.c: 36:   init_beeper();
-[e ( _init_beeper ..  ]
-"37
-[; ;main.c: 37: }
-[e :UE 141 ]
-}
-"39
-[; ;main.c: 39: void loop(void) {
-[v _loop `(v ~T0 @X0 1 ef ]
-{
-[e :U _loop ]
-[f ]
-"42
-[; ;main.c: 42:   beeper_set_freq_multiplier(8);
-[e ( _beeper_set_freq_multiplier (1 -> -> 8 `i `uc ]
-"43
-[; ;main.c: 43:   beeper_set_duration_divisor(6);
-[e ( _beeper_set_duration_divisor (1 -> -> 6 `i `uc ]
-"45
-[; ;main.c: 45:   beeper_play_tone(329, 500);
-[e ( _beeper_play_tone (2 , -> -> 329 `i `ui -> -> 500 `i `ui ]
-"46
-[; ;main.c: 46:   beeper_play_tone(294, 500);
-[e ( _beeper_play_tone (2 , -> -> 294 `i `ui -> -> 500 `i `ui ]
-"47
-[; ;main.c: 47:   beeper_play_tone(185, 1000);
-[e ( _beeper_play_tone (2 , -> -> 185 `i `ui -> -> 1000 `i `ui ]
-"48
-[; ;main.c: 48:   beeper_play_tone(207, 1000);
-[e ( _beeper_play_tone (2 , -> -> 207 `i `ui -> -> 1000 `i `ui ]
-"49
-[; ;main.c: 49:   beeper_play_tone(277, 500);
-[e ( _beeper_play_tone (2 , -> -> 277 `i `ui -> -> 500 `i `ui ]
-"50
-[; ;main.c: 50:   beeper_play_tone(247, 500);
-[e ( _beeper_play_tone (2 , -> -> 247 `i `ui -> -> 500 `i `ui ]
-"51
-[; ;main.c: 51:   beeper_play_tone(147, 1000);
-[e ( _beeper_play_tone (2 , -> -> 147 `i `ui -> -> 1000 `i `ui ]
-"52
-[; ;main.c: 52:   beeper_play_tone(164, 1000);
-[e ( _beeper_play_tone (2 , -> -> 164 `i `ui -> -> 1000 `i `ui ]
-"53
-[; ;main.c: 53:   beeper_play_tone(247, 500);
-[e ( _beeper_play_tone (2 , -> -> 247 `i `ui -> -> 500 `i `ui ]
-"54
-[; ;main.c: 54:   beeper_play_tone(220, 500);
-[e ( _beeper_play_tone (2 , -> -> 220 `i `ui -> -> 500 `i `ui ]
-"55
-[; ;main.c: 55:   beeper_play_tone(139, 1000);
-[e ( _beeper_play_tone (2 , -> -> 139 `i `ui -> -> 1000 `i `ui ]
-"56
-[; ;main.c: 56:   beeper_play_tone(165, 1000);
-[e ( _beeper_play_tone (2 , -> -> 165 `i `ui -> -> 1000 `i `ui ]
-"57
-[; ;main.c: 57:   beeper_play_tone(220, 3000);
-[e ( _beeper_play_tone (2 , -> -> 220 `i `ui -> -> 3000 `i `ui ]
-"59
-[; ;main.c: 59:   for (uint8_t i = 0; i < 5; i++) {
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 5 `i 146  ]
-[e $U 147  ]
-[e :U 146 ]
-{
-"60
-[; ;main.c: 60:     beeper_wait_duration(2000);
-[e ( _beeper_wait_duration (1 -> -> 2000 `i `ui ]
-"61
-[; ;main.c: 61:   }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 5 `i 146  ]
-[e :U 147 ]
-}
-"65
-[; ;main.c: 65:   beeper_set_freq_multiplier(6);
-[e ( _beeper_set_freq_multiplier (1 -> -> 6 `i `uc ]
-"66
-[; ;main.c: 66:   beeper_set_duration_divisor(4);
-[e ( _beeper_set_duration_divisor (1 -> -> 4 `i `uc ]
-"68
-[; ;main.c: 68:   beeper_play_tone(262, 500);
-[e ( _beeper_play_tone (2 , -> -> 262 `i `ui -> -> 500 `i `ui ]
-"69
-[; ;main.c: 69:   beeper_play_tone(262, 500);
-[e ( _beeper_play_tone (2 , -> -> 262 `i `ui -> -> 500 `i `ui ]
-"70
-[; ;main.c: 70:   beeper_play_tone(294, 1000);
-[e ( _beeper_play_tone (2 , -> -> 294 `i `ui -> -> 1000 `i `ui ]
-"71
-[; ;main.c: 71:   beeper_play_tone(262, 1000);
-[e ( _beeper_play_tone (2 , -> -> 262 `i `ui -> -> 1000 `i `ui ]
-"72
-[; ;main.c: 72:   beeper_play_tone(349, 1000);
-[e ( _beeper_play_tone (2 , -> -> 349 `i `ui -> -> 1000 `i `ui ]
-"73
-[; ;main.c: 73:   beeper_play_tone(330, 2000);
-[e ( _beeper_play_tone (2 , -> -> 330 `i `ui -> -> 2000 `i `ui ]
-"74
-[; ;main.c: 74:   beeper_play_tone(262, 500);
-[e ( _beeper_play_tone (2 , -> -> 262 `i `ui -> -> 500 `i `ui ]
-"75
-[; ;main.c: 75:   beeper_play_tone(262, 500);
-[e ( _beeper_play_tone (2 , -> -> 262 `i `ui -> -> 500 `i `ui ]
-"76
-[; ;main.c: 76:   beeper_play_tone(294, 1000);
-[e ( _beeper_play_tone (2 , -> -> 294 `i `ui -> -> 1000 `i `ui ]
-"78
-[; ;main.c: 78:   beeper_play_tone(262, 1000);
-[e ( _beeper_play_tone (2 , -> -> 262 `i `ui -> -> 1000 `i `ui ]
-"79
-[; ;main.c: 79:   beeper_play_tone(392, 1000);
-[e ( _beeper_play_tone (2 , -> -> 392 `i `ui -> -> 1000 `i `ui ]
-"80
-[; ;main.c: 80:   beeper_play_tone(349, 2000);
-[e ( _beeper_play_tone (2 , -> -> 349 `i `ui -> -> 2000 `i `ui ]
-"81
-[; ;main.c: 81:   beeper_play_tone(262, 500);
-[e ( _beeper_play_tone (2 , -> -> 262 `i `ui -> -> 500 `i `ui ]
-"82
-[; ;main.c: 82:   beeper_play_tone(262, 500);
-[e ( _beeper_play_tone (2 , -> -> 262 `i `ui -> -> 500 `i `ui ]
-"83
-[; ;main.c: 83:   beeper_play_tone(523, 1000);
-[e ( _beeper_play_tone (2 , -> -> 523 `i `ui -> -> 1000 `i `ui ]
-"84
-[; ;main.c: 84:   beeper_play_tone(440, 1000);
-[e ( _beeper_play_tone (2 , -> -> 440 `i `ui -> -> 1000 `i `ui ]
-"85
-[; ;main.c: 85:   beeper_play_tone(349, 1000);
-[e ( _beeper_play_tone (2 , -> -> 349 `i `ui -> -> 1000 `i `ui ]
-"86
-[; ;main.c: 86:   beeper_play_tone(330, 1000);
-[e ( _beeper_play_tone (2 , -> -> 330 `i `ui -> -> 1000 `i `ui ]
-"88
-[; ;main.c: 88:   beeper_play_tone(294, 2000);
-[e ( _beeper_play_tone (2 , -> -> 294 `i `ui -> -> 2000 `i `ui ]
-"89
-[; ;main.c: 89:   beeper_play_tone(466, 500);
-[e ( _beeper_play_tone (2 , -> -> 466 `i `ui -> -> 500 `i `ui ]
-"90
-[; ;main.c: 90:   beeper_play_tone(466, 500);
-[e ( _beeper_play_tone (2 , -> -> 466 `i `ui -> -> 500 `i `ui ]
-"91
-[; ;main.c: 91:   beeper_play_tone(440, 1000);
-[e ( _beeper_play_tone (2 , -> -> 440 `i `ui -> -> 1000 `i `ui ]
-"92
-[; ;main.c: 92:   beeper_play_tone(349, 1000);
-[e ( _beeper_play_tone (2 , -> -> 349 `i `ui -> -> 1000 `i `ui ]
-"93
-[; ;main.c: 93:   beeper_play_tone(392, 1000);
-[e ( _beeper_play_tone (2 , -> -> 392 `i `ui -> -> 1000 `i `ui ]
-"94
-[; ;main.c: 94:   beeper_play_tone(349, 2000);
-[e ( _beeper_play_tone (2 , -> -> 349 `i `ui -> -> 2000 `i `ui ]
-"96
-[; ;main.c: 96:   for (uint8_t i = 0; i < 5; i++) {
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 5 `i 149  ]
-[e $U 150  ]
-[e :U 149 ]
-{
-"97
-[; ;main.c: 97:     beeper_wait_duration(2000);
-[e ( _beeper_wait_duration (1 -> -> 2000 `i `ui ]
-"98
-[; ;main.c: 98:   }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 5 `i 149  ]
-[e :U 150 ]
-}
-"100
-[; ;main.c: 100: }
-[e :UE 145 ]
-}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"102
-[; ;main.c: 102: void main(void) {
+"27 main.c
+[; ;main.c: 27: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"103
-[; ;main.c: 103:   init();
-[e ( _init ..  ]
-"104
-[; ;main.c: 104:   while(1) {
-[e :U 154 ]
-{
-"105
-[; ;main.c: 105:     loop();
-[e ( _loop ..  ]
-"106
-[; ;main.c: 106:   }
-}
-[e :U 153 ]
-[e $U 154  ]
-[e :U 155 ]
-"107
-[; ;main.c: 107:   return;
-[e $UE 152  ]
-"108
-[; ;main.c: 108: }
-[e :UE 152 ]
+"28
+[; ;main.c: 28:   ANSELAbits.ANSA4 = 0;
+[e = . . _ANSELAbits 0 4 -> -> 0 `i `uc ]
+"29
+[; ;main.c: 29:   TRISAbits.TRISA4 = 0;
+[e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
+"30
+[; ;main.c: 30:   LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+"32
+[; ;main.c: 32:   return;
+[e $UE 141  ]
+"33
+[; ;main.c: 33: }
+[e :UE 141 ]
 }

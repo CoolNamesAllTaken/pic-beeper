@@ -29,11 +29,11 @@
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"15 C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\main.c
+"31 C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\main.c
 [v _init init `(v  1 e 1 0 ]
-"23
+"39
 [v _loop loop `(v  1 e 1 0 ]
-"86
+"102
 [v _main main `(v  1 e 1 0 ]
 "10 C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\beeper.c
 [v _duration_divisor duration_divisor `uc  1 s 1 duration_divisor ]
@@ -127,19 +127,19 @@
 [v _T2CONbits T2CONbits `VES154  1 e 1 @274 ]
 "2235
 [v _ANSELA ANSELA `VEuc  1 e 1 @389 ]
-"86 C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\main.c
+"102 C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"92
+"108
 } 0
-"23
+"39
 [v _loop loop `(v  1 e 1 0 ]
 {
-"80
+"96
 [v loop@i_80 i `uc  1 a 1 12 ]
-"43
+"59
 [v loop@i i `uc  1 a 1 11 ]
-"84
+"100
 } 0
 "60 C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\beeper.c
 [v _beeper_set_freq_multiplier beeper_set_freq_multiplier `(v  1 e 1 0 ]
@@ -211,10 +211,10 @@
 {
 "80
 } 0
-"15 C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\main.c
+"31 C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\main.c
 [v _init init `(v  1 e 1 0 ]
 {
-"21
+"37
 } 0
 "15 C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\beeper.c
 [v _init_beeper init_beeper `(v  1 e 1 0 ]
