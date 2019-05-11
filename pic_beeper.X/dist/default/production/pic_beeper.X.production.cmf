@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
+$C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
 reset_vec CODE 0 0 0 1 2
 end_init CODE 0 A A 1 2
 $dist/default/production\pic_beeper.X.production.o
@@ -76,16 +76,16 @@ STRING 307-3FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\pic_beeper.X.production.o
-B cinit CODE >450:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
-B cinit CODE >453:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
-B cinit CODE >479:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
-C cinit CODE >480:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
-D cinit CODE >481:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
-E cinit CODE >482:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
-F cinit CODE >486:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
-10 cinit CODE >492:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
-10 cinit CODE >494:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
-11 cinit CODE >495:C:\Users\JOHNMC~1\AppData\Local\Temp\shok.
+B cinit CODE >450:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
+B cinit CODE >453:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
+B cinit CODE >479:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
+C cinit CODE >480:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
+D cinit CODE >481:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
+E cinit CODE >482:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
+F cinit CODE >486:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
+10 cinit CODE >492:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
+10 cinit CODE >494:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
+11 cinit CODE >495:C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.
 4 intentry CODE >82:C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\beeper.c
 2B5 text13 CODE >82:C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\beeper.c
 2B5 text13 CODE >83:C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper.X\beeper.c
@@ -244,12 +244,12 @@ loop@i 4B 0 BANK0 1 cstackBANK0 dist/default/production\pic_beeper.X.production.
 __Hstrings 0 0 ABS 0 strings -
 _LATA 105 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 _PIE1 8C 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
+___sp 0 0 STACK 2 stack C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
 _init 5CC 0 CODE 0 text11 dist/default/production\pic_beeper.X.production.o
 _loop 24 0 CODE 0 text1 dist/default/production\pic_beeper.X.production.o
 _main 604 0 CODE 0 maintext dist/default/production\pic_beeper.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
-start 14 0 CODE 0 init C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
+start 14 0 CODE 0 init C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
 __size_of_init 0 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 __size_of_loop 0 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
@@ -259,12 +259,12 @@ _playing_note 4D 0 BANK0 1 bssBANK0 dist/default/production\pic_beeper.X.product
 __size_of_beeper_set_freq_hz 0 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 __HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -284,8 +284,8 @@ __end_of___lwdiv 43A 0 CODE 0 text8 dist/default/production\pic_beeper.X.product
 __end_of_beeper_set_freq_multiplier 5E8 0 CODE 0 text2 dist/default/production\pic_beeper.X.production.o
 _init_beeper 496 0 CODE 0 text12 dist/default/production\pic_beeper.X.production.o
 _INTCON B 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
-___stacklo 0 0 ABS 0 - C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
+___stackhi 0 0 ABS 0 - C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
+___stacklo 0 0 ABS 0 - C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
 _beeper_play_tone 5AA 0 CODE 0 text4 dist/default/production\pic_beeper.X.production.o
 ___lwdiv@quotient 77 0 COMMON 1 cstackCOMMON dist/default/production\pic_beeper.X.production.o
 __LidataCOMMON 0 0 ABS 0 idataCOMMON -
@@ -295,7 +295,7 @@ _OSCCON 8F 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 __size_of_beeper_wait_duration 0 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 __pcstackBANK0 40 0 BANK0 1 cstackBANK0 dist/default/production\pic_beeper.X.production.o
 __end_of_beeper_wait_duration 496 0 CODE 0 text5 dist/default/production\pic_beeper.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
+___int_sp 0 0 STACK 2 stack C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 BANK1 1 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -345,7 +345,7 @@ __HidataCOMMON 0 0 ABS 0 idataCOMMON -
 __size_of_beeper_set_freq_multiplier 0 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 __end_of_ISR 5AA 0 CODE 0 text13 dist/default/production\pic_beeper.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
 beeper_play_tone@freq 46 0 BANK0 1 cstackBANK0 dist/default/production\pic_beeper.X.production.o
 __size_of___wmul 0 0 ABS 0 - dist/default/production\pic_beeper.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -

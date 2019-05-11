@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.05\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\pic_beeper.X.production.sym \
   --cmf=dist/default/production\pic_beeper.X.production.cmf -z -Q12F752 \
-  -oC:\Users\JOHNMC~1\AppData\Local\Temp\shok.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\JOHNMC~1\AppData\Local\Temp\si5g.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/pic_beeper.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=04Eh-06Fh -pstack=STACK -ACODE=00h-03FFh \
   -ASTRCODE=00h-03FFh -ASTRING=00h-0FFhx4 -ACONST=00h-0FFhx4 \
@@ -15,7 +15,7 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=ENTRY -ACONFIG=02007h-02007h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o \
+  C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o \
   dist/default/production\pic_beeper.X.production.o 
 
 Object code version is 3.11
@@ -25,7 +25,7 @@ Machine type is 12F752
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\JOHNMC~1\AppData\Local\Temp\shok.o
+C:\Users\JOHNMC~1\AppData\Local\Temp\si5g.o
                 end_init                              A        A        1        8       0
                 reset_vec                             0        0        1        0       0
 dist/default/production\pic_beeper.X.production.o

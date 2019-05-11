@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:pic_beeper-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -19,7 +20,7 @@ U 1 1 5CCD1DAD
 P 4050 2500
 F 0 "U1" H 4250 3050 50  0000 C CNN
 F 1 "PIC12F752-IP" H 4450 2950 50  0000 C CNN
-F 2 "Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm" H 4650 3150 50  0001 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm_Socket_LongPads" H 4650 3150 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/41576B.pdf" H 4050 2500 50  0001 C CNN
 	1    4050 2500
 	1    0    0    -1  
@@ -51,31 +52,20 @@ $EndComp
 Wire Wire Line
 	4050 3200 4050 3100
 $Comp
-L Device:Buzzer BZ1
-U 1 1 5CCD2050
-P 2200 3100
-F 0 "BZ1" H 2206 3390 50  0000 C CNN
-F 1 "Buzzer" H 2206 3299 50  0000 C CNN
-F 2 "Buzzer_Beeper:MagneticBuzzer_CUI_CST-931RP-A" V 2175 3200 50  0001 C CNN
-F 3 "~" V 2175 3200 50  0001 C CNN
-	1    2200 3100
-	-1   0    0    -1  
-$EndComp
-$Comp
 L power:-BATT #PWR01
 U 1 1 5CCD2233
-P 2350 3250
-F 0 "#PWR01" H 2350 3100 50  0001 C CNN
-F 1 "-BATT" H 2365 3423 50  0000 C CNN
-F 2 "" H 2350 3250 50  0001 C CNN
-F 3 "" H 2350 3250 50  0001 C CNN
-	1    2350 3250
+P 1950 3250
+F 0 "#PWR01" H 1950 3100 50  0001 C CNN
+F 1 "-BATT" H 1965 3423 50  0000 C CNN
+F 2 "" H 1950 3250 50  0001 C CNN
+F 3 "" H 1950 3250 50  0001 C CNN
+	1    1950 3250
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	2300 3200 2350 3200
+	1900 3200 1950 3200
 Wire Wire Line
-	2350 3200 2350 3250
+	1950 3200 1950 3250
 NoConn ~ 4650 2400
 $Comp
 L Device:Battery BT1
@@ -83,7 +73,7 @@ U 1 1 5CCD23F4
 P 6000 2750
 F 0 "BT1" H 6108 2796 50  0000 L CNN
 F 1 "CR2032" H 6108 2705 50  0000 L CNN
-F 2 "lib_fp:BatteryHolder_Q&J-CR2032-BS-6-1" V 6000 2810 50  0001 C CNN
+F 2 "lib_fp:BatteryHolder_CR2032_THT" V 6000 2810 50  0001 C CNN
 F 3 "~" V 6000 2810 50  0001 C CNN
 	1    6000 2750
 	1    0    0    -1  
@@ -153,15 +143,13 @@ Text Notes 5600 2500 2    50   ~ 0
 Near PIC
 Text Notes 6150 2600 0    50   ~ 0
 Lithium 3V
-Text Notes 1900 3700 0    50   ~ 0
-Buzzer Resistance: 70R\nLimit to 20 mA
 $Comp
 L Switch:SW_SPDT SW1
 U 1 1 5CCE5A60
 P 6250 2300
 F 0 "SW1" H 6250 2585 50  0000 C CNN
 F 1 "SW_SPDT" H 6250 2494 50  0000 C CNN
-F 2 "lib_fp:SW_SPDT_SSAL220100" H 6250 2300 50  0001 C CNN
+F 2 "lib_fp:SW_SPDT_Slide_Vertical_THT" H 6250 2300 50  0001 C CNN
 F 3 "~" H 6250 2300 50  0001 C CNN
 	1    6250 2300
 	1    0    0    -1  
@@ -181,20 +169,10 @@ Text Label 3050 2600 0    50   ~ 0
 BUZZER
 Wire Wire Line
 	3050 2600 3450 2600
-Text Label 2650 3000 2    50   ~ 0
+Text Label 2300 2900 2    50   ~ 0
 BUZZER
-Wire Wire Line
-	2650 3000 2300 3000
-Text Notes 2000 2750 0    100  ~ 0
+Text Notes 1450 2750 0    100  ~ 0
 Buzzer
-Wire Notes Line
-	1850 2600 1850 3700
-Wire Notes Line
-	1850 3700 2850 3700
-Wire Notes Line
-	2850 3700 2850 2600
-Wire Notes Line
-	2850 2600 1850 2600
 Text Label 3050 2500 0    50   ~ 0
 ICSPCLK
 Wire Wire Line
@@ -341,21 +319,21 @@ Wire Notes Line
 Wire Notes Line
 	6750 1500 5850 1500
 $Comp
-L Mechanical:MountingHole_Pad H?
+L Mechanical:MountingHole_Pad H1
 U 1 1 5CCEF912
 P 7250 1700
-F 0 "H?" H 7350 1751 50  0000 L CNN
+F 0 "H1" H 7350 1751 50  0000 L CNN
 F 1 "MountingHole_Pad" H 7350 1660 50  0000 L CNN
-F 2 "" H 7250 1700 50  0001 C CNN
+F 2 "MountingHole:MountingHole_3.5mm_Pad" H 7250 1700 50  0001 C CNN
 F 3 "~" H 7250 1700 50  0001 C CNN
 	1    7250 1700
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:-BATT #PWR?
+L power:-BATT #PWR08
 U 1 1 5CCEFA38
 P 7250 1900
-F 0 "#PWR?" H 7250 1750 50  0001 C CNN
+F 0 "#PWR08" H 7250 1750 50  0001 C CNN
 F 1 "-BATT" H 7265 2073 50  0000 C CNN
 F 2 "" H 7250 1900 50  0001 C CNN
 F 3 "" H 7250 1900 50  0001 C CNN
@@ -364,4 +342,19 @@ F 3 "" H 7250 1900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7250 1900 7250 1800
+$Comp
+L Device:Buzzer BZ4
+U 1 1 5CCEE7A7
+P 1800 3100
+F 0 "BZ4" H 2000 3150 50  0000 C CNN
+F 1 "Buzzer" H 2050 3050 50  0000 C CNN
+F 2 "Buzzer_Beeper:Buzzer_12x9.5RM7.6" V 1775 3200 50  0001 C CNN
+F 3 "~" V 1775 3200 50  0001 C CNN
+	1    1800 3100
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 2900 1900 3000
+Wire Wire Line
+	1900 2900 2300 2900
 $EndSCHEMATC
