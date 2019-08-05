@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>C:\Users\John McNelly\Box Sync\Projects\pic-beeper\pic_beeper\pic_beeper.sch</source>
-    <date>5/5/2019 2:35:46 AM</date>
+    <date>6/2/2019 9:20:58 PM</date>
     <tool>Eeschema (5.0.2)-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -19,18 +19,13 @@
     </sheet>
   </design>
   <components>
-    <comp ref="U1">
-      <value>PIC12F752-IP</value>
-      <footprint>Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</footprint>
-      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/41576B.pdf</datasheet>
-      <libsource lib="MCU_Microchip_PIC12" part="PIC12F752-IP" description="1024W Flash, 64B SRAM, PDIP8"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5CCD1DAD</tstamp>
-    </comp>
     <comp ref="BZ1">
-      <value>Buzzer</value>
-      <footprint>Buzzer_Beeper:MagneticBuzzer_CUI_CST-931RP-A</footprint>
-      <datasheet>~</datasheet>
+      <value>3V_Buzzer</value>
+      <footprint>Buzzer_Beeper:PUIAudio_SMT_0825_S_4_R</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/INGHAi-GSC8530YA-16R2700_C255316.pdf</datasheet>
+      <fields>
+        <field name="MPN">GSC8530YA-16R2700</field>
+      </fields>
       <libsource lib="Device" part="Buzzer" description="Buzzer, polarized"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5CCD2050</tstamp>
@@ -38,7 +33,10 @@
     <comp ref="BT1">
       <value>CR2032</value>
       <footprint>lib_fp:BatteryHolder_Q&amp;J-CR2032-BS-6-1</footprint>
-      <datasheet>~</datasheet>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Q-J-CR2032-BS-6-1_C70377.pdf</datasheet>
+      <fields>
+        <field name="MPN">CR2032-BS-6-1</field>
+      </fields>
       <libsource lib="Device" part="Battery" description="Multiple-cell battery"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5CCD23F4</tstamp>
@@ -54,7 +52,10 @@
     <comp ref="SW1">
       <value>SW_SPDT</value>
       <footprint>lib_fp:SW_SPDT_SSAL220100</footprint>
-      <datasheet>~</datasheet>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/ALPS-Electric-SSAL220100_C278346.pdf</datasheet>
+      <fields>
+        <field name="MPN">SSAL220100</field>
+      </fields>
       <libsource lib="Switch" part="SW_SPDT" description="Switch, single pole double throw"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5CCE5A60</tstamp>
@@ -67,16 +68,108 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5CCE96B9</tstamp>
     </comp>
-    <comp ref="H1">
-      <value>MountingHole_Pad</value>
-      <footprint>MountingHole:MountingHole_3.5mm_Pad_Via</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+    <comp ref="Q1">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf</datasheet>
+      <fields>
+        <field name="MPN">2N7002LT1G</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="2N7002" description="0.115A Id, 60V Vds, N-channel MOSFET, SOT-23"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5CCEF912</tstamp>
+      <tstamp>5CD7B710</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>3A_Schottky</value>
+      <footprint>Diode_SMD:D_SMA</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/1903051003_MDD-Jiangsu-Yutai-Elec-SS34_C8678.pdf</datasheet>
+      <fields>
+        <field name="MPN">SS34</field>
+      </fields>
+      <libsource lib="Device" part="D" description="Diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CD9F393</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>PIC12F752</value>
+      <footprint>Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</footprint>
+      <libsource lib="lib_sch" part="PIC12F752" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CDA31EE</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Foshan-NationStar-Optoelectronics-FC-DA1608HRK-620D_C84263.pdf</datasheet>
+      <fields>
+        <field name="MPN">FC-DA1608HRK-620D</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CF3FE21</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>140R</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Huaxin-S-T-WR06X1400FTL_C170466.pdf</datasheet>
+      <fields>
+        <field name="MPN">WR06X1400FTL</field>
+      </fields>
+      <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CF3FF6E</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>Conn_01x02_Male</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x02_Male" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CF42347</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>Conn_01x02_Female</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical</footprint>
+      <datasheet>https://datasheet.lcsc.com/szlcsc/Boom-Precision-Elec-2-54-1-2PFemale_C49661.pdf</datasheet>
+      <fields>
+        <field name="MPN">C49661</field>
+      </fields>
+      <libsource lib="Connector" part="Conn_01x02_Female" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CF4A85D</tstamp>
     </comp>
   </components>
   <libparts>
+    <libpart lib="Connector" part="Conn_01x02_Female">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02_Female</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x02_Male">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02_Male</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="Connector_Generic" part="Conn_01x06">
       <description>Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
       <docs>~</docs>
@@ -138,44 +231,54 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="MCU_Microchip_PIC12" part="PIC12F752-IP">
-      <aliases>
-        <alias>PIC12F752-ISN</alias>
-        <alias>PIC12F752-IMC</alias>
-      </aliases>
-      <description>1024W Flash, 64B SRAM, PDIP8</description>
-      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/41576B.pdf</docs>
-      <footprints>
-        <fp>DIP*W7.62mm*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">U</field>
-        <field name="Value">PIC12F752-IP</field>
-        <field name="Footprint">Package_DIP:DIP-8_W7.62mm</field>
-      </fields>
-      <pins>
-        <pin num="1" name="VDD" type="power_in"/>
-        <pin num="2" name="GP5" type="BiDi"/>
-        <pin num="3" name="GP4" type="BiDi"/>
-        <pin num="4" name="GP3" type="input"/>
-        <pin num="5" name="GP2" type="BiDi"/>
-        <pin num="6" name="GP1" type="BiDi"/>
-        <pin num="7" name="GP0" type="BiDi"/>
-        <pin num="8" name="VSS" type="power_in"/>
-      </pins>
-    </libpart>
-    <libpart lib="Mechanical" part="MountingHole_Pad">
-      <description>Mounting Hole with connection</description>
+    <libpart lib="Device" part="D">
+      <description>Diode</description>
       <docs>~</docs>
       <footprints>
-        <fp>MountingHole*Pad*</fp>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
       </footprints>
       <fields>
-        <field name="Reference">H</field>
-        <field name="Value">MountingHole_Pad</field>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
       </fields>
       <pins>
-        <pin num="1" name="1" type="input"/>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_US">
+      <description>Resistor, US symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_US</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="Switch" part="SW_SPDT">
@@ -191,70 +294,182 @@
         <pin num="3" name="C" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="Transistor_FET" part="BSS138">
+      <aliases>
+        <alias>2N7002</alias>
+        <alias>2N7002E</alias>
+        <alias>2N7002H</alias>
+        <alias>BS170F</alias>
+        <alias>BS870</alias>
+        <alias>BSN20</alias>
+        <alias>BSS123</alias>
+        <alias>BSS127S</alias>
+        <alias>DMG2302U</alias>
+        <alias>DMG3402L</alias>
+        <alias>DMG3404L</alias>
+        <alias>DMG3406L</alias>
+        <alias>DMG3414U</alias>
+        <alias>DMG3418L</alias>
+        <alias>DMN10H220L</alias>
+        <alias>DMN10H700S</alias>
+        <alias>DMN13H750S</alias>
+        <alias>DMN2041L</alias>
+        <alias>DMN2050L</alias>
+        <alias>DMN2056U</alias>
+        <alias>DMN2058U</alias>
+        <alias>DMN2075U</alias>
+        <alias>DMN2230U</alias>
+        <alias>DMN24H11DS</alias>
+        <alias>DMN24H3D5L</alias>
+        <alias>DMN3042L</alias>
+        <alias>DMN3051L</alias>
+        <alias>DMN30H4D0L</alias>
+        <alias>DMN3110S</alias>
+        <alias>DMN3150L</alias>
+        <alias>DMN3300U</alias>
+        <alias>DMN3404L</alias>
+        <alias>DMN6075S</alias>
+        <alias>DMN6140L</alias>
+        <alias>DMN67D7L</alias>
+        <alias>DMN67D8L</alias>
+        <alias>MMBF170</alias>
+        <alias>VN10LF</alias>
+        <alias>ZVN3306F</alias>
+        <alias>ZVN3310F</alias>
+        <alias>ZVN3320F</alias>
+        <alias>ZVN4106F</alias>
+        <alias>ZXM61N02F</alias>
+        <alias>ZXM61N03F</alias>
+        <alias>ZXMN10A07F</alias>
+        <alias>ZXMN2A01F</alias>
+        <alias>ZXMN2A14F</alias>
+        <alias>ZXMN2B01F</alias>
+        <alias>ZXMN2B14FH</alias>
+        <alias>ZXMN2F30FH</alias>
+        <alias>ZXMN2F34FH</alias>
+        <alias>ZXMN3A01F</alias>
+        <alias>ZXMN3A14F</alias>
+        <alias>ZXMN3B01F</alias>
+        <alias>ZXMN3B14F</alias>
+        <alias>ZXMN3F30FH</alias>
+        <alias>ZXMN6A07F</alias>
+        <alias>IRLML2060</alias>
+      </aliases>
+      <description>50V Vds, 0.22A Id, N-channel MOSFET, SOT-23</description>
+      <docs>https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BSS138</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="lib_sch" part="PIC12F752">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">PIC12F752</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VDD" type="power_in"/>
+        <pin num="2" name="RA5" type="BiDi"/>
+        <pin num="3" name="RA4" type="BiDi"/>
+        <pin num="4" name="~MCLR~/VPP/RA3" type="BiDi"/>
+        <pin num="5" name="RA2" type="BiDi"/>
+        <pin num="6" name="RA1/ICSPCLK" type="BiDi"/>
+        <pin num="7" name="RA0/ICSPDAT" type="BiDi"/>
+        <pin num="8" name="VSS" type="power_in"/>
+      </pins>
+    </libpart>
   </libparts>
   <libraries>
+    <library logical="Connector">
+      <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Connector.lib</uri>
+    </library>
     <library logical="Connector_Generic">
       <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Connector_Generic.lib</uri>
     </library>
     <library logical="Device">
       <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Device.lib</uri>
     </library>
-    <library logical="MCU_Microchip_PIC12">
-      <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/MCU_Microchip_PIC12.lib</uri>
-    </library>
-    <library logical="Mechanical">
-      <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Mechanical.lib</uri>
-    </library>
     <library logical="Switch">
       <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Switch.lib</uri>
     </library>
+    <library logical="Transistor_FET">
+      <uri>C:/Users/John McNelly/Documents/Kicad/kicad-symbols/Transistor_FET.lib</uri>
+    </library>
+    <library logical="lib_sch">
+      <uri>C:/Users/John McNelly/Box Sync/Projects/pic-beeper/pic_beeper/lib_sch.lib</uri>
+    </library>
   </libraries>
   <nets>
-    <net code="1" name="/VPP">
-      <node ref="J1" pin="1"/>
-      <node ref="U1" pin="3"/>
-    </net>
-    <net code="2" name="/ICSPDAT">
-      <node ref="J1" pin="4"/>
-      <node ref="U1" pin="7"/>
-    </net>
-    <net code="3" name="+BATT">
-      <node ref="J1" pin="2"/>
-      <node ref="C1" pin="1"/>
-      <node ref="U1" pin="1"/>
-      <node ref="SW1" pin="1"/>
-    </net>
-    <net code="4" name="-BATT">
-      <node ref="BZ1" pin="2"/>
-      <node ref="BT1" pin="2"/>
-      <node ref="U1" pin="8"/>
-      <node ref="C1" pin="2"/>
-      <node ref="H1" pin="1"/>
-      <node ref="J1" pin="3"/>
-    </net>
-    <net code="5" name="Net-(U1-Pad2)">
+    <net code="1" name="Net-(D2-Pad2)">
+      <node ref="D2" pin="2"/>
       <node ref="U1" pin="2"/>
     </net>
-    <net code="6" name="/ICSPCLK">
-      <node ref="J1" pin="5"/>
-      <node ref="U1" pin="6"/>
-    </net>
-    <net code="7" name="/BUZZER">
+    <net code="2" name="+BATT">
+      <node ref="J1" pin="2"/>
       <node ref="BZ1" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="SW1" pin="1"/>
+      <node ref="D1" pin="1"/>
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="3" name="Net-(BZ1-Pad2)">
+      <node ref="BZ1" pin="2"/>
+      <node ref="D1" pin="2"/>
+      <node ref="Q1" pin="3"/>
+    </net>
+    <net code="4" name="/BUZZER">
+      <node ref="Q1" pin="1"/>
       <node ref="U1" pin="5"/>
     </net>
-    <net code="8" name="Net-(J1-Pad6)">
-      <node ref="J1" pin="6"/>
-    </net>
-    <net code="9" name="Net-(U1-Pad4)">
+    <net code="5" name="/VPP">
+      <node ref="J2" pin="2"/>
       <node ref="U1" pin="4"/>
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="6" name="-BATT">
+      <node ref="BT1" pin="2"/>
+      <node ref="Q1" pin="2"/>
+      <node ref="J1" pin="3"/>
+      <node ref="U1" pin="8"/>
+      <node ref="R1" pin="2"/>
+      <node ref="J3" pin="1"/>
+      <node ref="J2" pin="1"/>
+      <node ref="C1" pin="2"/>
+    </net>
+    <net code="7" name="/SLAVE_RESET">
+      <node ref="J3" pin="2"/>
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="8" name="Net-(D2-Pad1)">
+      <node ref="R1" pin="1"/>
+      <node ref="D2" pin="1"/>
+    </net>
+    <net code="9" name="Net-(BT1-Pad1)">
+      <node ref="BT1" pin="1"/>
+      <node ref="SW1" pin="2"/>
     </net>
     <net code="10" name="Net-(SW1-Pad3)">
       <node ref="SW1" pin="3"/>
     </net>
-    <net code="11" name="Net-(BT1-Pad1)">
-      <node ref="SW1" pin="2"/>
-      <node ref="BT1" pin="1"/>
+    <net code="11" name="Net-(J1-Pad6)">
+      <node ref="J1" pin="6"/>
+    </net>
+    <net code="12" name="/ICSPCLK">
+      <node ref="U1" pin="6"/>
+      <node ref="J1" pin="5"/>
+    </net>
+    <net code="13" name="/ICSPDAT">
+      <node ref="J1" pin="4"/>
+      <node ref="U1" pin="7"/>
     </net>
   </nets>
 </export>

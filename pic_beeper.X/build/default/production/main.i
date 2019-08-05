@@ -7,9 +7,15 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
+# 13 "main.c"
+#pragma config FOSC0 = INT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = ON
+#pragma config CP = OFF
+#pragma config BOREN = DIS
+#pragma config WRT = OFF
+#pragma config CLKOUTEN = OFF
 
 
 
@@ -1966,7 +1972,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 25 "main.c" 2
 
 # 1 "./beeper.h" 1
 # 12 "./beeper.h"
@@ -2117,15 +2123,14 @@ void beeper_set_duration_divisor(uint8_t duration_divisor_in);
 static void beeper_set_freq_hz(uint16_t freq);
 static void beeper_on(void);
 static void beeper_off(void);
-# 10 "main.c" 2
+# 26 "main.c" 2
 
 
 
 
 
 void init(void) {
-
-  OSCCON = 0b00110000;
+  OSCCONbits.IRCF = 0b01;
   while (!OSCCONbits.HTS) {}
 
   init_beeper();
@@ -2136,6 +2141,11 @@ void loop(void) {
 
   beeper_set_freq_multiplier(8);
   beeper_set_duration_divisor(6);
+
+  for (uint8_t i = 0; i < 5; i++) {
+    beeper_wait_duration(2000);
+  }
+
 
   beeper_play_tone(329, 500);
   beeper_play_tone(294, 500);
@@ -2175,7 +2185,7 @@ void loop(void) {
   beeper_play_tone(349, 2000);
   beeper_play_tone(262, 500);
   beeper_play_tone(262, 500);
-  beeper_play_tone(523, 1000);
+  beeper_play_tone(523, 500);
   beeper_play_tone(440, 1000);
   beeper_play_tone(349, 1000);
   beeper_play_tone(330, 1000);

@@ -1,10 +1,10 @@
 #include "beeper.h"
 
 #define MSEC_TO_SEC 1000
-#define MSEC_TO_PR2_COUNTS 125 // prescaler*postscaler=16, 0.5us clock ticks
-#define MSEC_TO_TEMP_SENSE_OSC_CLOCK_TICKS 16 // 16kHz temp sense clock
-#define TMR2_PRESCALER 4
-#define TMR2_POSTSCALER 4
+#define MSEC_TO_PR2_COUNTS 250 // prescaler*postscaler=1, 4us clock ticks
+#define MSEC_TO_TMR1_CLOCK_TICKS 250 // 250kHz temp sense clock
+#define TMR2_PRESCALER 1
+#define TMR2_POSTSCALER 1
 #define TMR1_PRESCALER 8
 
 static uint8_t duration_divisor = 6;
@@ -18,20 +18,30 @@ void init_beeper() {
   TRISA &= ~(0b1 << 2); // set RA2 as output
   LATA |= (0b1 << 2); // set RA2 HIGH
   
+  // set pin 2 (RA5) as digital output (LED pin)
+  ANSELAbits.ANSA5 = 0;
+  TRISAbits.TRISA5 = 0;
+  LATAbits.LATA5 = 0; // turn LED OFF until init is finished
+  
   // configure TMR2 (note frequency timer)
-  // clock frequency is 8MHz (2MHz instruction clock), want 2048Hz tone
-  // 1 clock pulse is 0.5 usec
-  // want waveform period to be 488 usec (976 clock pulses)
-  T2CON = 0b00011011; // TMR2 postscaler=1:4, TMR2 off, prescaler=4
-  PIE1 |= (0b1 << 1); // enable TMR2 interrupt
+  // clock frequency is 1MHz (250kHz instruction clock), want 2048Hz tone
+  // 1 clock pulse is 4 usec
+  // want waveform period to be 488 usec (122 clock pulses)
+  T2CONbits.T2OUTPS = 0b0000; // TMR2 postscaler=1:1
+  T2CONbits.TMR2ON = 0b0; // TMR2 off
+  T2CONbits.T2CKPS = 0b00; // prescaler=1
+//  T2CON = 0b00011011; // TMR2 postscaler=1:4, TMR2 off, prescaler=4
+  PIE1bits.TMR2IE = 0b1;
+//  PIE1 |= (0b1 << 1); // enable TMR2 interrupt
   
   // configure TMR1 (note duration timer)
-  T1CON |= (0b11 << 6); // use TEMP_SENSE_OSC
-  T1CON |= (0b11 << 4); // prescaler=8
-  PIE1 |= (0b1); // enable TMR1 interrupt
+  T1CONbits.TMR1CS = 0b00; // use instruction clock
+  T1CONbits.T1CKPS = 0b11; // prescaler=8
+  PIE1bits.TMR1IE = 0b1; // enable TMR1 interrupt
   
   // configure interrupts
-  INTCON |= (0b11 << 6); // enable global and peripheral interrupts
+  INTCONbits.GIE = 0b1; // enable global interrupts
+  INTCONbits.PEIE = 0b1; // enable peripheral interrupts
 }
 
 /**
@@ -46,9 +56,10 @@ void beeper_play_tone(uint16_t freq, uint16_t duration) {
   beeper_off();
 }
 
+// NOTE: because math, duration must be multiple of TMR1_PRESCALER=8
 void beeper_wait_duration(uint16_t duration) {
   duration /= duration_divisor;
-  uint16_t note_dur_clock_ticks = duration * MSEC_TO_TEMP_SENSE_OSC_CLOCK_TICKS / TMR1_PRESCALER;
+  uint16_t note_dur_clock_ticks = duration / TMR1_PRESCALER * MSEC_TO_TMR1_CLOCK_TICKS;
   note_dur_clock_ticks = 65535 - note_dur_clock_ticks; // timer interrupts on overflow
   TMR1H = note_dur_clock_ticks >> 8;
   TMR1L = note_dur_clock_ticks & 0x00FF;
@@ -68,15 +79,17 @@ void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
 static void beeper_set_freq_hz(uint16_t freq) {
   freq *= freq_multiplier;
   // set PR2 to half-period
-  PR2 = ((uint16_t)MSEC_TO_PR2_COUNTS / 2 * 1000 / freq) - 2;
+  PR2 = ((uint32_t)MSEC_TO_PR2_COUNTS / 2 * 1000 / freq) - 2;
 }
 
 static void beeper_on() {
   T2CONbits.TMR2ON = 1; // turn on TMR2
+  LATAbits.LATA5 = 1; // turn on LED
 }
 
 static void beeper_off() {
   T2CONbits.TMR2ON = 0; // turn off TMR2
+  LATAbits.LATA5 = 0; // turn off LED
 }
 
 void __interrupt() ISR(void) {

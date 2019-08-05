@@ -5,6 +5,22 @@
  * Created on May 3, 2019, 12:43 AM
  */
 
+// PIC12F752 Configuration Bit Settings
+
+// 'C' source line config statements
+
+// CONFIG
+#pragma config FOSC0 = INT      // FOSC: Oscillator Selection bit (Internal oscillator mode.  I/O function on RA5/CLKIN)
+#pragma config WDTE = OFF       // Watchdog Timer Enable bit (Watchdog Timer disabled)
+#pragma config PWRTE = OFF      // Power-up Timer Enable bit (Power-up Timer disabled)
+#pragma config MCLRE = ON       // MCLR/VPP Pin Function Select bit (MCLR pin is MCLR function with internal weak pullup)
+#pragma config CP = OFF         // Code Protection bit (Program memory code protection is disabled)
+#pragma config BOREN = DIS       // Brown-out Reset Enable bits (BOR disabled)
+#pragma config WRT = OFF        // Flash Program Memory Self Write Enable bit (Flash self-write protection off)
+#pragma config CLKOUTEN = OFF   // Clock Out Enable bit (CLKOUT function disabled.  CLKOUT pin acts as I/O)
+
+// #pragma config statements should precede project file includes.
+// Use project enums instead of #define for ON and OFF.
 
 #include <xc.h>
 #include "beeper.h"
@@ -13,9 +29,8 @@
 #define HAPPY_BIRTHDAY
 
 void init(void) {
-  // set internal clock to run on 8 MHz because why not
-  OSCCON = 0b00110000;
-  while (!OSCCONbits.HTS) {} // wait for oscillator to stabilize
+  OSCCONbits.IRCF = 0b01; // set internal clock to run on 1MHz (HF oscillator)
+  while (!OSCCONbits.HTS) {} // wait for HF oscillator to stabilize
   
   init_beeper();
 }
@@ -25,6 +40,11 @@ void loop(void) {
 #ifdef NOKIA
   beeper_set_freq_multiplier(8);
   beeper_set_duration_divisor(6);
+  
+  for (uint8_t i = 0; i < 5; i++) {
+    beeper_wait_duration(2000);
+  }
+  
   // https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Nokia_tune.svg/1280px-Nokia_tune.svg.png
   beeper_play_tone(329, 500); // E4
   beeper_play_tone(294, 500); // D4
@@ -64,7 +84,7 @@ void loop(void) {
   beeper_play_tone(349, 2000);
   beeper_play_tone(262, 500);
   beeper_play_tone(262, 500);
-  beeper_play_tone(523, 1000);
+  beeper_play_tone(523, 500);
   beeper_play_tone(440, 1000);
   beeper_play_tone(349, 1000);
   beeper_play_tone(330, 1000);

@@ -2123,19 +2123,29 @@ void init_beeper() {
   LATA |= (0b1 << 2);
 
 
+  ANSELAbits.ANSA5 = 0;
+  TRISAbits.TRISA5 = 0;
+  LATAbits.LATA5 = 0;
 
 
 
-  T2CON = 0b00011011;
-  PIE1 |= (0b1 << 1);
 
 
-  T1CON |= (0b11 << 6);
-  T1CON |= (0b11 << 4);
-  PIE1 |= (0b1);
+  T2CONbits.T2OUTPS = 0b0000;
+  T2CONbits.TMR2ON = 0b0;
+  T2CONbits.T2CKPS = 0b00;
+
+  PIE1bits.TMR2IE = 0b1;
 
 
-  INTCON |= (0b11 << 6);
+
+  T1CONbits.TMR1CS = 0b00;
+  T1CONbits.T1CKPS = 0b11;
+  PIE1bits.TMR1IE = 0b1;
+
+
+  INTCONbits.GIE = 0b1;
+  INTCONbits.PEIE = 0b1;
 }
 
 
@@ -2150,9 +2160,10 @@ void beeper_play_tone(uint16_t freq, uint16_t duration) {
   beeper_off();
 }
 
+
 void beeper_wait_duration(uint16_t duration) {
   duration /= duration_divisor;
-  uint16_t note_dur_clock_ticks = duration * 16 / 8;
+  uint16_t note_dur_clock_ticks = duration / 8 * 250;
   note_dur_clock_ticks = 65535 - note_dur_clock_ticks;
   TMR1H = note_dur_clock_ticks >> 8;
   TMR1L = note_dur_clock_ticks & 0x00FF;
@@ -2172,15 +2183,17 @@ void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
 static void beeper_set_freq_hz(uint16_t freq) {
   freq *= freq_multiplier;
 
-  PR2 = ((uint16_t)125 / 2 * 1000 / freq) - 2;
+  PR2 = ((uint32_t)250 / 2 * 1000 / freq) - 2;
 }
 
 static void beeper_on() {
   T2CONbits.TMR2ON = 1;
+  LATAbits.LATA5 = 1;
 }
 
 static void beeper_off() {
   T2CONbits.TMR2ON = 0;
+  LATAbits.LATA5 = 0;
 }
 
 void __attribute__((picinterrupt(("")))) ISR(void) {

@@ -8,18 +8,91 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1762
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1762: extern volatile unsigned char LATA __attribute__((address(0x105)));
 [v _LATA `Vuc ~T0 @X0 0 e@261 ]
-"2000
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2000: extern volatile unsigned char T2CON __attribute__((address(0x112)));
-[v _T2CON `Vuc ~T0 @X0 0 e@274 ]
-"991
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 991: extern volatile unsigned char PIE1 __attribute__((address(0x08C)));
-[v _PIE1 `Vuc ~T0 @X0 0 e@140 ]
-"432
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 432: extern volatile unsigned char T1CON __attribute__((address(0x011)));
-[v _T1CON `Vuc ~T0 @X0 0 e@17 ]
-"264
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 264: extern volatile unsigned char INTCON __attribute__((address(0x00B)));
-[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
+"2241
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2241:     struct {
+[s S106 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S106 . ANSA0 ANSA1 ANSA2 . ANSA4 ANSA5 ]
+"2240
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2240: typedef union {
+[u S105 `S106 1 ]
+[n S105 . . ]
+"2250
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2250: extern volatile ANSELAbits_t ANSELAbits __attribute__((address(0x185)));
+[v _ANSELAbits `VS105 ~T0 @X0 0 e@389 ]
+"897
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 897:     struct {
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 ]
+"896
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 896: typedef union {
+[u S36 `S37 1 ]
+[n S36 . . ]
+"906
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 906: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
+[v _TRISAbits `VS36 ~T0 @X0 0 e@133 ]
+"1768
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1768:     struct {
+[s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S79 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"1767
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1767: typedef union {
+[u S78 `S79 1 ]
+[n S78 . . ]
+"1777
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1777: extern volatile LATAbits_t LATAbits __attribute__((address(0x105)));
+[v _LATAbits `VS78 ~T0 @X0 0 e@261 ]
+"2006
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2006:     struct {
+[s S93 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S93 . T2CKPS TMR2ON T2OUTPS ]
+"2011
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2011:     struct {
+[s S94 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S94 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"2005
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2005: typedef union {
+[u S92 `S93 1 `S94 1 ]
+[n S92 . . . ]
+"2021
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2021: extern volatile T2CONbits_t T2CONbits __attribute__((address(0x112)));
+[v _T2CONbits `VS92 ~T0 @X0 0 e@274 ]
+"997
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 997:     struct {
+[s S41 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S41 . TMR1IE TMR2IE HLTMR1IE . ADIE TMR1GIE ]
+"996
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 996: typedef union {
+[u S40 `S41 1 ]
+[n S40 . . ]
+"1006
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1006: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
+[v _PIE1bits `VS40 ~T0 @X0 0 e@140 ]
+"438
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 438:     struct {
+[s S15 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S15 . TMR1ON . nT1SYNC . T1CKPS TMR1CS ]
+"446
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 446:     struct {
+[s S16 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . . T1CKPS0 T1CKPS1 TMR1CS0 TMR1CS1 ]
+"437
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 437: typedef union {
+[u S14 `S15 1 `S16 1 ]
+[n S14 . . . ]
+"454
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 454: extern volatile T1CONbits_t T1CONbits __attribute__((address(0x011)));
+[v _T1CONbits `VS14 ~T0 @X0 0 e@17 ]
+"270
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 270:     struct {
+[s S9 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S9 . IOCIF INTF T0IF IOCIE INTE T0IE PEIE GIE ]
+"269
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 269: typedef union {
+[u S8 `S9 1 ]
+[n S8 . . ]
+"281
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 281: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS8 ~T0 @X0 0 e@11 ]
 "22 ./beeper.h
 [; ;./beeper.h: 22: static void beeper_set_freq_hz(uint16_t freq);
 [v _beeper_set_freq_hz `(v ~T0 @X0 0 sf1`ui ]
@@ -38,39 +111,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "418
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 418: extern volatile unsigned char TMR1L __attribute__((address(0x00F)));
 [v _TMR1L `Vuc ~T0 @X0 0 e@15 ]
-"438
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 438:     struct {
-[s S15 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S15 . TMR1ON . nT1SYNC . T1CKPS TMR1CS ]
-"446
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 446:     struct {
-[s S16 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S16 . . T1CKPS0 T1CKPS1 TMR1CS0 TMR1CS1 ]
-"437
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 437: typedef union {
-[u S14 `S15 1 `S16 1 ]
-[n S14 . . . ]
-"454
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 454: extern volatile T1CONbits_t T1CONbits __attribute__((address(0x011)));
-[v _T1CONbits `VS14 ~T0 @X0 0 e@17 ]
 "1980
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1980: extern volatile unsigned char PR2 __attribute__((address(0x111)));
 [v _PR2 `Vuc ~T0 @X0 0 e@273 ]
-"2006
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2006:     struct {
-[s S93 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S93 . T2CKPS TMR2ON T2OUTPS ]
-"2011
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2011:     struct {
-[s S94 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S94 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
-"2005
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2005: typedef union {
-[u S92 `S93 1 `S94 1 ]
-[n S92 . . . ]
-"2021
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 2021: extern volatile T2CONbits_t T2CONbits __attribute__((address(0x112)));
-[v _T2CONbits `VS92 ~T0 @X0 0 e@274 ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 "332
@@ -84,17 +127,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "341
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 341: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
 [v _PIR1bits `VS10 ~T0 @X0 0 e@12 ]
-"1768
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1768:     struct {
-[s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S79 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
-"1767
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1767: typedef union {
-[u S78 `S79 1 ]
-[n S78 . . ]
-"1777
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 1777: extern volatile LATAbits_t LATAbits __attribute__((address(0x105)));
-[v _LATAbits `VS78 ~T0 @X0 0 e@261 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -347,83 +379,101 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;beeper.c: 19:   LATA |= (0b1 << 2);
 [e =| _LATA -> << -> 1 `i -> 2 `i `Vuc ]
-"25
-[; ;beeper.c: 25:   T2CON = 0b00011011;
-[e = _T2CON -> -> 27 `i `uc ]
-"26
-[; ;beeper.c: 26:   PIE1 |= (0b1 << 1);
-[e =| _PIE1 -> << -> 1 `i -> 1 `i `Vuc ]
-"29
-[; ;beeper.c: 29:   T1CON |= (0b11 << 6);
-[e =| _T1CON -> << -> 3 `i -> 6 `i `Vuc ]
+"22
+[; ;beeper.c: 22:   ANSELAbits.ANSA5 = 0;
+[e = . . _ANSELAbits 0 5 -> -> 0 `i `uc ]
+"23
+[; ;beeper.c: 23:   TRISAbits.TRISA5 = 0;
+[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
+"24
+[; ;beeper.c: 24:   LATAbits.LATA5 = 0;
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
 "30
-[; ;beeper.c: 30:   T1CON |= (0b11 << 4);
-[e =| _T1CON -> << -> 3 `i -> 4 `i `Vuc ]
+[; ;beeper.c: 30:   T2CONbits.T2OUTPS = 0b0000;
+[e = . . _T2CONbits 0 2 -> -> 0 `i `uc ]
 "31
-[; ;beeper.c: 31:   PIE1 |= (0b1);
-[e =| _PIE1 -> -> 1 `i `Vuc ]
+[; ;beeper.c: 31:   T2CONbits.TMR2ON = 0b0;
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+"32
+[; ;beeper.c: 32:   T2CONbits.T2CKPS = 0b00;
+[e = . . _T2CONbits 0 0 -> -> 0 `i `uc ]
 "34
-[; ;beeper.c: 34:   INTCON |= (0b11 << 6);
-[e =| _INTCON -> << -> 3 `i -> 6 `i `Vuc ]
-"35
-[; ;beeper.c: 35: }
+[; ;beeper.c: 34:   PIE1bits.TMR2IE = 0b1;
+[e = . . _PIE1bits 0 1 -> -> 1 `i `uc ]
+"38
+[; ;beeper.c: 38:   T1CONbits.TMR1CS = 0b00;
+[e = . . _T1CONbits 0 5 -> -> 0 `i `uc ]
+"39
+[; ;beeper.c: 39:   T1CONbits.T1CKPS = 0b11;
+[e = . . _T1CONbits 0 4 -> -> 3 `i `uc ]
+"40
+[; ;beeper.c: 40:   PIE1bits.TMR1IE = 0b1;
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+"43
+[; ;beeper.c: 43:   INTCONbits.GIE = 0b1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"44
+[; ;beeper.c: 44:   INTCONbits.PEIE = 0b1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"45
+[; ;beeper.c: 45: }
 [e :UE 141 ]
 }
-"42
-[; ;beeper.c: 42: void beeper_play_tone(uint16_t freq, uint16_t duration) {
+"52
+[; ;beeper.c: 52: void beeper_play_tone(uint16_t freq, uint16_t duration) {
 [v _beeper_play_tone `(v ~T0 @X0 1 ef2`ui`ui ]
 {
 [e :U _beeper_play_tone ]
 [v _freq `ui ~T0 @X0 1 r1 ]
 [v _duration `ui ~T0 @X0 1 r2 ]
 [f ]
-"43
-[; ;beeper.c: 43:   beeper_set_freq_hz(freq);
+"53
+[; ;beeper.c: 53:   beeper_set_freq_hz(freq);
 [e ( _beeper_set_freq_hz (1 _freq ]
-"44
-[; ;beeper.c: 44:   beeper_on();
+"54
+[; ;beeper.c: 54:   beeper_on();
 [e ( _beeper_on ..  ]
-"45
-[; ;beeper.c: 45:   beeper_wait_duration(duration);
+"55
+[; ;beeper.c: 55:   beeper_wait_duration(duration);
 [e ( _beeper_wait_duration (1 _duration ]
-"46
-[; ;beeper.c: 46:   beeper_off();
+"56
+[; ;beeper.c: 56:   beeper_off();
 [e ( _beeper_off ..  ]
-"47
-[; ;beeper.c: 47: }
+"57
+[; ;beeper.c: 57: }
 [e :UE 142 ]
 }
-"49
-[; ;beeper.c: 49: void beeper_wait_duration(uint16_t duration) {
+"60
+[; ;beeper.c: 60: void beeper_wait_duration(uint16_t duration) {
 [v _beeper_wait_duration `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _beeper_wait_duration ]
 [v _duration `ui ~T0 @X0 1 r1 ]
 [f ]
-"50
-[; ;beeper.c: 50:   duration /= duration_divisor;
+"61
+[; ;beeper.c: 61:   duration /= duration_divisor;
 [e =/ _duration -> _duration_divisor `ui ]
-"51
-[; ;beeper.c: 51:   uint16_t note_dur_clock_ticks = duration * 16 / 8;
+"62
+[; ;beeper.c: 62:   uint16_t note_dur_clock_ticks = duration / 8 * 250;
 [v _note_dur_clock_ticks `ui ~T0 @X0 1 a ]
-[e = _note_dur_clock_ticks / * _duration -> -> 16 `i `ui -> -> 8 `i `ui ]
-"52
-[; ;beeper.c: 52:   note_dur_clock_ticks = 65535 - note_dur_clock_ticks;
+[e = _note_dur_clock_ticks * / _duration -> -> 8 `i `ui -> -> 250 `i `ui ]
+"63
+[; ;beeper.c: 63:   note_dur_clock_ticks = 65535 - note_dur_clock_ticks;
 [e = _note_dur_clock_ticks -> - -> 65535 `l -> _note_dur_clock_ticks `l `ui ]
-"53
-[; ;beeper.c: 53:   TMR1H = note_dur_clock_ticks >> 8;
+"64
+[; ;beeper.c: 64:   TMR1H = note_dur_clock_ticks >> 8;
 [e = _TMR1H -> >> _note_dur_clock_ticks -> 8 `i `uc ]
-"54
-[; ;beeper.c: 54:   TMR1L = note_dur_clock_ticks & 0x00FF;
+"65
+[; ;beeper.c: 65:   TMR1L = note_dur_clock_ticks & 0x00FF;
 [e = _TMR1L -> & _note_dur_clock_ticks -> -> 255 `i `ui `uc ]
-"55
-[; ;beeper.c: 55:   playing_note = 1;
+"66
+[; ;beeper.c: 66:   playing_note = 1;
 [e = _playing_note -> -> 1 `i `uc ]
-"56
-[; ;beeper.c: 56:   T1CONbits.TMR1ON = 1;
+"67
+[; ;beeper.c: 67:   T1CONbits.TMR1ON = 1;
 [e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-"57
-[; ;beeper.c: 57:   while (playing_note) { }
+"68
+[; ;beeper.c: 68:   while (playing_note) { }
 [e $U 144  ]
 [e :U 145 ]
 {
@@ -431,120 +481,126 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 144 ]
 [e $ != -> _playing_note `i -> 0 `i 145  ]
 [e :U 146 ]
-"58
-[; ;beeper.c: 58: }
+"69
+[; ;beeper.c: 69: }
 [e :UE 143 ]
 }
-"60
-[; ;beeper.c: 60: void beeper_set_freq_multiplier(uint8_t freq_multiplier_in) {
+"71
+[; ;beeper.c: 71: void beeper_set_freq_multiplier(uint8_t freq_multiplier_in) {
 [v _beeper_set_freq_multiplier `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _beeper_set_freq_multiplier ]
 [v _freq_multiplier_in `uc ~T0 @X0 1 r1 ]
 [f ]
-"61
-[; ;beeper.c: 61:   freq_multiplier = freq_multiplier_in;
+"72
+[; ;beeper.c: 72:   freq_multiplier = freq_multiplier_in;
 [e = _freq_multiplier _freq_multiplier_in ]
-"62
-[; ;beeper.c: 62: }
+"73
+[; ;beeper.c: 73: }
 [e :UE 147 ]
 }
-"64
-[; ;beeper.c: 64: void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
+"75
+[; ;beeper.c: 75: void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
 [v _beeper_set_duration_divisor `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _beeper_set_duration_divisor ]
 [v _duration_divisor_in `uc ~T0 @X0 1 r1 ]
 [f ]
-"65
-[; ;beeper.c: 65:   duration_divisor = duration_divisor_in;
+"76
+[; ;beeper.c: 76:   duration_divisor = duration_divisor_in;
 [e = _duration_divisor _duration_divisor_in ]
-"66
-[; ;beeper.c: 66: }
+"77
+[; ;beeper.c: 77: }
 [e :UE 148 ]
 }
-"68
-[; ;beeper.c: 68: static void beeper_set_freq_hz(uint16_t freq) {
+"79
+[; ;beeper.c: 79: static void beeper_set_freq_hz(uint16_t freq) {
 [v _beeper_set_freq_hz `(v ~T0 @X0 1 sf1`ui ]
 {
 [e :U _beeper_set_freq_hz ]
 [v _freq `ui ~T0 @X0 1 r1 ]
 [f ]
-"69
-[; ;beeper.c: 69:   freq *= freq_multiplier;
+"80
+[; ;beeper.c: 80:   freq *= freq_multiplier;
 [e =* _freq -> _freq_multiplier `ui ]
-"71
-[; ;beeper.c: 71:   PR2 = ((uint16_t)125 / 2 * 1000 / freq) - 2;
-[e = _PR2 -> - / * / -> -> 125 `i `ui -> -> 2 `i `ui -> -> 1000 `i `ui _freq -> -> 2 `i `ui `uc ]
-"72
-[; ;beeper.c: 72: }
+"82
+[; ;beeper.c: 82:   PR2 = ((uint32_t)250 / 2 * 1000 / freq) - 2;
+[e = _PR2 -> - / * / -> -> 250 `i `ul -> -> -> 2 `i `l `ul -> -> -> 1000 `i `l `ul -> _freq `ul -> -> -> 2 `i `l `ul `uc ]
+"83
+[; ;beeper.c: 83: }
 [e :UE 149 ]
 }
-"74
-[; ;beeper.c: 74: static void beeper_on() {
+"85
+[; ;beeper.c: 85: static void beeper_on() {
 [v _beeper_on `(v ~T0 @X0 1 sf ]
 {
 [e :U _beeper_on ]
 [f ]
-"75
-[; ;beeper.c: 75:   T2CONbits.TMR2ON = 1;
+"86
+[; ;beeper.c: 86:   T2CONbits.TMR2ON = 1;
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-"76
-[; ;beeper.c: 76: }
+"87
+[; ;beeper.c: 87:   LATAbits.LATA5 = 1;
+[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
+"88
+[; ;beeper.c: 88: }
 [e :UE 150 ]
 }
-"78
-[; ;beeper.c: 78: static void beeper_off() {
+"90
+[; ;beeper.c: 90: static void beeper_off() {
 [v _beeper_off `(v ~T0 @X0 1 sf ]
 {
 [e :U _beeper_off ]
 [f ]
-"79
-[; ;beeper.c: 79:   T2CONbits.TMR2ON = 0;
+"91
+[; ;beeper.c: 91:   T2CONbits.TMR2ON = 0;
 [e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
-"80
-[; ;beeper.c: 80: }
+"92
+[; ;beeper.c: 92:   LATAbits.LATA5 = 0;
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
+"93
+[; ;beeper.c: 93: }
 [e :UE 151 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"82
-[; ;beeper.c: 82: void __attribute__((picinterrupt(("")))) ISR(void) {
+"95
+[; ;beeper.c: 95: void __attribute__((picinterrupt(("")))) ISR(void) {
 [v _ISR `(v ~T1 @X0 1 ef ]
 {
 [e :U _ISR ]
 [f ]
-"83
-[; ;beeper.c: 83:   if (PIR1bits.TMR2IF) {
+"96
+[; ;beeper.c: 96:   if (PIR1bits.TMR2IF) {
 [e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 153  ]
 {
-"85
-[; ;beeper.c: 85:     PIR1bits.TMR2IF = 0;
+"98
+[; ;beeper.c: 98:     PIR1bits.TMR2IF = 0;
 [e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-"86
-[; ;beeper.c: 86:     LATAbits.LATA2 = ~LATAbits.LATA2;
+"99
+[; ;beeper.c: 99:     LATAbits.LATA2 = ~LATAbits.LATA2;
 [e = . . _LATAbits 0 2 -> ~ -> . . _LATAbits 0 2 `i `uc ]
-"87
-[; ;beeper.c: 87:   }
+"100
+[; ;beeper.c: 100:   }
 }
 [e :U 153 ]
-"89
-[; ;beeper.c: 89:   if (PIR1bits.TMR1IF) {
+"102
+[; ;beeper.c: 102:   if (PIR1bits.TMR1IF) {
 [e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 154  ]
 {
-"91
-[; ;beeper.c: 91:     PIR1bits.TMR1IF = 0;
+"104
+[; ;beeper.c: 104:     PIR1bits.TMR1IF = 0;
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"92
-[; ;beeper.c: 92:     playing_note = 0;
+"105
+[; ;beeper.c: 105:     playing_note = 0;
 [e = _playing_note -> -> 0 `i `uc ]
-"93
-[; ;beeper.c: 93:     T1CONbits.TMR1ON = 0;
+"106
+[; ;beeper.c: 106:     T1CONbits.TMR1ON = 0;
 [e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"94
-[; ;beeper.c: 94:   }
+"107
+[; ;beeper.c: 107:   }
 }
 [e :U 154 ]
-"95
-[; ;beeper.c: 95: }
+"108
+[; ;beeper.c: 108: }
 [e :UE 152 ]
 }
