@@ -470,6 +470,21 @@ Connection ~ 1450 3300
 Wire Wire Line
 	1450 3300 1450 3350
 $Comp
+L power:+BATT #PWR0105
+U 1 1 5D706B34
+P 8250 1600
+F 0 "#PWR0105" H 8250 1450 50  0001 C CNN
+F 1 "+BATT" H 8265 1773 50  0000 C CNN
+F 2 "" H 8250 1600 50  0001 C CNN
+F 3 "" H 8250 1600 50  0001 C CNN
+	1    8250 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8250 1600 8250 1650
+Wire Wire Line
+	8250 1650 8150 1650
+$Comp
 L power:+BATT #PWR0106
 U 1 1 5D70DB20
 P 9600 1600
@@ -615,10 +630,4 @@ Text Notes 2750 2400 2    50   ~ 0
 DNP for\nSlave
 Text Notes 2750 2800 2    50   ~ 0
 10k for\nSlave
-Text Label 7450 3450 0    50   ~ 0
-BATT_SWITCH
-Text Label 8650 1650 2    50   ~ 0
-BATT_SWITCH
-Wire Wire Line
-	8650 1650 8150 1650
 $EndSCHEMATC
