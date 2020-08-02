@@ -93,17 +93,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "281
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 281: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
 [v _INTCONbits `VS8 ~T0 @X0 0 e@11 ]
-"22 ./beeper.h
-[; ;./beeper.h: 22: static void beeper_set_freq_hz(uint16_t freq);
+"23 ./beeper.h
+[; ;./beeper.h: 23: static void beeper_set_freq_hz(uint16_t freq);
 [v _beeper_set_freq_hz `(v ~T0 @X0 0 sf1`ui ]
-"23
-[; ;./beeper.h: 23: static void beeper_on(void);
+"24
+[; ;./beeper.h: 24: static void beeper_on(void);
 [v _beeper_on `(v ~T0 @X0 0 sf ]
 "17
 [; ;./beeper.h: 17: void beeper_wait_duration(uint16_t duration);
 [v _beeper_wait_duration `(v ~T0 @X0 0 ef1`ui ]
-"24
-[; ;./beeper.h: 24: static void beeper_off(void);
+"25
+[; ;./beeper.h: 25: static void beeper_off(void);
 [v _beeper_off `(v ~T0 @X0 0 sf ]
 "425 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic12f752.h: 425: extern volatile unsigned char TMR1H __attribute__((address(0x010)));
@@ -443,37 +443,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;beeper.c: 57: }
 [e :UE 142 ]
 }
-"60
-[; ;beeper.c: 60: void beeper_wait_duration(uint16_t duration) {
-[v _beeper_wait_duration `(v ~T0 @X0 1 ef1`ui ]
+"59
+[; ;beeper.c: 59: void beeper_wait_duration_helper(uint16_t duration) {
+[v _beeper_wait_duration_helper `(v ~T0 @X0 1 ef1`ui ]
 {
-[e :U _beeper_wait_duration ]
+[e :U _beeper_wait_duration_helper ]
 [v _duration `ui ~T0 @X0 1 r1 ]
 [f ]
-"61
-[; ;beeper.c: 61:   duration /= duration_divisor;
-[e =/ _duration -> _duration_divisor `ui ]
-"62
-[; ;beeper.c: 62:   uint16_t note_dur_clock_ticks = duration / 8 * 250;
+"60
+[; ;beeper.c: 60:   uint16_t note_dur_clock_ticks = duration / 8 * 250;
 [v _note_dur_clock_ticks `ui ~T0 @X0 1 a ]
 [e = _note_dur_clock_ticks * / _duration -> -> 8 `i `ui -> -> 250 `i `ui ]
-"63
-[; ;beeper.c: 63:   note_dur_clock_ticks = 65535 - note_dur_clock_ticks;
+"61
+[; ;beeper.c: 61:   note_dur_clock_ticks = 65535 - note_dur_clock_ticks;
 [e = _note_dur_clock_ticks -> - -> 65535 `l -> _note_dur_clock_ticks `l `ui ]
-"64
-[; ;beeper.c: 64:   TMR1H = note_dur_clock_ticks >> 8;
+"62
+[; ;beeper.c: 62:   TMR1H = note_dur_clock_ticks >> 8;
 [e = _TMR1H -> >> _note_dur_clock_ticks -> 8 `i `uc ]
-"65
-[; ;beeper.c: 65:   TMR1L = note_dur_clock_ticks & 0x00FF;
+"63
+[; ;beeper.c: 63:   TMR1L = note_dur_clock_ticks & 0x00FF;
 [e = _TMR1L -> & _note_dur_clock_ticks -> -> 255 `i `ui `uc ]
-"66
-[; ;beeper.c: 66:   playing_note = 1;
+"64
+[; ;beeper.c: 64:   playing_note = 1;
 [e = _playing_note -> -> 1 `i `uc ]
-"67
-[; ;beeper.c: 67:   T1CONbits.TMR1ON = 1;
+"65
+[; ;beeper.c: 65:   T1CONbits.TMR1ON = 1;
 [e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-"68
-[; ;beeper.c: 68:   while (playing_note) { }
+"66
+[; ;beeper.c: 66:   while (playing_note) { }
 [e $U 144  ]
 [e :U 145 ]
 {
@@ -481,126 +478,184 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 144 ]
 [e $ != -> _playing_note `i -> 0 `i 145  ]
 [e :U 146 ]
-"69
-[; ;beeper.c: 69: }
+"67
+[; ;beeper.c: 67: }
 [e :UE 143 ]
 }
+"70
+[; ;beeper.c: 70: void beeper_wait_duration(uint16_t duration) {
+[v _beeper_wait_duration `(v ~T0 @X0 1 ef1`ui ]
+{
+[e :U _beeper_wait_duration ]
+[v _duration `ui ~T0 @X0 1 r1 ]
+[f ]
 "71
-[; ;beeper.c: 71: void beeper_set_freq_multiplier(uint8_t freq_multiplier_in) {
+[; ;beeper.c: 71:   duration /= duration_divisor;
+[e =/ _duration -> _duration_divisor `ui ]
+"72
+[; ;beeper.c: 72:   while (duration > 2000) {
+[e $U 148  ]
+[e :U 149 ]
+{
+"73
+[; ;beeper.c: 73:     beeper_wait_duration_helper(2000);
+[e ( _beeper_wait_duration_helper (1 -> -> 2000 `i `ui ]
+"74
+[; ;beeper.c: 74:     duration -= 2000;
+[e =- _duration -> -> 2000 `i `ui ]
+"75
+[; ;beeper.c: 75:   }
+}
+[e :U 148 ]
+"72
+[; ;beeper.c: 72:   while (duration > 2000) {
+[e $ > _duration -> -> 2000 `i `ui 149  ]
+[e :U 150 ]
+"76
+[; ;beeper.c: 76:   beeper_wait_duration_helper(duration);
+[e ( _beeper_wait_duration_helper (1 _duration ]
+"77
+[; ;beeper.c: 77: }
+[e :UE 147 ]
+}
+"79
+[; ;beeper.c: 79: void beeper_set_freq_multiplier(uint8_t freq_multiplier_in) {
 [v _beeper_set_freq_multiplier `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _beeper_set_freq_multiplier ]
 [v _freq_multiplier_in `uc ~T0 @X0 1 r1 ]
 [f ]
-"72
-[; ;beeper.c: 72:   freq_multiplier = freq_multiplier_in;
+"80
+[; ;beeper.c: 80:   freq_multiplier = freq_multiplier_in;
 [e = _freq_multiplier _freq_multiplier_in ]
-"73
-[; ;beeper.c: 73: }
-[e :UE 147 ]
+"81
+[; ;beeper.c: 81: }
+[e :UE 151 ]
 }
-"75
-[; ;beeper.c: 75: void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
+"83
+[; ;beeper.c: 83: void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
 [v _beeper_set_duration_divisor `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _beeper_set_duration_divisor ]
 [v _duration_divisor_in `uc ~T0 @X0 1 r1 ]
 [f ]
-"76
-[; ;beeper.c: 76:   duration_divisor = duration_divisor_in;
+"84
+[; ;beeper.c: 84:   duration_divisor = duration_divisor_in;
 [e = _duration_divisor _duration_divisor_in ]
-"77
-[; ;beeper.c: 77: }
-[e :UE 148 ]
+"85
+[; ;beeper.c: 85: }
+[e :UE 152 ]
 }
-"79
-[; ;beeper.c: 79: static void beeper_set_freq_hz(uint16_t freq) {
+"87
+[; ;beeper.c: 87: void beeper_jump() {
+[v _beeper_jump `(v ~T0 @X0 1 ef ]
+{
+[e :U _beeper_jump ]
+[f ]
+"89
+[; ;beeper.c: 89:   LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+"90
+[; ;beeper.c: 90:   while(1);
+[e :U 155 ]
+[e :U 154 ]
+[e $U 155  ]
+[e :U 156 ]
+"91
+[; ;beeper.c: 91: }
+[e :UE 153 ]
+}
+"93
+[; ;beeper.c: 93: static void beeper_set_freq_hz(uint16_t freq) {
 [v _beeper_set_freq_hz `(v ~T0 @X0 1 sf1`ui ]
 {
 [e :U _beeper_set_freq_hz ]
 [v _freq `ui ~T0 @X0 1 r1 ]
 [f ]
-"80
-[; ;beeper.c: 80:   freq *= freq_multiplier;
+"94
+[; ;beeper.c: 94:   freq *= freq_multiplier;
 [e =* _freq -> _freq_multiplier `ui ]
-"82
-[; ;beeper.c: 82:   PR2 = ((uint32_t)250 / 2 * 1000 / freq) - 2;
+"96
+[; ;beeper.c: 96:   PR2 = ((uint32_t)250 / 2 * 1000 / freq) - 2;
 [e = _PR2 -> - / * / -> -> 250 `i `ul -> -> -> 2 `i `l `ul -> -> -> 1000 `i `l `ul -> _freq `ul -> -> -> 2 `i `l `ul `uc ]
-"83
-[; ;beeper.c: 83: }
-[e :UE 149 ]
+"97
+[; ;beeper.c: 97: }
+[e :UE 157 ]
 }
-"85
-[; ;beeper.c: 85: static void beeper_on() {
+"99
+[; ;beeper.c: 99: static void beeper_on() {
 [v _beeper_on `(v ~T0 @X0 1 sf ]
 {
 [e :U _beeper_on ]
 [f ]
-"86
-[; ;beeper.c: 86:   T2CONbits.TMR2ON = 1;
+"100
+[; ;beeper.c: 100:   T2CONbits.TMR2ON = 1;
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-"87
-[; ;beeper.c: 87:   LATAbits.LATA5 = 1;
+"101
+[; ;beeper.c: 101:   LATAbits.LATA5 = 1;
 [e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-"88
-[; ;beeper.c: 88: }
-[e :UE 150 ]
+"102
+[; ;beeper.c: 102: }
+[e :UE 158 ]
 }
-"90
-[; ;beeper.c: 90: static void beeper_off() {
+"104
+[; ;beeper.c: 104: static void beeper_off() {
 [v _beeper_off `(v ~T0 @X0 1 sf ]
 {
 [e :U _beeper_off ]
 [f ]
-"91
-[; ;beeper.c: 91:   T2CONbits.TMR2ON = 0;
+"105
+[; ;beeper.c: 105:   T2CONbits.TMR2ON = 0;
 [e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
-"92
-[; ;beeper.c: 92:   LATAbits.LATA5 = 0;
+"106
+[; ;beeper.c: 106:   LATAbits.LATA5 = 0;
 [e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
-"93
-[; ;beeper.c: 93: }
-[e :UE 151 ]
+"107
+[; ;beeper.c: 107:   LATAbits.LATA2 = 0;
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+"108
+[; ;beeper.c: 108: }
+[e :UE 159 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"95
-[; ;beeper.c: 95: void __attribute__((picinterrupt(("")))) ISR(void) {
+"110
+[; ;beeper.c: 110: void __attribute__((picinterrupt(("")))) ISR(void) {
 [v _ISR `(v ~T1 @X0 1 ef ]
 {
 [e :U _ISR ]
 [f ]
-"96
-[; ;beeper.c: 96:   if (PIR1bits.TMR2IF) {
-[e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 153  ]
+"111
+[; ;beeper.c: 111:   if (PIR1bits.TMR2IF) {
+[e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 161  ]
 {
-"98
-[; ;beeper.c: 98:     PIR1bits.TMR2IF = 0;
+"113
+[; ;beeper.c: 113:     PIR1bits.TMR2IF = 0;
 [e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-"99
-[; ;beeper.c: 99:     LATAbits.LATA2 = ~LATAbits.LATA2;
+"114
+[; ;beeper.c: 114:     LATAbits.LATA2 = ~LATAbits.LATA2;
 [e = . . _LATAbits 0 2 -> ~ -> . . _LATAbits 0 2 `i `uc ]
-"100
-[; ;beeper.c: 100:   }
+"115
+[; ;beeper.c: 115:   }
 }
-[e :U 153 ]
-"102
-[; ;beeper.c: 102:   if (PIR1bits.TMR1IF) {
-[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 154  ]
+[e :U 161 ]
+"117
+[; ;beeper.c: 117:   if (PIR1bits.TMR1IF) {
+[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 162  ]
 {
-"104
-[; ;beeper.c: 104:     PIR1bits.TMR1IF = 0;
+"119
+[; ;beeper.c: 119:     PIR1bits.TMR1IF = 0;
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"105
-[; ;beeper.c: 105:     playing_note = 0;
+"120
+[; ;beeper.c: 120:     playing_note = 0;
 [e = _playing_note -> -> 0 `i `uc ]
-"106
-[; ;beeper.c: 106:     T1CONbits.TMR1ON = 0;
+"121
+[; ;beeper.c: 121:     T1CONbits.TMR1ON = 0;
 [e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"107
-[; ;beeper.c: 107:   }
+"122
+[; ;beeper.c: 122:   }
 }
-[e :U 154 ]
-"108
-[; ;beeper.c: 108: }
-[e :UE 152 ]
+[e :U 162 ]
+"123
+[; ;beeper.c: 123: }
+[e :UE 160 ]
 }

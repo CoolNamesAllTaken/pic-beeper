@@ -1960,8 +1960,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 11 "./beeper.h" 2
-
+# 12 "./beeper.h" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -2095,8 +2094,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 12 "./beeper.h" 2
-
+# 13 "./beeper.h" 2
 
 void init_beeper(void);
 
@@ -2104,6 +2102,7 @@ void beeper_play_tone(uint16_t freq, uint16_t duration);
 void beeper_wait_duration(uint16_t duration);
 void beeper_set_freq_multiplier(uint8_t freq_multiplier_in);
 void beeper_set_duration_divisor(uint8_t duration_divisor_in);
+void beeper_jump(void);
 
 
 static void beeper_set_freq_hz(uint16_t freq);
@@ -2160,9 +2159,7 @@ void beeper_play_tone(uint16_t freq, uint16_t duration) {
   beeper_off();
 }
 
-
-void beeper_wait_duration(uint16_t duration) {
-  duration /= duration_divisor;
+void beeper_wait_duration_helper(uint16_t duration) {
   uint16_t note_dur_clock_ticks = duration / 8 * 250;
   note_dur_clock_ticks = 65535 - note_dur_clock_ticks;
   TMR1H = note_dur_clock_ticks >> 8;
@@ -2172,12 +2169,28 @@ void beeper_wait_duration(uint16_t duration) {
   while (playing_note) { }
 }
 
+
+void beeper_wait_duration(uint16_t duration) {
+  duration /= duration_divisor;
+  while (duration > 2000) {
+    beeper_wait_duration_helper(2000);
+    duration -= 2000;
+  }
+  beeper_wait_duration_helper(duration);
+}
+
 void beeper_set_freq_multiplier(uint8_t freq_multiplier_in) {
   freq_multiplier = freq_multiplier_in;
 }
 
 void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
   duration_divisor = duration_divisor_in;
+}
+
+void beeper_jump() {
+
+  LATAbits.LATA4 = 1;
+  while(1);
 }
 
 static void beeper_set_freq_hz(uint16_t freq) {
@@ -2194,6 +2207,7 @@ static void beeper_on() {
 static void beeper_off() {
   T2CONbits.TMR2ON = 0;
   LATAbits.LATA5 = 0;
+  LATAbits.LATA2 = 0;
 }
 
 void __attribute__((picinterrupt(("")))) ISR(void) {

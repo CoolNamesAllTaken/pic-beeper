@@ -25,18 +25,61 @@
 #include <xc.h>
 #include "beeper.h"
 
-#define NOKIA
-#define HAPPY_BIRTHDAY
+//#define NOKIA
+//#define HAPPY_BIRTHDAY
+#define THING
 
 void init(void) {
   OSCCONbits.IRCF = 0b01; // set internal clock to run on 1MHz (HF oscillator)
   while (!OSCCONbits.HTS) {} // wait for HF oscillator to stabilize
   
   init_beeper();
+  
+  // set slave reset pin (RA4) as digital output
+  ANSELAbits.ANSA4 = 0;
+  TRISAbits.TRISA4 = 0;
+  LATAbits.LATA4 = 0;
 }
 
 void loop(void) {
   
+#ifdef THING
+beeper_play_tone(349, 840);
+beeper_wait_duration(504);
+beeper_play_tone(466, 1288);
+beeper_wait_duration(56);
+beeper_play_tone(415, 1176);
+beeper_wait_duration(168);
+beeper_play_tone(392, 616);
+beeper_wait_duration(56);
+beeper_play_tone(349, 1064);
+beeper_wait_duration(280);
+beeper_play_tone(392, 1456);
+beeper_wait_duration(1904);
+beeper_play_tone(392, 2632);
+beeper_wait_duration(56);
+beeper_play_tone(466, 2632);
+beeper_wait_duration(56);
+beeper_play_tone(523, 1960);
+beeper_wait_duration(56);
+beeper_play_tone(349, 1904);
+beeper_wait_duration(112);
+beeper_play_tone(311, 1288);
+beeper_wait_duration(56);
+beeper_play_tone(466, 1008);
+beeper_wait_duration(336);
+beeper_play_tone(466, 952);
+beeper_wait_duration(392);
+beeper_play_tone(392, 1120);
+beeper_wait_duration(224);
+beeper_play_tone(466, 952);
+beeper_wait_duration(392);
+beeper_play_tone(466, 1960);
+beeper_wait_duration(56);
+beeper_play_tone(523, 1008);
+
+beeper_jump();
+#endif
 #ifdef NOKIA
   beeper_set_freq_multiplier(8);
   beeper_set_duration_divisor(6);

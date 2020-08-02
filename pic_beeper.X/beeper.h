@@ -17,6 +17,7 @@ void beeper_play_tone(uint16_t freq, uint16_t duration);
 void beeper_wait_duration(uint16_t duration);
 void beeper_set_freq_multiplier(uint8_t freq_multiplier_in);
 void beeper_set_duration_divisor(uint8_t duration_divisor_in);
+void beeper_jump(void);
 
 /* private functions */
 static void beeper_set_freq_hz(uint16_t freq);

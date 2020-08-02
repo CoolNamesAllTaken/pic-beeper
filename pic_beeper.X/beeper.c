@@ -56,9 +56,7 @@ void beeper_play_tone(uint16_t freq, uint16_t duration) {
   beeper_off();
 }
 
-// NOTE: because math, duration must be multiple of TMR1_PRESCALER=8
-void beeper_wait_duration(uint16_t duration) {
-  duration /= duration_divisor;
+void beeper_wait_duration_helper(uint16_t duration) {
   uint16_t note_dur_clock_ticks = duration / TMR1_PRESCALER * MSEC_TO_TMR1_CLOCK_TICKS;
   note_dur_clock_ticks = 65535 - note_dur_clock_ticks; // timer interrupts on overflow
   TMR1H = note_dur_clock_ticks >> 8;
@@ -68,12 +66,28 @@ void beeper_wait_duration(uint16_t duration) {
   while (playing_note) {/* wait for interrupt to fire and clear playing_note */}
 }
 
+// NOTE: because math, duration must be multiple of TMR1_PRESCALER=8
+void beeper_wait_duration(uint16_t duration) {
+  duration /= duration_divisor;
+  while (duration > 2000) {
+    beeper_wait_duration_helper(2000);
+    duration -= 2000;
+  }
+  beeper_wait_duration_helper(duration); 
+}
+
 void beeper_set_freq_multiplier(uint8_t freq_multiplier_in) {
   freq_multiplier = freq_multiplier_in;
 }
 
 void beeper_set_duration_divisor(uint8_t duration_divisor_in) {
   duration_divisor = duration_divisor_in;
+}
+
+void beeper_jump() {
+  // jump to next beeper in chain
+  LATAbits.LATA4 = 1;
+  while(1);
 }
 
 static void beeper_set_freq_hz(uint16_t freq) {
@@ -90,13 +104,14 @@ static void beeper_on() {
 static void beeper_off() {
   T2CONbits.TMR2ON = 0; // turn off TMR2
   LATAbits.LATA5 = 0; // turn off LED
+  LATAbits.LATA2 = 0; // turn beeper output low to reduce current consumption
 }
 
 void __interrupt() ISR(void) {
   if (PIR1bits.TMR2IF) {
     // interrupt caused by TMR2
     PIR1bits.TMR2IF = 0; // clear flag
-    LATAbits.LATA2 = ~LATAbits.LATA2;
+    LATAbits.LATA2 = ~LATAbits.LATA2; // invert beeper output to create square wave
   }
   
   if (PIR1bits.TMR1IF) {

@@ -2109,8 +2109,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 12 "./beeper.h" 2
-
+# 13 "./beeper.h" 2
 
 void init_beeper(void);
 
@@ -2118,6 +2117,7 @@ void beeper_play_tone(uint16_t freq, uint16_t duration);
 void beeper_wait_duration(uint16_t duration);
 void beeper_set_freq_multiplier(uint8_t freq_multiplier_in);
 void beeper_set_duration_divisor(uint8_t duration_divisor_in);
+void beeper_jump(void);
 
 
 static void beeper_set_freq_hz(uint16_t freq);
@@ -2129,79 +2129,58 @@ static void beeper_off(void);
 
 
 
+
 void init(void) {
   OSCCONbits.IRCF = 0b01;
   while (!OSCCONbits.HTS) {}
 
   init_beeper();
+
+
+  ANSELAbits.ANSA4 = 0;
+  TRISAbits.TRISA4 = 0;
+  LATAbits.LATA4 = 0;
 }
 
 void loop(void) {
 
 
-  beeper_set_freq_multiplier(8);
-  beeper_set_duration_divisor(6);
+beeper_play_tone(349, 840);
+beeper_wait_duration(504);
+beeper_play_tone(466, 1288);
+beeper_wait_duration(56);
+beeper_play_tone(415, 1176);
+beeper_wait_duration(168);
+beeper_play_tone(392, 616);
+beeper_wait_duration(56);
+beeper_play_tone(349, 1064);
+beeper_wait_duration(280);
+beeper_play_tone(392, 1456);
+beeper_wait_duration(1904);
+beeper_play_tone(392, 2632);
+beeper_wait_duration(56);
+beeper_play_tone(466, 2632);
+beeper_wait_duration(56);
+beeper_play_tone(523, 1960);
+beeper_wait_duration(56);
+beeper_play_tone(349, 1904);
+beeper_wait_duration(112);
+beeper_play_tone(311, 1288);
+beeper_wait_duration(56);
+beeper_play_tone(466, 1008);
+beeper_wait_duration(336);
+beeper_play_tone(466, 952);
+beeper_wait_duration(392);
+beeper_play_tone(392, 1120);
+beeper_wait_duration(224);
+beeper_play_tone(466, 952);
+beeper_wait_duration(392);
+beeper_play_tone(466, 1960);
+beeper_wait_duration(56);
+beeper_play_tone(523, 1008);
 
-  for (uint8_t i = 0; i < 5; i++) {
-    beeper_wait_duration(2000);
-  }
-
-
-  beeper_play_tone(329, 500);
-  beeper_play_tone(294, 500);
-  beeper_play_tone(185, 1000);
-  beeper_play_tone(207, 1000);
-  beeper_play_tone(277, 500);
-  beeper_play_tone(247, 500);
-  beeper_play_tone(147, 1000);
-  beeper_play_tone(164, 1000);
-  beeper_play_tone(247, 500);
-  beeper_play_tone(220, 500);
-  beeper_play_tone(139, 1000);
-  beeper_play_tone(165, 1000);
-  beeper_play_tone(220, 3000);
-
-  for (uint8_t i = 0; i < 5; i++) {
-    beeper_wait_duration(2000);
-  }
-
-
-
-  beeper_set_freq_multiplier(6);
-  beeper_set_duration_divisor(4);
-
-  beeper_play_tone(262, 500);
-  beeper_play_tone(262, 500);
-  beeper_play_tone(294, 1000);
-  beeper_play_tone(262, 1000);
-  beeper_play_tone(349, 1000);
-  beeper_play_tone(330, 2000);
-  beeper_play_tone(262, 500);
-  beeper_play_tone(262, 500);
-  beeper_play_tone(294, 1000);
-
-  beeper_play_tone(262, 1000);
-  beeper_play_tone(392, 1000);
-  beeper_play_tone(349, 2000);
-  beeper_play_tone(262, 500);
-  beeper_play_tone(262, 500);
-  beeper_play_tone(523, 500);
-  beeper_play_tone(440, 1000);
-  beeper_play_tone(349, 1000);
-  beeper_play_tone(330, 1000);
-
-  beeper_play_tone(294, 2000);
-  beeper_play_tone(466, 500);
-  beeper_play_tone(466, 500);
-  beeper_play_tone(440, 1000);
-  beeper_play_tone(349, 1000);
-  beeper_play_tone(392, 1000);
-  beeper_play_tone(349, 2000);
-
-  for (uint8_t i = 0; i < 5; i++) {
-    beeper_wait_duration(2000);
-  }
-
+beeper_jump();
+# 147 "main.c"
 }
 
 void main(void) {
